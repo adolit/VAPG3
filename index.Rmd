@@ -5,7 +5,7 @@ description: |
   It hosts the write up of our Group Projects for ISSS608 Visual Analytics and Applications!
   We hope to solve the [**VAST Challenge 2021: Mini-Challenge 2**](https://vast-challenge.github.io/2021/MC2.html) by analyzing the movement tracking data and financial transactions of Kronos-based employees of GAStech. 
   
-  _- Archie, Kevin, Syiqah_
+  _- Archie, Kevin Magic, Syiqah_
 site: distill::distill_website
 ---
 
