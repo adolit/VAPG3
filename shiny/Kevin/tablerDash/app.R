@@ -26,7 +26,16 @@ if(interactive()){
                 tablerTabItems(
                     tablerTabItem(
                         tabName = "Tab1",
-                        histogramUI("hist")
+                        tablerCard(
+                            title = "Card 1",
+                            histogramUI("hist"),
+                            width = NULL
+                        ),
+                        tablerCard(
+                            title = "Card 2",
+                            histogramUI("hist3"),
+                            width = NULL
+                        ),
                     ),
                     tablerTabItem(
                         tabName = "Tab2",
@@ -38,6 +47,8 @@ if(interactive()){
         server = function(input, output) {
             histogramServer("hist")
             histogramServer("hist2")
+            histogramServer("hist3")
+            
         }
     )
 }
