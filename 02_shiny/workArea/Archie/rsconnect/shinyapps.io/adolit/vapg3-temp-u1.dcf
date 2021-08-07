@@ -1,0 +1,14 @@
+name: vapg3-temp-u1
+title: vapg3-temp-u1
+username:
+account: adolit
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4465239
+bundleId: 4897489
+url: https://adolit.shinyapps.io/vapg3-temp-u1/
+when: 1628304607.43016
+lastSyncTime: 1628304607.43016
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app-2.R
