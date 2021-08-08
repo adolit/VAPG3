@@ -34,10 +34,11 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                            )
                                   ),
                                   
-                                  tabPanel("Loyalty Data",
+                                  tabPanel("Loyalty Card Data",
                                            fluidRow(
                                                column(width = 12,
-                                                   h3("Most Popular Locations")
+                                                   h3("Most Popular Locations"),
+                                                   barLCUI("barlc")
                                                )
                                            )
                                   ),
@@ -135,7 +136,7 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
 server <- function(input, output) {
     
     #Syiqah ----
-    
+    barLCServer("barlc")
     #Kevin ----
     
     #Archie ----
