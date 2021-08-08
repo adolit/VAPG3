@@ -66,7 +66,7 @@ df_loyalty$day <- wday(df_loyalty$timestamp,
 df_cars <- df_cars %>%
   #concatenate first and last name
   mutate(FullName = paste(FirstName, LastName, sep = " ")) %>%
-  rename(Deparment = CurrentEmploymentType) %>%
+  rename(Department = CurrentEmploymentType) %>%
   rename(Title = CurrentEmploymentTitle)
 
 df_cars$CarID <- as_factor(df_cars$CarID)
