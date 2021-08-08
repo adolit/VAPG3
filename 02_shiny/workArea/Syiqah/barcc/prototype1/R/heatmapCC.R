@@ -2,7 +2,7 @@
 
 heatmapCCUI <- function(id) {
   tagList(
-    plotOutput(NS(id, "heatmapcc"))
+    plotlyOutput(NS(id, "heatmapcc"))
   )
 }
 
@@ -10,7 +10,7 @@ heatmapCCUI <- function(id) {
 
 heatmapCCServer <- function(id) {
   moduleServer(id, function(input, output, session) {
-    output$heatmapcc <- renderPlot({
+    output$heatmapcc <- renderPlotly({
       cc_hour_of_day <- df_cc %>%
         count(location, hour) %>%
         mutate(location = as.factor(location),
