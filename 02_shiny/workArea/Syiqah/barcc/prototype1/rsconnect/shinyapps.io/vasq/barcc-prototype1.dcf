@@ -1,0 +1,13 @@
+name: barcc-prototype1
+title: barcc-prototype1
+username:
+account: vasq
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4468176
+bundleId: 4900486
+url: https://vasq.shinyapps.io/barcc-prototype1/
+when: 1628417378.45356
+lastSyncTime: 1628417378.45356
+asMultiple: FALSE
+asStatic: FALSE
