@@ -12,7 +12,7 @@ barCCServer <- function(id) {
       df_cc %>%
       mutate(location = fct_rev(fct_infreq(location))) %>%
       ggplot(aes(x = location)) +
-      geom_bar(colour = "grey", fill = "blue") +
+      geom_bar(colour = "grey", fill = "lightyellow4") +
       xlab("Location") +
       ylab("No. of credit card transactions") +
       theme(axis.text.x = element_text(vjust = 0.5, hjust=1)) +
@@ -20,3 +20,4 @@ barCCServer <- function(id) {
     })
   })
 }
+
