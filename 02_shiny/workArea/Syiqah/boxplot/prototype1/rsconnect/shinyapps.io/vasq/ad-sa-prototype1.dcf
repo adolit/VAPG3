@@ -1,0 +1,13 @@
+name: ad-sa-prototype1
+title: ad-sa-prototype1
+username:
+account: vasq
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4470473
+bundleId: 4902684
+url: https://vasq.shinyapps.io/ad-sa-prototype1/
+when: 1628490652.86406
+lastSyncTime: 1628490652.86406
+asMultiple: FALSE
+asStatic: FALSE
