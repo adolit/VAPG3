@@ -66,7 +66,7 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                               ),
                               
                               tabPanel("Owners Identification",
-                                       poisMapUI("plk_map")
+                                       poisMapUI("plk_poi_map")
                               )
                             )                   
                           )
@@ -133,7 +133,7 @@ server <- function(input, output) {
   #Syiqah ----
   
   #Kevin ----
-  poisMapServer("plk_map")
+  poisMapServer("plk_poi_map")
   
   #Archie ----
   

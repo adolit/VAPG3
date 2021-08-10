@@ -70,8 +70,7 @@ poisMapServer <- function(id) {
         theme_void()
       
       obj <- data_geo()$sel
-      # if(!is.null(obj)) {
-      if(nrow(obj)!=0) {
+      if(nrow(obj) != 0) {
         m <- m + geom_point(data = obj, color = "red", size = 2)
       }
       
