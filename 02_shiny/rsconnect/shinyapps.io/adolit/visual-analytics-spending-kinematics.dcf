@@ -1,0 +1,14 @@
+name: visual-analytics-spending-kinematics
+title: visual-analytics-spending-kinematics
+username:
+account: adolit
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4466633
+bundleId: 4899037
+url: https://adolit.shinyapps.io/visual-analytics-spending-kinematics/
+when: 1628357773.47642
+lastSyncTime: 1628357773.47642
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: scratch.R
