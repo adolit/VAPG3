@@ -42,9 +42,8 @@ pathsMapServer <- function(id) {
   moduleServer(id, function(input, output, session) {
     
     data_paths <- reactive({
-      df_paths %>%
-        filter(p > 1,
-               date == input$date,
+      x %>%
+        filter(date == input$date,
                hour >= input$hour[1],
                hour <= input$hour[2],
                CarID == input$car_id)
