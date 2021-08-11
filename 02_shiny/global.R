@@ -135,29 +135,14 @@ df_gps <- read_rds("data/aspatial/df_gps.rds")
 df_cc_loyalty <- read_rds("data/aspatial/df_cc_loyalty.rds")
 
 #geospatial data
-# df_car_gps <- left_join(df_gps,
-#                         df_cars %>% select(-c("FirstName", "LastName")),
-#                         by = "CarID")
-# 
-# write_rds(df_cars, "data/aspatial/df_car_gps.rds")
+df_car_gps <- left_join(df_gps,
+                        df_cars %>% select(-c("FirstName", "LastName")),
+                        by = "CarID")
 
-# sf_gps <- st_as_sf(df_gps,
-#                    coords = c("long", "lat"),
-#                    crs = 4326,
-#                    remove = FALSE)
-# 
-# write_rds(sf_gps, "data/Geospatial/sf_gps.rds")
-
-sf_gps <- read_rds("data/Geospatial/sf_gps.rds")
-
-
-# sf_car_gps <- left_join(sf_gps,
-#                         df_cars %>% select(-c("FirstName", "LastName")),
-#                         by = "CarID")
-# 
-# write_rds(sf_car_gps, "data/Geospatial/sf_car_gps.rds")
-
-sf_car_gps <- read_rds("data/Geospatial/sf_car_gps.rds")
+sf_car_gps <- st_as_sf(df_car_gps,
+                       coords = c("long", "lat"),
+                       crs = 4326,
+                       remove = FALSE)
 
 
 #colors ----
