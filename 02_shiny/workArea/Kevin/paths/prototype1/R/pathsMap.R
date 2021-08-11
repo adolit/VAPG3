@@ -11,7 +11,7 @@ pathsMapUI <- function(id) {
           column(width = 4,
                  selectInput(NS(id, "date"),
                              "Date",
-                             choices = sort(unique(df_gps$date)))
+                             choices = sort(unique(df_paths$date)))
           ),
           column(width = 4,
                  sliderInput(NS(id, "hour"),
@@ -24,7 +24,7 @@ pathsMapUI <- function(id) {
                  selectInput(NS(id, "car_id"),
                              "Car ID",
                              selected = "1",
-                             choices = sort(unique(df_gps$CarID)))
+                             choices = sort(unique(df_paths$CarID)))
           )
         )
       )
@@ -55,7 +55,7 @@ pathsMapServer <- function(id) {
       
       gps_path_selected <- data_paths()
       
-      tmap_mode("view")
+      tmap_mode("plot")
       m <- tm_shape(bgmap) +
         tm_rgb(bgmap, r = 1,g = 2,b = 3,
                alpha = NA,
