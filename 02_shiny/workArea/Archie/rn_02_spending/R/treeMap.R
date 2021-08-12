@@ -9,7 +9,7 @@ treeMapUI <- function(id) {
              h5("Click on the nodes to view the company organizational chart"),
              collapsibleTreeOutput(NS(id,"co_chart"), 
                                    width = "100%", 
-                                   height = "900px")
+                                   height = "800px")
       ),
       
       column(width = 4,
