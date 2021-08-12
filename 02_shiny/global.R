@@ -14,10 +14,13 @@ library(collapsibleTree)
 library(clock)
 library(lubridate)
 library(tidyverse)
-
+library(profvis)
+library(DT)
+library(shinyWidgets)
+library(ggalluvial)
 
 #import csv data ----
-# df_cc <- read_csv("data/aspatial/cc_data.csv")
+#df_cc <- read_csv("data/aspatial/cc_data.csv")
 # df_loyalty <- read_csv("data/aspatial/loyalty_data.csv")
 # df_cars <- read_csv("data/aspatial/car-assignments.csv")
 # df_gps <- read_csv("data/aspatial/gps.csv")
@@ -46,6 +49,7 @@ bgmap <- raster("data/Geospatial/abila_map.tif")
 # 
 # df_cc$hour <- get_hour(df_cc$timestamp)
 # 
+# df_cc$last4ccnum <- as_factor(df_cc$last4ccnum)
 # 
 # write_rds(df_cc, "data/aspatial/df_cc.rds")
 
@@ -144,7 +148,19 @@ sf_car_gps <- st_as_sf(df_car_gps,
                        crs = 4326,
                        remove = FALSE)
 
+# df_paths <- sf_car_gps %>%
+#   group_by(CarID, date, hour) %>%
+#   summarize(m = mean(timestamp),
+#             do_union = FALSE) %>%
+#   st_cast("LINESTRING")
+# p = npts(df_paths, by_feature = TRUE)
+# df_paths <- cbind(df_paths, p)
+# df_paths <- df_paths %>% filter(p > 1)
+# 
+# write_rds(df_paths, "data/Geospatial/df_paths.rds")
+
+df_paths <- read_rds("data/Geospatial/df_paths.rds")
 
 #colors ----
 low_color <- "lightyellow"
-high_color <- "lightyellow4"
+high_color <- "darkgoldenrod"

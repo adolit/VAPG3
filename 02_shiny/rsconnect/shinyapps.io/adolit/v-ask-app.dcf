@@ -1,0 +1,14 @@
+name: v-ask-app
+title: v-ask-app
+username:
+account: adolit
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4485156
+bundleId: 4915536
+url: https://adolit.shinyapps.io/v-ask-app/
+when: 1628770641.49061
+lastSyncTime: 1628770641.49061
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: workArea

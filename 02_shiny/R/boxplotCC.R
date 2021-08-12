@@ -2,7 +2,7 @@
 
 boxplotCCUI <- function(id) {
   tagList(
-    plotlyOutput(NS(id, "boxplotcc"))
+    plotlyOutput(NS(id, "boxplotcc"), height = "800px", width = "100%")
   )
 }
 

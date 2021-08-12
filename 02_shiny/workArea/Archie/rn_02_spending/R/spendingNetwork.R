@@ -66,9 +66,7 @@ spendingNetworkUI <- function(id) {
                                          "layout_nicely",
                                          "layout_on_grid",
                                          "layout_on_sphere",
-                                         "layout_randomly",
                                          "layout_with_dh",
-                                         "layout_with_drl",
                                          "layout_with_fr",
                                          "layout_with_gem",
                                          "layout_with_graphopt",
@@ -94,7 +92,7 @@ spendingNetworkServer <- function(id) {
   moduleServer(id, function(input, output, session) {
     output$cc_network <- renderVisNetwork({
       
-      df_cc$last4ccnum <- as_factor(df_cc$last4ccnum)
+      #df_cc$last4ccnum <- as_factor(df_cc$last4ccnum)
       
       df_cc_network <- df_cc %>%
         filter(date >= input$date[1] &

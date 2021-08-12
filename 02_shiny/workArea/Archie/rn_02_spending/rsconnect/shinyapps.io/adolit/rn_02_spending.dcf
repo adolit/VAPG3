@@ -1,0 +1,13 @@
+name: rn_02_spending
+title: rn_02_spending
+username:
+account: adolit
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4484550
+bundleId: 4915166
+url: https://adolit.shinyapps.io/rn_02_spending/
+when: 1628761432.44829
+lastSyncTime: 1628761432.44829
+asMultiple: FALSE
+asStatic: FALSE

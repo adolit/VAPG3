@@ -23,7 +23,7 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                           )
                  ), #tabPanel Home
                  
-                 tabPanel("Spending EDA", icon = icon("comment-dollar"),
+                 tabPanel("Spending EDA", icon = icon("credit-card"),
                           fluidPage(
                               tabsetPanel(
                                   tabPanel("Credit Card Data",
@@ -43,6 +43,13 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                                       h3("Most popular hours of the day"),
                                                       heatmapCCUI("heatmapcc")
                                                )
+                                           ),
+                                           
+                                           fluidRow(
+                                               column(width = 12,
+                                                      h3("Credit Card Transactions"),
+                                                      boxplotCCUI("boxplotcc")
+                                               )
                                            )
                                   ),
                                   
@@ -51,6 +58,13 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                                column(width = 12,
                                                       h3("Most popular locations"),
                                                       barLCUI("barlc")
+                                               )
+                                           ),
+                                           
+                                           fluidRow(
+                                               column(width = 12,
+                                                      h3("Loyalty Card Transactions"),
+                                                      boxplotLCUI("boxplotlc")
                                                )
                                            )
                                   ),
@@ -72,52 +86,44 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                           fluidPage(
                               tabsetPanel(
                                   tabPanel("GPS Movement",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Interactive Map")
-                                               )
-                                           )
+                                           pathsMapUI("plk_path_map")
                                   ),
                                   
                                   tabPanel("Owners Identification",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Credit Card and Loyalty Number Owners")
-                                               )
-                                           )
+                                           poisMapUI("plk_poi_map")
                                   )
                               )                        
                           )
                  ), #tabPanel Kinematics
                  
-                 tabPanel("Anomaly Diagnostics", icon = icon("exclamation-triangle"),
-                          fluidPage(
-                              tabsetPanel(                         
-                                  tabPanel("Spending Anomalies",
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Credit Card Transactions"),
-                                                      boxplotCCUI("boxplotcc")
-                                               )
-                                           ),
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Loyalty Card Transactions"),
-                                                      boxplotLCUI("boxplotlc")
-                                               )
-                                           )
-                                  ),
-                                  
-                                  tabPanel("Movement Anomalies",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Anomalies based on GPS Data")
-                                               )
-                                           )
-                                  )
-                              )
-                          )
-                 ), #tabPanel Anomaly
+                 # tabPanel("Anomaly Diagnostics", icon = icon("exclamation-triangle"),
+                 #          fluidPage(
+                 #              tabsetPanel(                         
+                 #                  tabPanel("Spending Anomalies",
+                 #                           fluidRow(
+                 #                               column(width = 12,
+                 #                                      h3("Credit Card Transactions"),
+                 #                                      boxplotCCUI("boxplotcc")
+                 #                               )
+                 #                           ),
+                 #                           fluidRow(
+                 #                               column(width = 12,
+                 #                                      h3("Loyalty Card Transactions"),
+                 #                                      boxplotLCUI("boxplotlc")
+                 #                               )
+                 #                           )
+                 #                  ),
+                 #                  
+                 #                  tabPanel("Movement Anomalies",
+                 #                           fluidRow(
+                 #                               column(width = 12,
+                 #                                   h3("Anomalies based on GPS Data")
+                 #                               )
+                 #                           )
+                 #                  )
+                 #              )
+                 #          )
+                 # ), #tabPanel Anomaly
                  
                  #Archie ----
                  tabPanel("Relationship Networks", icon = icon("people-arrows"),
@@ -125,7 +131,6 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                               tabsetPanel(
                                   tabPanel("Organizational Chart",
                                            treeMapUI("rn_orgchart")
-                                           
                                   ),
                                   
                                   tabPanel("Spending Habits",
@@ -158,13 +163,15 @@ server <- function(input, output) {
     barLCServer("barlc")
     boxplotCCServer("boxplotcc")
     boxplotLCServer("boxplotlc")
+    
     #Kevin ----
+    pathsMapServer("plk_path_map")
+    poisMapServer("plk_poi_map")
     
     #Archie ----
     treeMapServer("rn_orgchart")
     spendingNetworkServer("rn_spending")
     movementNetworkServer("rn_movement")
-    
 }
 
 # Run the application 
