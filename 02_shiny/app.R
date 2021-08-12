@@ -29,19 +29,33 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                   tabPanel("Credit Card Data",
                                            fluidRow(
                                                column(width = 12,
-                                                   h3("Most Popular Locations")
+                                                      h3("Most popular locations"),
+                                                      barCCUI("barcc")
                                                )
-                                           )
-                                  ),
-                                  
-                                  tabPanel("Loyalty Data",
+                                           ),
                                            fluidRow(
                                                column(width = 12,
-                                                   h3("Most Popular Locations")
+                                                      h3("Transactions by location")
+                                               )
+                                           ),
+                                           fluidRow(
+                                               column(width = 12,
+                                                      h3("Most popular hours of the day"),
+                                                      heatmapCCUI("heatmapcc")
                                                )
                                            )
                                   ),
                                   
+                                  tabPanel("Loyalty Card Data",
+                                           fluidRow(
+                                               column(width = 12,
+                                                      h3("Most popular locations"),
+                                                      barLCUI("barlc")
+                                               )
+                                           )
+                                  ),
+                                  
+                                  #Kevin ----
                                   tabPanel("Credit Card + Loyalty Data",
                                            fluidRow(
                                                column(width = 12,
@@ -79,10 +93,17 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                  tabPanel("Anomaly Diagnostics", icon = icon("exclamation-triangle"),
                           fluidPage(
                               tabsetPanel(                         
-                                  tabPanel("Financial Anomalies",
+                                  tabPanel("Spending Anomalies",
                                            fluidRow(
                                                column(width = 12,
-                                                   h3("Anomalies based on Credit Card and Loyalty Data")
+                                                      h3("Credit Card Transactions"),
+                                                      boxplotCCUI("boxplotcc")
+                                               )
+                                           ),
+                                           fluidRow(
+                                               column(width = 12,
+                                                      h3("Loyalty Card Transactions"),
+                                                      boxplotLCUI("boxplotlc")
                                                )
                                            )
                                   ),
@@ -132,7 +153,11 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
 server <- function(input, output) {
     
     #Syiqah ----
-    
+    barCCServer("barcc")
+    heatmapCCServer("heatmapcc")
+    barLCServer("barlc")
+    boxplotCCServer("boxplotcc")
+    boxplotLCServer("boxplotlc")
     #Kevin ----
     
     #Archie ----
