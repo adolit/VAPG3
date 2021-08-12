@@ -102,20 +102,17 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                  tabPanel("Relationship Networks", icon = icon("people-arrows"),
                           fluidPage(
                               tabsetPanel(
-                                  tabPanel("Spending Habits",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Relationship based on Credit Card and Loyalty Data")
-                                               )
-                                           )
+                                  tabPanel("Organizational Chart",
+                                           treeMapUI("rn_orgchart")
+                                           
                                   ),
                                   
-                                  tabPanel("Movement",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Relationship based on GPS Data")
-                                               )
-                                           )
+                                  tabPanel("Spending Habits",
+                                           spendingNetworkUI("rn_spending")
+                                  ),
+                                  
+                                  tabPanel("Geospatial Movement",
+                                           movementNetworkUI("rn_movement")
                                   )
                               )
                           )
@@ -139,6 +136,9 @@ server <- function(input, output) {
     #Kevin ----
     
     #Archie ----
+    treeMapServer("rn_orgchart")
+    spendingNetworkServer("rn_spending")
+    movementNetworkServer("rn_movement")
     
 }
 

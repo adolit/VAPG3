@@ -1,3 +1,4 @@
+#Install and Launch R Packages
 #Import and prepare data
 source("global.R")
 
@@ -22,7 +23,7 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                           )
                  ), #tabPanel Home
                  
-                 tabPanel("Spending EDA", icon = icon("comment-dollar"),
+                 tabPanel("Spending EDA", icon = icon("credit-card"),
                           fluidPage(
                               tabsetPanel(
                                   tabPanel("Credit Card Data",
@@ -107,19 +108,11 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                   ),
                                   
                                   tabPanel("Spending Habits",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Relationship based on Credit Card and Loyalty Data")
-                                               )
-                                           )
+                                           spendingNetworkUI("rn_spending")
                                   ),
                                   
-                                  tabPanel("Movement",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Relationship based on GPS Data")
-                                               )
-                                           )
+                                  tabPanel("Geospatial Movement",
+                                           movementNetworkUI("rn_movement")
                                   )
                               )
                           )
@@ -144,6 +137,8 @@ server <- function(input, output) {
     
     #Archie ----
     treeMapServer("rn_orgchart")
+    spendingNetworkServer("rn_spending")
+    movementNetworkServer("rn_movement")
 }
 
 # Run the application 
