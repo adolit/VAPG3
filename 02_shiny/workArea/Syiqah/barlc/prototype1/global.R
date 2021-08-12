@@ -14,10 +14,13 @@ library(collapsibleTree)
 library(clock)
 library(lubridate)
 library(tidyverse)
-
+library(profvis)
+library(DT)
+library(shinyWidgets)
+library(ggalluvial)
 
 #import csv data ----
-# df_cc <- read_csv("data/aspatial/cc_data.csv")
+#df_cc <- read_csv("data/aspatial/cc_data.csv")
 # df_loyalty <- read_csv("data/aspatial/loyalty_data.csv")
 # df_cars <- read_csv("data/aspatial/car-assignments.csv")
 # df_gps <- read_csv("data/aspatial/gps.csv")
@@ -46,11 +49,11 @@ bgmap <- raster("data/Geospatial/abila_map.tif")
 # 
 # df_cc$hour <- get_hour(df_cc$timestamp)
 # 
+# df_cc$last4ccnum <- as_factor(df_cc$last4ccnum)
 # 
 # write_rds(df_cc, "data/aspatial/df_cc.rds")
 
 df_cc <- read_rds("data/aspatial/df_cc.rds")
-
 
 
 #clean loyalty data
@@ -109,7 +112,7 @@ df_cars <- read_rds("data/aspatial/df_cars.rds")
 # 
 # df_gps$CarID <- as_factor(df_gps$CarID)
 # 
-# write_rds(df_cars, "data/aspatial/df_gps.rds")
+# write_rds(df_gps, "data/aspatial/df_gps.rds")
 
 df_gps <- read_rds("data/aspatial/df_gps.rds")
 
@@ -117,9 +120,9 @@ df_gps <- read_rds("data/aspatial/df_gps.rds")
 #data joining ----
 #financial data
 # df_cc_loyalty <- full_join(df_cc %>% select(-c("day")),
-#                            df_loyalty %>% select(-c("day","timestamp")), 
-#                            by = c("date" = "date", 
-#                                   "location" = "location", 
+#                            df_loyalty %>% select(-c("day","timestamp")),
+#                            by = c("date" = "date",
+#                                   "location" = "location",
 #                                   "price" = "price"))
 # 
 # df_cc_loyalty$day <- wday(df_cc_loyalty$date,
@@ -131,35 +134,33 @@ df_gps <- read_rds("data/aspatial/df_gps.rds")
 #   select("timestamp", "date", "day", "hour", "location", "price", "last4ccnum", "loyaltynum")
 # 
 # 
-# write_rds(df_cars, "data/aspatial/df_cc_loyalty.rds")
+# write_rds(df_cc_loyalty, "data/aspatial/df_cc_loyalty.rds")
 
 df_cc_loyalty <- read_rds("data/aspatial/df_cc_loyalty.rds")
 
 #geospatial data
-# df_car_gps <- left_join(df_gps, 
-#                         df_cars %>% select(-c("FirstName", "LastName")),
-#                         by = "CarID")
-# 
-# write_rds(df_cars, "data/aspatial/df_car_gps.rds")
-# 
-# sf_gps <- st_as_sf(df_gps,
-#                    coords = c("long", "lat"),
-#                    crs = 4326)
-# 
-# write_rds(sf_gps, "data/Geospatial/sf_gps.rds")
+df_car_gps <- left_join(df_gps,
+                        df_cars %>% select(-c("FirstName", "LastName")),
+                        by = "CarID")
 
-sf_gps <- read_rds("data/Geospatial/sf_gps.rds")
+sf_car_gps <- st_as_sf(df_car_gps,
+                       coords = c("long", "lat"),
+                       crs = 4326,
+                       remove = FALSE)
 
+# df_paths <- sf_car_gps %>%
+#   group_by(CarID, date, hour) %>%
+#   summarize(m = mean(timestamp),
+#             do_union = FALSE) %>%
+#   st_cast("LINESTRING")
+# p = npts(df_paths, by_feature = TRUE)
+# df_paths <- cbind(df_paths, p)
+# df_paths <- df_paths %>% filter(p > 1)
 # 
-# sf_car_gps <- left_join(sf_gps, 
-#                         df_cars %>% select(-c("FirstName", "LastName")),
-#                         by = "CarID")
-# 
-# write_rds(sf_gps, "data/Geospatial/sf_car_gps.rds")
+# write_rds(df_paths, "data/Geospatial/df_paths.rds")
 
-sf_car_gps <- read_rds("data/Geospatial/sf_car_gps.rds")
-
+df_paths <- read_rds("data/Geospatial/df_paths.rds")
 
 #colors ----
 low_color <- "lightyellow"
-high_color <- "lightyellow4"
+high_color <- "darkgoldenrod"

@@ -23,7 +23,7 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                           )
                  ), #tabPanel Home
                  
-                 tabPanel("Spending EDA", icon = icon("comment-dollar"),
+                 tabPanel("Spending EDA", icon = icon("credit-card"),
                           fluidPage(
                               tabsetPanel(
                                   tabPanel("Credit Card Data",
@@ -35,7 +35,7 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                            ),
                                            fluidRow(
                                                column(width = 12,
-                                                      h3("Credit card transactions by location")
+                                                      h3("Transactions by location")
                                                )
                                            ),
                                            fluidRow(
@@ -43,17 +43,33 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                                       h3("Most popular hours of the day"),
                                                       heatmapCCUI("heatmapcc")
                                                )
-                                           )
-                                  ),
-                                  
-                                  tabPanel("Loyalty Data",
+                                           ),
+                                           
                                            fluidRow(
                                                column(width = 12,
-                                                   h3("Most Popular Locations")
+                                                      h3("Credit Card Transactions"),
+                                                      boxplotCCUI("boxplotcc")
                                                )
                                            )
                                   ),
                                   
+                                  tabPanel("Loyalty Card Data",
+                                           fluidRow(
+                                               column(width = 12,
+                                                      h3("Most popular locations"),
+                                                      barLCUI("barlc")
+                                               )
+                                           ),
+                                           
+                                           fluidRow(
+                                               column(width = 12,
+                                                      h3("Loyalty Card Transactions"),
+                                                      boxplotLCUI("boxplotlc")
+                                               )
+                                           )
+                                  ),
+                                  
+                                  #Kevin ----
                                   tabPanel("Credit Card + Loyalty Data",
                                            fluidRow(
                                                column(width = 12,
@@ -70,64 +86,59 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                           fluidPage(
                               tabsetPanel(
                                   tabPanel("GPS Movement",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Interactive Map")
-                                               )
-                                           )
+                                           pathsMapUI("plk_path_map")
                                   ),
                                   
                                   tabPanel("Owners Identification",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Credit Card and Loyalty Number Owners")
-                                               )
-                                           )
+                                           poisMapUI("plk_poi_map")
                                   )
                               )                        
                           )
                  ), #tabPanel Kinematics
                  
-                 tabPanel("Anomaly Diagnostics", icon = icon("exclamation-triangle"),
-                          fluidPage(
-                              tabsetPanel(                         
-                                  tabPanel("Financial Anomalies",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Anomalies based on Credit Card and Loyalty Data")
-                                               )
-                                           )
-                                  ),
-                                  
-                                  tabPanel("Movement Anomalies",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Anomalies based on GPS Data")
-                                               )
-                                           )
-                                  )
-                              )
-                          )
-                 ), #tabPanel Anomaly
+                 # tabPanel("Anomaly Diagnostics", icon = icon("exclamation-triangle"),
+                 #          fluidPage(
+                 #              tabsetPanel(                         
+                 #                  tabPanel("Spending Anomalies",
+                 #                           fluidRow(
+                 #                               column(width = 12,
+                 #                                      h3("Credit Card Transactions"),
+                 #                                      boxplotCCUI("boxplotcc")
+                 #                               )
+                 #                           ),
+                 #                           fluidRow(
+                 #                               column(width = 12,
+                 #                                      h3("Loyalty Card Transactions"),
+                 #                                      boxplotLCUI("boxplotlc")
+                 #                               )
+                 #                           )
+                 #                  ),
+                 #                  
+                 #                  tabPanel("Movement Anomalies",
+                 #                           fluidRow(
+                 #                               column(width = 12,
+                 #                                   h3("Anomalies based on GPS Data")
+                 #                               )
+                 #                           )
+                 #                  )
+                 #              )
+                 #          )
+                 # ), #tabPanel Anomaly
                  
                  #Archie ----
                  tabPanel("Relationship Networks", icon = icon("people-arrows"),
                           fluidPage(
                               tabsetPanel(
-                                  tabPanel("Spending Habits",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Relationship based on Credit Card and Loyalty Data")
-                                               )
-                                           )
+                                  tabPanel("Organizational Chart",
+                                           treeMapUI("rn_orgchart")
                                   ),
                                   
-                                  tabPanel("Movement",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Relationship based on GPS Data")
-                                               )
-                                           )
+                                  tabPanel("Spending Habits",
+                                           spendingNetworkUI("rn_spending")
+                                  ),
+                                  
+                                  tabPanel("Geospatial Movement",
+                                           movementNetworkUI("rn_movement")
                                   )
                               )
                           )
@@ -149,10 +160,18 @@ server <- function(input, output) {
     #Syiqah ----
     barCCServer("barcc")
     heatmapCCServer("heatmapcc")
+    barLCServer("barlc")
+    boxplotCCServer("boxplotcc")
+    boxplotLCServer("boxplotlc")
+    
     #Kevin ----
+    pathsMapServer("plk_path_map")
+    poisMapServer("plk_poi_map")
     
     #Archie ----
-    
+    treeMapServer("rn_orgchart")
+    spendingNetworkServer("rn_spending")
+    movementNetworkServer("rn_movement")
 }
 
 # Run the application 
