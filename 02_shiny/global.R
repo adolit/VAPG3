@@ -161,6 +161,31 @@ sf_car_gps <- st_as_sf(df_car_gps,
 
 df_paths <- read_rds("data/Geospatial/df_paths.rds")
 
+
+sf_poi <- sf_car_gps %>%
+  group_by(CarID) %>%
+  mutate(DepartureTimestamp = lead(timestamp, order_by = CarID)) %>%
+  mutate(Timestamp_diff_seconds = DepartureTimestamp - timestamp) %>%
+  mutate(is_poi = ifelse(Timestamp_diff_seconds >= 60 * 5, TRUE, FALSE)) %>%
+  filter(is_poi == TRUE)
+
+sf_poi <- rename(sf_poi, ArrivalTimestamp = timestamp)
+
+gps_dots_selected <- sf_poi %>%
+  mutate(MinutesDuration = round(Timestamp_diff_seconds / 60, 2)) %>%
+  select(long,
+         lat,
+         CarID,
+         date,
+         day,
+         hour,
+         ArrivalTimestamp,
+         DepartureTimestamp,
+         MinutesDuration,
+         FullName,
+         Department,
+         Title)
+
 #colors ----
 low_color <- "lightyellow"
 high_color <- "darkgoldenrod"
