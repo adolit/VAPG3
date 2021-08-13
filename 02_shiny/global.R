@@ -172,7 +172,11 @@ sf_poi <- sf_car_gps %>%
 sf_poi <- rename(sf_poi, ArrivalTimestamp = timestamp)
 
 gps_dots_selected <- sf_poi %>%
-  mutate(MinutesDuration = round(Timestamp_diff_seconds / 60, 2)) %>%
+  mutate(ArrivalDate = as.Date.POSIXct(ArrivalTimestamp,
+                                       format = "%m/%d/%Y"),
+         DepartureDate = as.Date.POSIXct(DepartureTimestamp,
+                                         format = "%m/%d/%Y"),
+         MinutesDuration = round(Timestamp_diff_seconds / 60, 2)) %>%
   select(long,
          lat,
          CarID,
@@ -181,6 +185,8 @@ gps_dots_selected <- sf_poi %>%
          hour,
          ArrivalTimestamp,
          DepartureTimestamp,
+         ArrivalDate,
+         DepartureDate,
          MinutesDuration,
          FullName,
          Department,

@@ -1,4 +1,6 @@
 poisMapUI <- function(id) {
+  ns <- NS(id)
+  
   tagList(
     fluidRow(
       column(width = 12,
@@ -9,26 +11,41 @@ poisMapUI <- function(id) {
     ),
     fluidRow(
       column(width = 6,
+             h4("Credit Card"),
+             DT::dataTableOutput(ns("cc_data_table"), width = "100%")
+      )
+    ),
+    fluidRow(
+      column(width = 6,
+             h4("Step 2"),
+             p("Add instructions")
+      )
+    ),
+    fluidRow(
+      column(width = 6,
              h4("Interactive Map"),
              fluidRow(
+               column(width = 4,
+                      dateRangeInput(ns("date"),
+                                     label="Select a date range:",
+                                     start  = "2014-01-06",
+                                     end    = "2014-01-19",
+                                     min    = "2014-01-06",
+                                     max    = "2014-01-19",
+                                     startview = "month",
+                                     separator = " to ",
+                                     format = "dd/m/yyyy")
+               ),
                column(width = 8,
-                      selectInput(NS(id, "car_id"),
+                      selectInput(ns("car_id"),
                                   "Car ID",
                                   selected = unique(df_gps$CarID),
                                   multiple = TRUE,
                                   width = "90%",
                                   choices = sort(unique(df_gps$CarID)))
-               ),
-               column(width = 4,
-                      sliderInput(NS(id, "timestamp"),
-                                  "Timestamp",
-                                  min = as.POSIXct("2014-01-06 00:00:00"),
-                                  max = as.POSIXct("2014-01-19 24:00:00"),
-                                  value = c(as.POSIXct("2014-01-06 00:00:00"),
-                                            as.POSIXct("2014-01-19 24:00:00")))
                )
              ),
-             plotlyOutput(NS(id, "map"), height = 600)
+             plotlyOutput(ns("map"), height = 600)
       ),
       column(width = 6,
              h4("Interactive Map Table"),
@@ -37,22 +54,14 @@ poisMapUI <- function(id) {
     ),
     fluidRow(
       column(width = 6,
-             h4("Step 2")
-      ),
-      column(width = 6,
              h4("Step 3")
       )
     ),
     fluidRow(
       column(width = 6,
              p("Add instructions"),
-             h4("Credit Card"),
-             DT::dataTableOutput(NS(id, "cc_data_table"), width = "100%")
-      ),
-      column(width = 6,
-             p("Add instructions"),
              h4("Loyalty Card"),
-             DT::dataTableOutput(NS(id, "cc_loyalty_table"), width = "100%")
+             DT::dataTableOutput(ns("cc_loyalty_table"), width = "100%")
       )
     )
   )
@@ -109,8 +118,8 @@ poisMapServer <- function(id) {
       gps_dots_selected <- as.data.frame(gps_dots_selected)
       
       gps_dots_selected <- gps_dots_selected %>%
-        filter(ArrivalTimestamp >= input$timestamp[1],
-               DepartureTimestamp <= input$timestamp[2],
+        filter(ArrivalDate >= input$date[1],
+               DepartureDate <= input$date[2],
                CarID %in% input$car_id)
       
       tmp <- gps_dots_selected
