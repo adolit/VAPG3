@@ -115,9 +115,7 @@ poisMapServer <- function(id) {
     })
     
     data_geo <- reactive({
-      gps_dots_selected <- as.data.frame(gps_dots_selected)
-      
-      gps_dots_selected <- gps_dots_selected %>%
+      gps_dots_selected <- df_pois %>%
         filter(ArrivalDate >= input$date[1],
                DepartureDate <= input$date[2],
                CarID %in% input$car_id)

@@ -171,7 +171,7 @@ sf_poi <- sf_car_gps %>%
 
 sf_poi <- rename(sf_poi, ArrivalTimestamp = timestamp)
 
-gps_dots_selected <- sf_poi %>%
+df_pois <- sf_poi %>%
   mutate(ArrivalDate = as.Date.POSIXct(ArrivalTimestamp,
                                        format = "%m/%d/%Y"),
          DepartureDate = as.Date.POSIXct(DepartureTimestamp,
