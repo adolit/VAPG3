@@ -1,23 +1,28 @@
 treeMapUI <- function(id) {
+  ns <- NS(id)
+  
   tagList(
     fluidRow(
       column(width = 12,
-             h3("Official Relationships of GASTech Employees")
+             h3("Official Relationships of GASTech Employees based on Company Organization Chart")
       ),
       
       column(width = 8,
-             h5("Click on the nodes to view the company organizational chart"),
-             collapsibleTreeOutput(NS(id,"co_chart"), 
+             h5("Click on the nodes to view"),
+             collapsibleTreeOutput(ns("co_chart"), 
                                    width = "100%", 
                                    height = "800px")
       ),
       
       column(width = 4,
-             checkboxInput(NS(id, "showDetails"),
+             h5("Selected Nodes:"),
+             p("Click the nodes to select"),
+             verbatimTextOutput(ns("selected_node")),
+             
+             checkboxInput(ns( "showDetails"),
                            "Check to view Company Details",
                            value = TRUE),
-             p("You can search the details by CarID, Department, Title or Name"),
-             DT::dataTableOutput(NS(id,"co_table"),width = "100%")
+             DT::dataTableOutput(ns("co_table"),width = "100%")
       )
     )
   )
@@ -26,12 +31,15 @@ treeMapUI <- function(id) {
 
 treeMapServer <- function(id) {
   moduleServer(id, function(input, output, session) {
+    
+    ns <- session$ns
+    
     output$co_chart <- renderCollapsibleTree({
       collapsibleTree(
         df_cars,
         hierarchy = c("Department", "Title","FullName"),
         root = "GASTech Company",
-        inputId = "node",
+        inputId = ns("node"),
         width = "auto",
         fill = c(
           #root color
@@ -51,13 +59,22 @@ treeMapServer <- function(id) {
       )
     })
     
+    node <- reactive({
+      input$node
+    })
+    
+    output$selected_node <- renderPrint({
+      node()
+    })
+    
     output$co_table <- DT::renderDataTable({
-      if (input$showDetails) {
+      if (input$showDetails & !is.null(node())) {
+        str <- node()
         DT::datatable(data = df_cars %>%
                         select("CarID", "Department", "Title", "FullName"),
                       options = list(
-                        pageLength = 15,
-                        search = list(regex = TRUE, caseInsensitive = TRUE, search = "Engineering")
+                        pageLength = 10,
+                        search = list(regex = TRUE, caseInsensitive = TRUE, search =str$Department[1])
                       ),
                       rownames = FALSE)
       }
