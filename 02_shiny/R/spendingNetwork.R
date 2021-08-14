@@ -24,7 +24,7 @@ spendingNetworkUI <- function(id) {
                             "Select Hour:", 
                             min = 0, 
                             max = 24, 
-                            value = c(7,13), 
+                            value = c(0,24), 
                             step = 1),
              
              selectInput(ns("day"),
@@ -41,26 +41,39 @@ spendingNetworkUI <- function(id) {
                                       "Tue",
                                       "Wed",
                                       "Thu",
-                                      "Fri")
+                                      "Fri",
+                                      "Sat",
+                                      "Sun")
                          ),
              
              h5("Select GASTech Employee Deparment"),
-             selectInput(ns("deparment"),
+             selectInput(ns("department"),
                             "Select Deparment:",
                             choices =  list("Executive",
                                             "Engineering",
                                             "Facilities",
                                             "Information Technology",
-                                            "Security"),
+                                            "Security",
+                                            "Unknown"),
                             multiple = TRUE,
                             selected = c("Executive",
                                          "Engineering",
                                          "Facilities",
                                          "Information Technology",
-                                         "Security"),
+                                         "Security",
+                                         "Unknown"),
                             ),
-             
-             h5("Select Network Layout"),
+             h5("Department Color Legend"),
+             p(strong("Executive"), style = "color:darkblue"),
+             p(strong("Engineering"), style = "color:darkgreen"),
+             p(strong("Facilities"), style = "color:darkred"),
+             p(strong("Information Technology"), style = "color:darkmagenta"),
+             p(strong("Security"), style = "color:darkcyan"),
+             p(strong("Unknown"), style = "color:dimgray"),
+      ),
+      
+      column(width = 6,
+             h5("Explore the Relationship of GASTech Employees according to Purchase Location"),
              selectInput(ns("layout"),
                          "Select Network Layout:",
                          choices =  list("layout_as_star",
@@ -76,18 +89,14 @@ spendingNetworkUI <- function(id) {
                                          "layout_with_kk",
                                          "layout_with_lgl",
                                          "layout_with_mds"),
-                         selected = "layout_nicely"
+                         selected = "layout_with_fr"
              ),
-      ),
-      
-      column(width = 7,
-             h5("Explore Relationship of GASTech Employees according to Purchase Location"),
              visNetworkOutput(ns("cc_network"), 
                                    width = "100%", 
                                    height = "800px")
       ),
       
-      column(width = 3,
+      column(width = 4,
              h5("Selected Nodes:"),
              p("Click the nodes to select"),
              verbatimTextOutput(ns("selected_node")),
@@ -108,12 +117,13 @@ spendingNetworkServer <- function(id) {
     ns <- session$ns
     
     df_cc_network <- reactive({
-      df_cc %>% 
-      filter(date >= input$date[1] &
-               date <= input$date[2]) %>%
-      filter(hour >= input$hour[1] &
-               hour <= input$hour[2]) %>%
-      filter(day %in% input$day)
+      df_cc_map %>%
+        filter(date >= input$date[1] &
+                 date <= input$date[2]) %>%
+        filter(hour >= input$hour[1] &
+                 hour <= input$hour[2]) %>%
+        filter(day %in% input$day) %>%
+        filter(Department %in% input$department)
     })
     
     output$cc_network <- renderVisNetwork({
@@ -126,21 +136,24 @@ spendingNetworkServer <- function(id) {
         group_by(from, to) %>%
         summarise(weight = n()) 
       
-      sources <- df_cc_network() %>%
-        distinct(last4ccnum)  %>%
-        rename(label = last4ccnum) %>%
-        mutate(group = "GAStech Employee")
+      employees <- df_cc_network() %>%
+        distinct(last4ccnum, .keep_all = TRUE) %>%
+        select(last4ccnum, FullName, Department) %>%
+        rename(id = last4ccnum) %>%
+        rename(label = FullName) %>%
+        rename(group = Department)
       
-      destinations <- df_cc_network() %>%
+      locations <- df_cc_network() %>%
         distinct(location)  %>%
-        rename(label = location) %>%
+        rename(id = location) %>%
+        mutate(label = id) %>%
         mutate(group = "Location")
       
-      cc_nodes <- full_join(sources,
-                            destinations,
-                            by = c("label" ="label", 
-                                   "group" = "group")) %>%
-        rename(id = label) %>%
+      cc_nodes <- full_join(employees,
+                            locations,
+                            by = c("id" ="id", 
+                                   "group" = "group",
+                                   "label" = "label")) %>%
         arrange(id)
       
       visNetwork(cc_nodes,
@@ -151,10 +164,20 @@ spendingNetworkServer <- function(id) {
         visEdges(arrows = "to",
                  smooth = list(enabled = TRUE,
                                type = "curvedCW")) %>%
-        visGroups(groupname = "GAStech Employee", shape = "icon",
-                  icon = list(code = "f007", size = 40, color = "slategray")) %>%
         visGroups(groupname = "Location", shape = "icon",
                   icon = list(code = "f041", size = 100, color = "goldenrod")) %>%
+        visGroups(groupname = "Executive", shape = "icon",
+                  icon = list(code = "f007", size = 40, color = "darkblue")) %>%
+        visGroups(groupname = "Engineering", shape = "icon",
+                  icon = list(code = "f007", size = 40, color = "darkgreen")) %>%
+        visGroups(groupname = "Facilities", shape = "icon",
+                  icon = list(code = "f007", size = 40, color = "darkred")) %>%
+        visGroups(groupname = "Information Technology", shape = "icon",
+                  icon = list(code = "f007", size = 40, color = "darkmagenta")) %>%
+        visGroups(groupname = "Security", shape = "icon",
+                  icon = list(code = "f007", size = 40, color = "darkcyan")) %>%
+        visGroups(groupname = "Unknown", shape = "icon",
+                  icon = list(code = "f007", size = 40, color = "dimgray")) %>%
         addFontAwesome() %>%
         visLayout(randomSeed = 123) %>%
         #Use visEvents to turn set input$current_node_selection to list of selected nodes
@@ -175,12 +198,12 @@ spendingNetworkServer <- function(id) {
       
       if (input$showDetails & !is.null(node())) {
         DT::datatable(df_cc_network() %>%
-                        select(timestamp, day, location, last4ccnum, price),
-                      colnames = c("Timestamp", "Day", "Location", "Last 4 CC Numbers", "Price"),
+                        select(FullName, Title, timestamp, location, last4ccnum, price),
+                      colnames = c("Employee Name", "Title","Timestamp", "Location", "Last 4 CC Numbers", "Price"),
                       options = list(pageLength = 10,
                                      search = list(regex = TRUE, caseInsensitive = TRUE, search = node())), 
                       rownames = FALSE) %>%
-          formatDate(1, method = 'toLocaleString', 
+          formatDate(3, method = 'toLocaleString', 
                      params = list(month = 'numeric',
                                    day = 'numeric',
                                    year = 'numeric',

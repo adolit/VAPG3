@@ -13,11 +13,11 @@ library(visNetwork)
 library(collapsibleTree)
 library(clock)
 library(lubridate)
-library(tidyverse)
 library(profvis)
 library(DT)
 library(shinyWidgets)
 library(ggalluvial)
+library(tidyverse)
 
 #import csv data ----
 #df_cc <- read_csv("data/aspatial/cc_data.csv")
@@ -161,7 +161,6 @@ sf_car_gps <- st_as_sf(df_car_gps,
 
 df_paths <- read_rds("data/Geospatial/df_paths.rds")
 
-
 sf_poi <- sf_car_gps %>%
   group_by(CarID) %>%
   mutate(DepartureTimestamp = lead(timestamp, order_by = CarID)) %>%
@@ -177,6 +176,7 @@ df_pois <- sf_poi %>%
          DepartureDate = as.Date.POSIXct(DepartureTimestamp,
                                          format = "%m/%d/%Y"),
          MinutesDuration = round(Timestamp_diff_seconds / 60, 2)) %>%
+         #HoursDuration = round(Timestamp_diff_seconds / 60*60, 2)) %>%
   select(long,
          lat,
          CarID,
@@ -188,10 +188,37 @@ df_pois <- sf_poi %>%
          ArrivalDate,
          DepartureDate,
          MinutesDuration,
+         #HoursDuration,
          FullName,
          Department,
          Title)
 
-#colors ----
+
+#import credit card and loyalty card owners ----
+# df_cclc_owners <- read_csv("data/aspatial/cclc_owners_map.csv")
+# df_cclc_owners$last4ccnum <- as_factor(df_cclc_owners$last4ccnum)
+# write_rds(df_cclc_owners, "data/aspatial/df_cclc_owners.rds")
+
+df_cclc_owners <- read_rds("data/aspatial/df_cclc_owners.rds")
+
+df_cc_map <- left_join(df_cc, df_cclc_owners, by = "last4ccnum") %>% 
+  mutate(Department = replace_na(Department,"Unknown")) %>% 
+  mutate(FullName = replace_na(FullName,"Unknown")) %>% 
+  mutate(Title = replace_na(Title,"Unknown"))
+
+
+
+#viz color gradient ----
 low_color <- "lightyellow"
 high_color <- "darkgoldenrod"
+
+
+##Scratch Pad -----
+#df_cc_network <- left_join(df_cc, df_cclc_owners, by = "last4ccnum")
+# #%>% 
+#   filter(date >= input$date[1] &
+#            date <= input$date[2]) %>%
+#   filter(hour >= input$hour[1] &
+#            hour <= input$hour[2]) %>%
+#   filter(day %in% input$day) %>%
+#   filter(Deparment %in% input$department)

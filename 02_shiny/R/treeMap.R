@@ -8,7 +8,7 @@ treeMapUI <- function(id) {
       ),
       
       column(width = 8,
-             h5("Click on the nodes to view"),
+             h5("Explore the Relationship of GASTech Employees according to Department and Title"),
              collapsibleTreeOutput(ns("co_chart"), 
                                    width = "100%", 
                                    height = "800px")
@@ -70,11 +70,20 @@ treeMapServer <- function(id) {
     output$co_table <- DT::renderDataTable({
       if (input$showDetails & !is.null(node())) {
         str <- node()
+        
+        if(!is.null(str$FullName[1])) {
+          search_str <- str$FullName[1]
+        } else if (!is.null(str$Title[1])) {
+          search_str <- str$Title[1]
+        } else {
+          search_str <- str$Department[1]
+        }
+        
         DT::datatable(data = df_cars %>%
                         select("CarID", "Department", "Title", "FullName"),
                       options = list(
                         pageLength = 10,
-                        search = list(regex = TRUE, caseInsensitive = TRUE, search =str$Department[1])
+                        search = list(regex = TRUE, caseInsensitive = TRUE, search = search_str)
                       ),
                       rownames = FALSE)
       }

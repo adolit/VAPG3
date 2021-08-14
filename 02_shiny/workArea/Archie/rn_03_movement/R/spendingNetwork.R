@@ -24,7 +24,7 @@ spendingNetworkUI <- function(id) {
                             "Select Hour:", 
                             min = 0, 
                             max = 24, 
-                            value = c(7,13), 
+                            value = c(0,24), 
                             step = 1),
              
              selectInput(ns("day"),
@@ -41,7 +41,9 @@ spendingNetworkUI <- function(id) {
                                       "Tue",
                                       "Wed",
                                       "Thu",
-                                      "Fri")
+                                      "Fri",
+                                      "Sat",
+                                      "Sun")
                          ),
              
              h5("Select GASTech Employee Deparment"),
@@ -76,12 +78,12 @@ spendingNetworkUI <- function(id) {
                                          "layout_with_kk",
                                          "layout_with_lgl",
                                          "layout_with_mds"),
-                         selected = "layout_nicely"
+                         selected = "layout_with_fr"
              ),
       ),
       
       column(width = 7,
-             h5("Explore Relationship of GASTech Employees according to Purchase Location"),
+             h5("Explore the Relationship of GASTech Employees according to Purchase Location"),
              visNetworkOutput(ns("cc_network"), 
                                    width = "100%", 
                                    height = "800px")
