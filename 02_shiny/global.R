@@ -139,6 +139,7 @@ df_gps <- read_rds("data/aspatial/df_gps.rds")
 df_cc_loyalty <- read_rds("data/aspatial/df_cc_loyalty.rds")
 
 #geospatial data
+#exceed github file size limit if stored as rds
 df_car_gps <- left_join(df_gps,
                         df_cars %>% select(-c("FirstName", "LastName")),
                         by = "CarID")
@@ -201,24 +202,15 @@ df_pois <- sf_poi %>%
 
 df_cclc_owners <- read_rds("data/aspatial/df_cclc_owners.rds")
 
-df_cc_map <- left_join(df_cc, df_cclc_owners, by = "last4ccnum") %>% 
-  mutate(Department = replace_na(Department,"Unknown")) %>% 
-  mutate(FullName = replace_na(FullName,"Unknown")) %>% 
-  mutate(Title = replace_na(Title,"Unknown"))
+# df_cc_map <- left_join(df_cc, df_cclc_owners, by = "last4ccnum") %>% 
+#   mutate(Department = replace_na(Department,"Unknown")) %>% 
+#   mutate(FullName = replace_na(FullName,"Unknown")) %>% 
+#   mutate(Title = replace_na(Title,"Unknown"))
+# write_rds(df_cc_map, "data/aspatial/df_cc_map.rds")
 
-
+df_cc_map <- read_rds("data/aspatial/df_cc_map.rds")
 
 #viz color gradient ----
 low_color <- "lightyellow"
 high_color <- "darkgoldenrod"
-
-
-##Scratch Pad -----
-#df_cc_network <- left_join(df_cc, df_cclc_owners, by = "last4ccnum")
-# #%>% 
-#   filter(date >= input$date[1] &
-#            date <= input$date[2]) %>%
-#   filter(hour >= input$hour[1] &
-#            hour <= input$hour[2]) %>%
-#   filter(day %in% input$day) %>%
-#   filter(Deparment %in% input$department)
+bg_color <- "snow"

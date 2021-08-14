@@ -117,14 +117,27 @@ spendingNetworkServer <- function(id) {
     ns <- session$ns
     
     df_cc_network <- reactive({
-      df_cc_map %>%
-        filter(date >= input$date[1] &
+      
+      if (!is.null(input$date[2])) { 
+        df_cc_map %>%
+          filter(date >= input$date[1] &
                  date <= input$date[2]) %>%
-        filter(hour >= input$hour[1] &
+          filter(hour >= input$hour[1] &
                  hour <= input$hour[2]) %>%
-        filter(day %in% input$day) %>%
-        filter(Department %in% input$department)
+          filter(day %in% input$day) %>%
+          filter(Department %in% input$department)
+      } else {
+        df_cc_map %>%
+          filter(date == input$date[1]) %>%
+          filter(hour >= input$hour[1] &
+                   hour <= input$hour[2]) %>%
+          filter(day %in% input$day) %>%
+          filter(Department %in% input$department)
+      }
+        
     })
+    
+
     
     output$cc_network <- renderVisNetwork({
 
@@ -198,8 +211,8 @@ spendingNetworkServer <- function(id) {
       
       if (input$showDetails & !is.null(node())) {
         DT::datatable(df_cc_network() %>%
-                        select(FullName, Title, timestamp, location, last4ccnum, price),
-                      colnames = c("Employee Name", "Title","Timestamp", "Location", "Last 4 CC Numbers", "Price"),
+                        select(FullName, Title, timestamp, day, location, last4ccnum, price),
+                      colnames = c("Employee Name", "Title","Timestamp", "Day", "Location", "Last 4 CC Numbers", "Price"),
                       options = list(pageLength = 10,
                                      search = list(regex = TRUE, caseInsensitive = TRUE, search = node())), 
                       rownames = FALSE) %>%

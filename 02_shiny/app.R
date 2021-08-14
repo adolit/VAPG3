@@ -4,15 +4,13 @@ source("global.R")
 
 # Define UI ----
 ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
-                 windowTitle = "V-ASK App",
+                 windowTitle = "V-ASK App", #to do add favicon
                  position = "static-top",
                  collapsible = TRUE,
                  fluid = TRUE, 
                  theme = bslib::bs_theme(
                      bootswatch = "sandstone"),
-                     #bootswatch = "lux"),
-                     #bootswatch = "flatly"),
-                 
+
                  #Syiqah ----
                  tabPanel("Home", icon = icon("home"),
                           fluidPage(
@@ -27,61 +25,15 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                           fluidPage(
                               tabsetPanel(
                                   tabPanel("Credit Card Data",
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Most popular locations"),
-                                                      barCCUI("barcc")
-                                               )
-                                           ),
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Transactions by location"),
-                                                      hmCCtransdateUI("hmcctransdate")
-                                               )
-                                           ),
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Most popular hours of the day"),
-                                                      heatmapCCUI("heatmapcc")
-                                               )
-                                           ),
-                                           
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Credit Card Transactions"),
-                                                      boxplotCCUI("boxplotcc")
-                                               )
-                                           )
+                                           edaCreditUI("se_cc")
                                   ),
                                   
                                   tabPanel("Loyalty Card Data",
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Most popular locations"),
-                                                      barLCUI("barlc")
-                                               )
-                                           ),
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Transactions by location"),
-                                                      hmLCtransdateUI("hmlctransdate")
-                                               )
-                                           ),
-                                           fluidRow(
-                                               column(width = 12,
-                                                      h3("Loyalty card transactions"),
-                                                      boxplotLCUI("boxplotlc")
-                                               )
-                                           )
+                                           edaLoyaltyUI("se_lc")
                                   ),
                                   
-                                  #Kevin ----
                                   tabPanel("Credit Card + Loyalty Data",
-                                           fluidRow(
-                                               column(width = 12,
-                                                   h3("Mapping of Credit Card and Loyalty Number")
-                                               )
-                                           )
+                                           edaCombineUI("se_combine")
                                   )
                               )
                           )
@@ -101,35 +53,6 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                               )                        
                           )
                  ), #tabPanel Kinematics
-                 
-                 # tabPanel("Anomaly Diagnostics", icon = icon("exclamation-triangle"),
-                 #          fluidPage(
-                 #              tabsetPanel(                         
-                 #                  tabPanel("Spending Anomalies",
-                 #                           fluidRow(
-                 #                               column(width = 12,
-                 #                                      h3("Credit Card Transactions"),
-                 #                                      boxplotCCUI("boxplotcc")
-                 #                               )
-                 #                           ),
-                 #                           fluidRow(
-                 #                               column(width = 12,
-                 #                                      h3("Loyalty Card Transactions"),
-                 #                                      boxplotLCUI("boxplotlc")
-                 #                               )
-                 #                           )
-                 #                  ),
-                 #                  
-                 #                  tabPanel("Movement Anomalies",
-                 #                           fluidRow(
-                 #                               column(width = 12,
-                 #                                   h3("Anomalies based on GPS Data")
-                 #                               )
-                 #                           )
-                 #                  )
-                 #              )
-                 #          )
-                 # ), #tabPanel Anomaly
                  
                  #Archie ----
                  tabPanel("Relationship Networks", icon = icon("people-arrows"),
@@ -164,13 +87,9 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
 server <- function(input, output) {
     
     #Syiqah ----
-    barCCServer("barcc")
-    hmCCtransdateServer("hmcctransdate")
-    heatmapCCServer("heatmapcc")
-    boxplotCCServer("boxplotcc")
-    barLCServer("barlc")
-    hmLCtransdateServer("hmlctransdate")
-    boxplotLCServer("boxplotlc")
+    edaCreditServer("se_cc")
+    edaLoyaltyServer("se_lc")
+    edaCombineServer("se_combine")
     
     #Kevin ----
     pathsMapServer("plk_path_map")
