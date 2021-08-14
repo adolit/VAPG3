@@ -35,7 +35,8 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                            ),
                                            fluidRow(
                                                column(width = 12,
-                                                      h3("Transactions by location")
+                                                      h3("Transactions by location"),
+                                                      hmCCtransdateUI("hmcctransdate")
                                                )
                                            ),
                                            fluidRow(
@@ -60,10 +61,15 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                                       barLCUI("barlc")
                                                )
                                            ),
-                                           
                                            fluidRow(
                                                column(width = 12,
-                                                      h3("Loyalty Card Transactions"),
+                                                      h3("Transactions by location"),
+                                                      hmLCtransdateUI("hmlctransdate")
+                                               )
+                                           ),
+                                           fluidRow(
+                                               column(width = 12,
+                                                      h3("Loyalty card transactions"),
                                                       boxplotLCUI("boxplotlc")
                                                )
                                            )
@@ -159,9 +165,11 @@ server <- function(input, output) {
     
     #Syiqah ----
     barCCServer("barcc")
+    hmCCtransdateServer("hmcctransdate")
     heatmapCCServer("heatmapcc")
-    barLCServer("barlc")
     boxplotCCServer("boxplotcc")
+    barLCServer("barlc")
+    hmLCtransdateServer("hmlctransdate")
     boxplotLCServer("boxplotlc")
     
     #Kevin ----
