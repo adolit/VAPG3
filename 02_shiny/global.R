@@ -17,6 +17,7 @@ library(profvis)
 library(DT)
 library(shinyWidgets)
 library(ggalluvial)
+library(ggforce)
 library(tidyverse)
 
 #import csv data ----
@@ -193,6 +194,12 @@ df_pois <- sf_poi %>%
          FullName,
          Department,
          Title)
+
+
+# df_cclc_match <- read_csv("data/aspatial/cc_loyalty_match.csv")
+# df_cclc_match$last4ccnum <- as_factor(df_cclc_match$last4ccnum)
+# write_rds(df_cclc_match, "data/aspatial/df_cclc_match.rds")
+df_cclc_match <- read_rds("data/aspatial/df_cclc_match.rds")
 
 
 #import credit card and loyalty card owners ----

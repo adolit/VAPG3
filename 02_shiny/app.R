@@ -50,6 +50,10 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                   
                                   tabPanel("Owners Identification",
                                            poisMapUI("plk_poi_map")
+                                  ),
+                                  
+                                  tabPanel("Credit Card and Loyalty Matching",
+                                           dtMatchUI("plk_dt")
                                   )
                               )                        
                           )
@@ -95,6 +99,7 @@ server <- function(input, output) {
     #Kevin ----
     pathsMapServer("plk_path_map")
     poisMapServer("plk_poi_map")
+    dtMatchServer("plk_dt")
     
     #Archie ----
     treeMapServer("rn_orgchart")
