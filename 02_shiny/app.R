@@ -21,6 +21,7 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                           )
                  ), #tabPanel Home
                  
+                 #Archie (Updated) ----
                  tabPanel("Spending EDA", icon = icon("credit-card"),
                           fluidPage(
                               tabsetPanel(

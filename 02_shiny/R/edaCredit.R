@@ -126,7 +126,5 @@ edaCreditServer <- function(id) {
                  xaxis = list(title = ""))
       })
       
-      
-      
     }) #moduleServer
 }#edaCreditServer
