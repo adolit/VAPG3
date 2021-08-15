@@ -1,7 +1,7 @@
 ---
-title: "User Guide"
+title: "User Guide: Visual Analytics of Spending & Kinematics (V-ASK)"
 description: |
-  A step-by-step guide on how to use V-ASK.
+  A step-by-step guide on how to use Visual Analytics of Spending & Kinematics (V-ASK).
 author:
   - name: 'Archie Quiambao Dolit'
   - name: 'Nurulasyiqah Mohammad Taha'
