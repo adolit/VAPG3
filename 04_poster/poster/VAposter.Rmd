@@ -105,21 +105,23 @@ knitr::include_graphics(poi_images)
 
 Figure 7 visualises the official relationships of GASTech employees using Collapsible Tree and an interactive data table.
 
-```{r results-network-1, echo=FALSE, fig.align='center', fig.show='hold', out.width='100%', fig.cap='Top: Tree Visualisation of GASTechs Engineering Drill Technician Department. Bottom: Table Rendering of the Tree.'}
+```{r results-network-1, echo=FALSE, fig.align='center', fig.show='hold', out.width='80%', fig.cap='Top: Tree Visualisation of GASTechs Engineering Drill Technician Department. Bottom: Table Rendering of the Tree.'}
 official_network_images <- c("VAposter_files/images/official_relationships_network.png", "VAposter_files/images/official_relationships_table.png")
 knitr::include_graphics(official_network_images)
 ```
 
-Figure 8 is an interactive network of transaction data. We bring the credit card owner mapping from the Patterns of Life module to further enrich the network.
+Figure 8 is an interactive network of transaction data, which has been enriched by credit card ownership mapping generated from the 'Patterns of Life Kinematics' module
 
-```{r results-network-2, echo=FALSE, fig.align='center', fig.show='hold', out.width='50%', fig.cap='Left: Network for transactions made at Chostus Hotel. Right: The details of the transactions from Chostus Hotel.'}
+```{r results-network-2, echo=FALSE, fig.align='center', fig.show='hold', out.width='80%', fig.cap='Left: Network for transactions made at Chostus Hotel. Right: The details of the transactions from Chostus Hotel.'}
 unofficial_network_images <- c("VAposter_files/images/unofficial_relationships_network.png", "VAposter_files/images/unofficial_relationships_table.png")
 knitr::include_graphics(unofficial_network_images)
 ```
 
 # Future Work
 
+1. Employee-to-employee network graph using movement data to capture relationships that do not involve transaction data.
 
+2. Network graph of credit card and loyalty cards to visually identify mappings that deviate from 1 credit card to 1 loyalty card. For example, 1 credit card to multiple loyalty cards.
 
 ```{r echo=FALSE, eval=FALSE}
 library(pagedown)
