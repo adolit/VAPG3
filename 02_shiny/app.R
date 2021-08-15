@@ -10,14 +10,10 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                  fluid = TRUE, 
                  theme = bslib::bs_theme(
                      bootswatch = "sandstone"),
-
-                 #Syiqah ----
+                 
                  tabPanel("Home", icon = icon("home"),
                           fluidPage(
-                              h2("Overview"),
-                              fluidRow(align = "left",
-                                       h3("Context + Overview of the App")
-                              )
+                              homeUI("overview")
                           )
                  ), #tabPanel Home
                  
