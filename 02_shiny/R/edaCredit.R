@@ -56,9 +56,11 @@ edaCreditServer <- function(id) {
                   type = 'bar',
                   marker = list(color = high_color),
                   hovertemplate = paste('Location: %{y}<br>',
-                                        'Count: %{x}')) %>% 
+                                        'Count: %{x}',
+                                        '<extra></extra>')) %>%
           layout(yaxis = list(title = ""),
-                 xaxis = list(title = "No. of credit card transactions"))
+                 xaxis = list(title = "No. of credit card transactions"),
+                 hoverlabel=list(bgcolor=bg_color))
       })
       
       output$hmccdate <- renderPlotly({
@@ -75,12 +77,13 @@ edaCreditServer <- function(id) {
                   type = 'heatmap',
                   colors = colorRamp(c(low_color, high_color)),
                   hovertemplate = paste('Date of Transaction: %{x}<br>',
-                                        'Credit Card No: %{y}<br>',
-                                        'Count: %{z}')) %>%
-          layout(title = paste(d$y, "Credit Transactions"),
+                                        'Credit card No: %{y}<br>',
+                                        'Count: %{z}',
+                                        '<extra></extra>')) %>%
+          layout(title = paste(d$y, "Credit Card Transactions"),
                  yaxis = list(title = "Last 4 CC Numbers"),
-                 xaxis = list(title = "Date of Transaction"))
-        
+                 xaxis = list(title = ""),
+                 hoverlabel=list(bgcolor=bg_color))
       })
       
       output$hmcchour <- renderPlotly({
@@ -94,9 +97,11 @@ edaCreditServer <- function(id) {
                   colors = colorRamp(c(low_color, high_color)),
                   hovertemplate = paste('Location: %{y}<br>',
                                'Hour of the day: %{x}<br>',
-                               'Count: %{z}')) %>%
+                               'Count: %{z}',
+                               '<extra></extra>')) %>%
           layout(yaxis = list(title = ""),
-                 xaxis = list(title = "Hours of the day"))
+                 xaxis = list(title = "Hours of the day"),
+                 hoverlabel=list(bgcolor=bg_color))
       })
       
       output$boxplotcc <- renderPlotly({
@@ -123,7 +128,8 @@ edaCreditServer <- function(id) {
                            line = list(color = "indianred")) %>%
           layout(title = paste(d$y, "Transaction Price"),
                  yaxis = list(title = "Price"),
-                 xaxis = list(title = ""))
+                 xaxis = list(title = ""),
+                 hoverlabel=list(bgcolor=bg_color))
       })
       
     }) #moduleServer

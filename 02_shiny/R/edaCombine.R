@@ -38,9 +38,11 @@ edaCombineServer <- function(id) {
                 colors = colorRamp(c(low_color, high_color)),
                 hovertemplate = paste('Location: %{y}<br>',
                                       'Date: %{x}<br>',
-                                      'Price: %{z}')) %>%
+                                      'Price: %{z}',
+                                      '<extra></extra>')) %>%
         layout(yaxis = list(title = ""),
-               xaxis = list(title = "Date of Transaction"))
+               xaxis = list(title = "Date of Transaction"),
+               hoverlabel=list(bgcolor=bg_color))
     })
     
     output$miss_lc <- renderPlotly({
@@ -53,9 +55,11 @@ edaCombineServer <- function(id) {
                 colors = colorRamp(c(low_color, high_color)),
                 hovertemplate = paste('Location: %{y}<br>',
                                       'Date: %{x}<br>',
-                                      'Price: %{z}')) %>%
+                                      'Price: %{z}',
+                                      '<extra></extra>')) %>%
         layout(yaxis = list(title = ""),
-               xaxis = list(title = "Date of Transaction"))
+               xaxis = list(title = "Date of Transaction"),
+               hoverlabel=list(bgcolor=bg_color))
     })
   })
 }

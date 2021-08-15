@@ -54,9 +54,11 @@ edaLoyaltyServer <- function(id) {
                 type = 'bar',
                 marker = list(color = high_color),
                 hovertemplate = paste('Location: %{y}<br>',
-                                      'Count: %{x}')) %>% 
+                                      'Count: %{x}',
+                                      '<extra></extra>')) %>%
         layout(yaxis = list(title = ""),
-               xaxis = list(title = "No. of Loyalty card transactions"))
+               xaxis = list(title = "No. of Loyalty card transactions"),
+               hoverlabel=list(bgcolor=bg_color))
     })
     
     output$hmlcdate <- renderPlotly({
@@ -66,18 +68,20 @@ edaLoyaltyServer <- function(id) {
       hmcc <- df_loyalty %>%
         filter(location %in% d$y) %>%
         count(loyaltynum, date) %>%
-        mutate(date = as.factor(date)) %>%
+        #mutate(date = as.factor(date)) %>%
         plot_ly(x= ~date,
                 y= ~loyaltynum,
                 z = ~n,
                 type = 'heatmap',
                 colors = colorRamp(c(low_color, high_color)),
                 hovertemplate = paste('Date of Transaction: %{x}<br>',
-                                      'Credit Card No: %{y}<br>',
-                                      'Count: %{z}')) %>%
-        layout(title = paste(d$y, "Credit Transactions"),
-               yaxis = list(title = "Loyalty Numbers"),
-               xaxis = list(title = "Date of Transaction"))
+                                      'Loyalty card No: %{y}<br>',
+                                      'Count: %{z}',
+                                      '<extra></extra>')) %>%
+        layout(title = paste(d$y, "Loyalty Card Transactions"),
+               yaxis = list(title = "Loyalty Card Numbers"),
+               xaxis = list(title = ""),
+               hoverlabel=list(bgcolor=bg_color))
       
     })
     
@@ -92,9 +96,11 @@ edaLoyaltyServer <- function(id) {
                 colors = colorRamp(c(low_color, high_color)),
                 hovertemplate = paste('Location: %{y}<br>',
                                       'Day of the Week: %{x}<br>',
-                                      'Count: %{z}')) %>%
+                                      'Count: %{z}',
+                                      '<extra></extra>')) %>%
         layout(yaxis = list(title = ""),
-               xaxis = list(title = "Day of the Week"))
+               xaxis = list(title = "Day of the Week"),
+               hoverlabel=list(bgcolor=bg_color))
     })
     
     output$boxplotlc <- renderPlotly({
@@ -111,7 +117,8 @@ edaLoyaltyServer <- function(id) {
                 alpha = 0.5) %>%
         add_boxplot(y = ~reorder(location, desc(location))) %>%
         layout(yaxis = list(title = ""),
-               xaxis = list(title = ""))
+               xaxis = list(title = ""),
+               hoverlabel=list(bgcolor=bg_color))
     })
     
   })
