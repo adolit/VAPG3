@@ -47,11 +47,29 @@ The tab defaults to car ID 1, date range January 6, 2014 - January 19, 2014, and
 1) Select the car ID(s), date range, and time you want to explore.
 ![](user_guide_files/images/2.1.1.png){width=100%}
 
-2) 
+2) Zoom in to see the POIs more closely. By zooming in, you can see the distribution of POIs (whether there's few or many) and the colors of the POIs which indicate duration become more distinct.
+
+3) Hover over individual POIs to see details about the person, their arrival, departure, and time spent at that location.
+![](user_guide_files/images/2.1.2.png){width=100%}
 
 ### 2.2 Owners Identification
 
+Use this tab to identify the likely owners of each credit card.
+
+1) There are several ways to start. We will walk through one approach that has worked well for us. First, filter for one credit card using the data table filter. Second, filter for a location using the data table filter. Locations that are less popular work best. The heatmap is useful for finding the best locations to use.
+![](user_guide_files/images/2.2.1.png){width=100%}
+
+2) Use the date filter for the map to narrow down the POIs that match the date of the transaction from step 1. Use the lasso selection tool to select the POIs near the location from step 1. The data table on the right will surface the details of POIs selected.
+![](user_guide_files/images/2.2.2.png){width=100%}
+
+3) To match the credit card with the POI, compare the transaction time with the arrival and departure times. The transaction time should fall between the arrival and departure times. It is possible that multiple people meet this condition. They are candidates for possible owners of the credit card. To further narrow down the list of candidates, iterate through steps 1 and 2 using different transactions. The last candidate is the likely owner of the credit card.
+
+4) The last step is to match the credit card with the loyalty card. Use the data table filter to filter for the credit card. The data table will show the loyalty card(s) that match based on a joined table using transaction details (date and price).
+![](user_guide_files/images/2.2.3.png){width=100%}
+
 ### 2.3 Credit Card and Loyalty Card Matching
+
+This tab has the matching results from Owner Identification module.
 
 ## 3.0 Relationship Networks
 

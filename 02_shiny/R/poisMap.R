@@ -137,14 +137,16 @@ poisMapServer <- function(id) {
     })
     
     data_geo <- reactive({
+      df_pois <- as.data.frame(df_pois)
+      
       gps_dots_selected <- df_pois %>%
         filter(ArrivalDate >= input$date[1],
                DepartureDate <= input$date[2],
                CarID %in% input$car_id)
       
-      tmp <- gps_dots_selected
+      tmp <- df_pois
       
-      sel <- tryCatch(gps_dots_selected[(selected()$pointNumber+1),,drop=FALSE] , error = function(e){NULL})
+      sel <- tryCatch(df_pois[(selected()$pointNumber+1),,drop=FALSE] , error = function(e){NULL})
       
       list(data = tmp, sel = sel)
     })
@@ -164,7 +166,8 @@ poisMapServer <- function(id) {
                 options = list(pageLength = 10, autoWidth = TRUE),
                 colnames = c("Car ID", "Arrival Timestamp",
                              "Departure Timestamp", "Name",
-                             "Department", "Title")) %>%
+                             "Department", "Title"),
+                rownames = FALSE) %>%
         formatDate(columns = c(2, 3), method = 'toLocaleString', params = list(month = 'numeric',
                                                                                day = 'numeric',
                                                                                year = 'numeric',
@@ -215,19 +218,18 @@ poisMapServer <- function(id) {
     
     output$hmcc_loc <- renderPlotly({
       hmcc <- df_cc %>%
-        group_by(last4ccnum, location) %>%
-        summarise(total_price = sum(price)) %>%
-        plot_ly(x= ~last4ccnum,
-                y= ~reorder(location, desc(location)),
-                z = ~total_price,
+        count(last4ccnum, date) %>%
+        plot_ly(x= ~date,
+                y= ~last4ccnum,
+                z = ~n,
                 type = 'heatmap',
                 colors = colorRamp(c(low_color, high_color)),
-                hovertemplate = paste('Location: %{y}<br>',
-                                      'Credit Card No: %{x}<br>',
-                                      'Total Amount Spent: %{z}',
+                hovertemplate = paste('Date of Transaction: %{x}<br>',
+                                      'Credit card No: %{y}<br>',
+                                      'Count: %{z}',
                                       '<extra></extra>')) %>%
-        layout(xaxis = list(title = "Last 4 CC Numbers"),
-               yaxis = list(title = ""),
+        layout(yaxis = list(title = "Last 4 CC Numbers"),
+               xaxis = list(title = ""),
                hoverlabel=list(bgcolor=bg_color))
     })
     

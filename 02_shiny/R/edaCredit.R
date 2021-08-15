@@ -82,20 +82,21 @@ edaCreditServer <- function(id) {
           filter(date >= input$date[1],
                  date <= input$date[2]) %>%
           filter(location %in% d$y) %>%
-          count(last4ccnum, date) %>%
+          group_by(last4ccnum, date) %>%
+          summarise(total_price = sum(price)) %>%
           mutate(date = as.factor(date)) %>%
           plot_ly(x= ~date,
                   y= ~last4ccnum,
-                  z = ~n,
+                  z = ~total_price,
                   type = 'heatmap',
                   colors = colorRamp(c(low_color, high_color)),
-                  hovertemplate = paste('Date of Transaction: %{x}<br>',
-                                        'Credit card No: %{y}<br>',
-                                        'Count: %{z}',
+                  hovertemplate = paste('Location: %{y}<br>',
+                                        'Credit Card No: %{x}<br>',
+                                        'Total Amount Spent: %{z}',
                                         '<extra></extra>')) %>%
-          layout(title = paste(d$y, "Credit Card Transactions"),
-                 yaxis = list(title = "Last 4 CC Numbers"),
-                 xaxis = list(title = ""),
+          layout(title = paste(d$y, "Credit Card Transaction Values"),
+                 xaxis = list(title = "Last 4 CC Numbers"),
+                 yaxis = list(title = ""),
                  hoverlabel=list(bgcolor=bg_color))
       })
       

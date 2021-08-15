@@ -90,7 +90,7 @@ edaLoyaltyServer <- function(id) {
                                       'Loyalty card No: %{y}<br>',
                                       'Count: %{z}',
                                       '<extra></extra>')) %>%
-        layout(title = paste(d$y, "Loyalty Card Transactions"),
+        layout(title = paste(d$y, "Loyalty Card Transactions Frequency"),
                yaxis = list(title = "Loyalty Card Numbers"),
                xaxis = list(title = ""),
                hoverlabel=list(bgcolor=bg_color))

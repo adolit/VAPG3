@@ -307,14 +307,14 @@ p.caption {
 </div>
 <div id="approach" class="section level1">
 <h1>Approach</h1>
-<p>We apply a simplified interactive design framework - see Figure 1. With our users’ objectives in mind, we incorporate the following interactive dynamics: navigating, filtering and sorting, and selecting. After the user takes any one of these actions, the data is displayed for evaluation.</p>
+We apply a simplified interactive design and drill down framework - see Figure 1. With our users’ objectives in mind, we structure our application to start at a high-level aggregation. From there, we incorporate the following interactive dynamics: navigating, filtering and sorting, selecting, and sharing annotations to enable the user to drill down to more granular levels of detail.
 <div class="figure" style="text-align: center"><span id="fig:framework"></span>
-<img src="VAposter_files/images/framework.png" alt="Interactive design framework" width="50%" />
+<img src="VAposter_files/images/interaction_framework.png" alt="Left: Interaction Framework. Right: Drill Down Framework." width="30%" /><img src="VAposter_files/images/drilldown_framework.png" alt="Left: Interaction Framework. Right: Drill Down Framework." width="30%" />
 <p class="caption">
-Figure 1: Interactive design framework
+Figure 1: Left: Interaction Framework. Right: Drill Down Framework.
 </p>
 </div>
-<p>In addition to the packages in Figure 2, we use several geospatial R packages for handling the movement data: sf, raster, and tmap. We also use visNetwork and collapsibleTree for visualizing networks. For interactivity, Plotly is invaluable given its compatibility with ggplot.</p>
+In addition to the packages in Figure 2, we use several geospatial R packages for handling the movement data: sf, raster, and tmap. We also use visNetwork and collapsibleTree for visualising networks. For interactivity, Plotly is invaluable especially given its compatibility with ggplot.
 <div class="figure" style="text-align: center"><span id="fig:hex"></span>
 <img src="VAposter_files/images/hex.png" alt="R Packages" width="362" />
 <p class="caption">
@@ -326,61 +326,57 @@ Figure 2: R Packages
 <h1>Results</h1>
 <div id="spending" class="section level4">
 <h4>Spending</h4>
-<p>Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus <span class="citation">(Thorne 2019)</span>.</p>
+<p>The bar chart in Figure 3 shows the number of transactions at each location. Selecting a bar from the chart generates a box plot that enables a drill down into anomalous transactions at that location.</p>
 <div class="figure" style="text-align: center"><span id="fig:results-spending-1"></span>
-<img src="VAposter_files/images/spending_heatmap.png" alt="Spending EDA" width="100%" /><img src="VAposter_files/images/bPlot_cc.png" alt="Spending EDA" width="100%" />
+<img src="VAposter_files/images/bar.png" alt="Top: Bar Chart of Number of Transactions by Location., Bottom: Box plot of Transactions at Selected Location." width="70%" /><img src="VAposter_files/images/bPlot_cc.png" alt="Top: Bar Chart of Number of Transactions by Location., Bottom: Box plot of Transactions at Selected Location." width="70%" />
 <p class="caption">
-Figure 3: Spending EDA
+Figure 3: Top: Bar Chart of Number of Transactions by Location., Bottom: Box plot of Transactions at Selected Location.
 </p>
 </div>
 </div>
-<div id="geo" class="section level4">
-<h4>Geo</h4>
-<p>Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus <span class="citation">(Thorne 2019)</span>.</p>
+<div id="patterns-of-life" class="section level4">
+<h4>Patterns of Life</h4>
+<p>Figure 4 is a visualisation of vehicle paths and points of interest (POI). Clicking on a POI surfaces a tooltip that surfaces details such as duration of stay at the POI.</p>
 <div class="figure" style="text-align: center"><span id="fig:results-geo-1"></span>
-<img src="VAposter_files/images/paths_map.png" alt="Paths map" width="100%" />
+<img src="VAposter_files/images/paths_map.png" alt="Car ID 28 Vehicle Path on 2014-01-06 Shows Irregularities" width="100%" />
 <p class="caption">
-Figure 4: Paths map
+Figure 4: Car ID 28 Vehicle Path on 2014-01-06 Shows Irregularities
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:results-geo-2"></span>
-<img src="VAposter_files/images/pois_map_only.png" alt="Points of Interest map" width="100%" /><img src="VAposter_files/images/pois_map_table.png" alt="Points of Interest map" width="100%" />
+<p>Figures 5 and 6 bring together financial and movement data. Through the use of filtering and selecting, it is possible to identify the owner of a credit card by narrowing down who was at a given location when a credit card transaction was made.</p>
+<div class="figure" style="text-align: center"><span id="fig:results-geo-2-1"></span>
+<img src="VAposter_files/images/cc_table.png" alt="Table of Credit Card Transactions Filtered for 2014-01-12 and Desafio Golf Course" width="100%" />
 <p class="caption">
-Figure 5: Points of Interest map
+Figure 5: Table of Credit Card Transactions Filtered for 2014-01-12 and Desafio Golf Course
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:results-geo-2-2"></span>
+<img src="VAposter_files/images/pois_map_only.png" alt="Top image: POIs on 2014-01-14. The POIs closest to the Desafio Golf Course are selected. Bottom image: The details of the selected POIs in tabular format." width="100%" /><img src="VAposter_files/images/pois_map_table.png" alt="Top image: POIs on 2014-01-14. The POIs closest to the Desafio Golf Course are selected. Bottom image: The details of the selected POIs in tabular format." width="100%" />
+<p class="caption">
+Figure 6: Top image: POIs on 2014-01-14. The POIs closest to the Desafio Golf Course are selected. Bottom image: The details of the selected POIs in tabular format.
 </p>
 </div>
 </div>
-<div id="network" class="section level4">
-<h4>Network</h4>
-<p>Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus <span class="citation">(Thorne 2019)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:results-network-1-1"></span>
-<img src="VAposter_files/images/official_relationships_network.png" alt="Paths map" width="100%" />
+<div id="relationship-networks" class="section level4">
+<h4>Relationship Networks</h4>
+<p>Figure 7 visualises the official relationships of GASTech employees using Collapsible Tree and an interactive data table.</p>
+<div class="figure" style="text-align: center"><span id="fig:results-network-1"></span>
+<img src="VAposter_files/images/official_relationships_network.png" alt="Top: Tree Visualisation of GASTechs Engineering Drill Technician Department. Bottom: Table Rendering of the Tree." width="100%" /><img src="VAposter_files/images/official_relationships_table.png" alt="Top: Tree Visualisation of GASTechs Engineering Drill Technician Department. Bottom: Table Rendering of the Tree." width="100%" />
 <p class="caption">
-Figure 6: Paths map
+Figure 7: Top: Tree Visualisation of GASTechs Engineering Drill Technician Department. Bottom: Table Rendering of the Tree.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:results-network-1-2"></span>
-<img src="VAposter_files/images/official_relationships_table.png" alt="Paths map" width="100%" />
-<p class="caption">
-Figure 7: Paths map
-</p>
-</div>
+<p>Figure 8 is an interactive network of transaction data. We bring the credit card owner mapping from the Patterns of Life module to further enrich the network.</p>
 <div class="figure" style="text-align: center"><span id="fig:results-network-2"></span>
-<img src="VAposter_files/images/unofficial_relationships_network.png" alt="Unofficial Network" width="50%" /><img src="VAposter_files/images/unofficial_relationships_table.png" alt="Unofficial Network" width="50%" />
+<img src="VAposter_files/images/unofficial_relationships_network.png" alt="Left: Network for transactions made at Chostus Hotel. Right: The details of the transactions from Chostus Hotel." width="50%" /><img src="VAposter_files/images/unofficial_relationships_table.png" alt="Left: Network for transactions made at Chostus Hotel. Right: The details of the transactions from Chostus Hotel." width="50%" />
 <p class="caption">
-Figure 8: Unofficial Network
+Figure 8: Left: Network for transactions made at Chostus Hotel. Right: The details of the transactions from Chostus Hotel.
 </p>
 </div>
 </div>
 </div>
 <div id="future-work" class="section level1">
 <h1>Future Work</h1>
-<p>Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus <span class="citation">(Thorne 2019)</span>.</p>
-<div id="refs" class="references">
-<div id="ref-R-posterdown">
-<p>Thorne, Brent. 2019. <em>Posterdown: Generate Pdf Conference Posters Using R Markdown</em>. <a href="https://github.com/brentthorne/posterdown">https://github.com/brentthorne/posterdown</a>.</p>
-</div>
-</div>
 </div>
 </div>
 </div>
