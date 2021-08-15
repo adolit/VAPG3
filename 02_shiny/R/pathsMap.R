@@ -83,6 +83,7 @@ pathsMapServer <- function(id) {
     
     output$map <- renderTmap({
       req(data_paths())
+      req(data_points())
       
       gps_paths_selected <- data_paths()
       gps_dots_selected <- data_points()
