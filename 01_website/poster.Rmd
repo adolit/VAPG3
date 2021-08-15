@@ -1,0 +1,33 @@
+---
+title: "Project Poster"
+description: |
+  A step-by-step guide on how to use V-ASK.
+author:
+  - name: 'Archie Quiambao Dolit'
+  - name: 'Nurulasyiqah Mohammad Taha'
+  - name: 'Kevin Magic Rialubin Sunga'
+
+date: 08-15-2021
+output:
+  distill::distill_article:
+    toc: true
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+
+set.seed(1234)
+
+knitr::opts_chunk$set(
+	eval = TRUE,
+	echo = TRUE,
+	fig.retina = 3,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+```{r, include=TRUE, fig.align="center", echo=FALSE, out.width='100%'}
+knitr::include_graphics("img/poster/VAposter.png")
+```
