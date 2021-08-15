@@ -1,0 +1,107 @@
+---
+title: '**V-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Suspicious Activities**'
+author:
+  - name: 'Archie Quiambao Dolit'
+  - name: 'Nurulasyiqah Mohammad Taha'
+  - name: 'Kevin Magic Rialubin Sunga'
+affiliation:
+  - address: School of Computing and Information Systems, Singapore Management University
+
+# Global
+font_family: "Roboto"
+poster_height: "33.11in"
+poster_width: "23.39in"
+
+# Color Scheme
+primary_colour: "#3e3f3a"
+secondary_colour: "#f8f5f0"
+accent_colour: "#e1c17c"
+
+
+# Title Box
+title_textsize: "60pt"
+author_textsize: "35pt"
+affiliation_textsize: "35pt"
+logoleft_name: "VAposter_files/images/smu_logo_margin.png"
+
+
+# Poster Body
+column_numbers: 3
+column_margins: ".1in"
+sectitle_textsize: "35px"
+body_textsize: "25px"
+
+
+output: 
+  posterdown::posterdown_html:
+    self_contained: false
+bibliography: packages.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Objective
+
+To use interactive visual analytic techniques on financial and movement data to assist law enforcement with their investigation into the mysterious disappearance of several GAStech employees.
+
+Using interactivity, we're able to bring together disparate data together to extract insights such as linking location with transaction information to identify credit card owners or mapping unofficial relationships using transaction patterns.
+
+# Approach
+
+We apply a simplified interactive design framework - see Figure 1. With our users' objectives in mind, we incorporate the following interactive dynamics: navigating, filtering and sorting, and selecting. After the user takes any one of these actions, the data is displayed for evaluation.
+
+```{r framework, echo=FALSE, fig.align='center', out.width='50%', fig.cap='Interactive design framework'}
+knitr::include_graphics("VAposter_files/images/framework.png")
+```
+
+In addition to the packages in Figure 2, we use several geospatial R packages for handling the movement data: sf, raster, and tmap. We also use visNetwork and collapsibleTree for visualizing networks. For interactivity, Plotly is invaluable given its compatibility with ggplot.
+
+```{r hex, echo=FALSE, fig.align='center', fig.cap='R Packages'}
+knitr::include_graphics("VAposter_files/images/hex.png")
+```
+
+# Results
+
+```{r results_spending, fig.show="hold", out.width='50%'}
+
+
+```
+
+## Spending
+
+## Geo
+
+## Network
+
+```{r mytable, out.width='80%'}
+knitr::kable(iris[1:10, 1:4], caption = 'Table caption.',align = 'c',"html")
+```
+
+Or with figures: Figure \@ref(fig:standard-plot), or Figure \@ref(fig:morefigs).
+
+```{r standard-plot, out.width='80%', fig.align='center', fig.cap='Great figure!', fig.height=5}
+plot(mtcars[1:2])
+```
+
+```{r morefigs, out.width='80%', echo=TRUE, fig.cap='Amazing, right?!', fig.height=5}
+data <- iris
+
+plot(x = data$Sepal.Length, 
+     y = data$Sepal.Width, 
+     col = data$Species,
+     pch = 19, 
+     xlab = "Sepal Length (cm)",
+     ylab = "Sepal Width (cm)")
+
+```
+
+# Future Work
+
+Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus [@R-posterdown].
+
+```{r echo=FALSE, eval=FALSE}
+library(pagedown)
+pagedown::chrome_print("VAposter.html")
+```
