@@ -118,22 +118,26 @@ spendingNetworkServer <- function(id) {
     
     df_cc_network <- reactive({
       
-      if (!is.null(input$date[2])) { 
+      # if (!is.null(input$date[2])) { 
         df_cc_map %>%
-          filter(date >= input$date[1] &
-                 date <= input$date[2]) %>%
-          filter(hour >= input$hour[1] &
-                 hour <= input$hour[2]) %>%
-          filter(day %in% input$day) %>%
-          filter(Department %in% input$department)
-      } else {
-        df_cc_map %>%
-          filter(date == input$date[1]) %>%
-          filter(hour >= input$hour[1] &
-                   hour <= input$hour[2]) %>%
-          filter(day %in% input$day) %>%
-          filter(Department %in% input$department)
-      }
+          filter(date >= input$date[1],
+                 date <= input$date[2],
+                 hour >= input$hour[1],
+                 hour <= input$hour[2],
+                 day %in% input$day,
+                 Department %in% input$department) #%>%
+          # filter(hour >= input$hour[1] &
+          #        hour <= input$hour[2]) %>%
+          # filter(day %in% input$day) %>%
+          # filter(Department %in% input$department)
+      # } else {
+      #   df_cc_map %>%
+      #     filter(date == input$date[1]) %>%
+      #     filter(hour >= input$hour[1] &
+      #              hour <= input$hour[2]) %>%
+      #     filter(day %in% input$day) %>%
+      #     filter(Department %in% input$department)
+      # }
         
     })
     

@@ -68,7 +68,6 @@ edaLoyaltyServer <- function(id) {
       hmcc <- df_loyalty %>%
         filter(location %in% d$y) %>%
         count(loyaltynum, date) %>%
-        #mutate(date = as.factor(date)) %>%
         plot_ly(x= ~date,
                 y= ~loyaltynum,
                 z = ~n,

@@ -177,8 +177,8 @@ df_pois <- sf_poi %>%
                                        format = "%m/%d/%Y"),
          DepartureDate = as.Date.POSIXct(DepartureTimestamp,
                                          format = "%m/%d/%Y"),
-         MinutesDuration = round(Timestamp_diff_seconds / 60, 2)) %>%
-         #HoursDuration = round(Timestamp_diff_seconds / 60*60, 2)) %>%
+         MinutesDuration = round(Timestamp_diff_seconds / 60, 2),
+         HoursDuration = round(MinutesDuration /60, 2)) %>%
   select(long,
          lat,
          CarID,
@@ -190,7 +190,7 @@ df_pois <- sf_poi %>%
          ArrivalDate,
          DepartureDate,
          MinutesDuration,
-         #HoursDuration,
+         HoursDuration,
          FullName,
          Department,
          Title)

@@ -2,30 +2,41 @@ pathsMapUI <- function(id) {
   ns <- NS(id)
   
   tagList(
-    titlePanel("Vehicle Paths and Points of Interest"),
-    sidebarLayout(
-      sidebarPanel(width = 2,
-                   selectInput(ns("car_id"),
-                               "Car ID",
-                               selected = "1",
-                               choices = sort(unique(df_paths$CarID))),
-                   dateRangeInput(ns("date"),
-                                  label="Select a date range:",
-                                  start  = "2014-01-06",
-                                  end    = "2014-01-06",
-                                  min    = "2014-01-06",
-                                  max    = "2014-01-19",
-                                  startview = "month",
-                                  separator = " to ",
-                                  format = "dd/m/yyyy"),
-                   sliderInput(ns("hour"),
-                               "Hour",
-                               min = 0,
-                               max = 24,
-                               value = c(0, 24))
+    fluidRow(
+      column(width = 12,
+             h3("Vehicle Paths and Points of Interest")
       ),
-      mainPanel(
-        tmapOutput(NS(id, "map"), height = "800px")
+      
+      column(width = 3,
+             h5("Set Parameters of GPS Movement Data"),
+             selectInput(ns("car_id"),
+                         "Select Car ID(s):",
+                         selected = "1",
+                         multiple = TRUE,
+                         choices = sort(unique(df_paths$CarID))),
+             dateRangeInput(ns("date"),
+                            label="Select Date:",
+                            start  = "2014-01-06",
+                            end    = "2014-01-07",
+                            min    = "2014-01-06",
+                            max    = "2014-01-19",
+                            startview = "month",
+                            separator = " to ",
+                            format = "dd/m/yyyy"),
+             sliderInput(ns("hour"),
+                         "Select Hour of Day:",
+                         min = 0,
+                         max = 24,
+                         value = c(0, 24)),
+             #actionButton("sel_btn","Generate Map!", icon("hand-point-right")) #to do
+      ),
+      
+      column(width = 9,
+             h5("Explore the daily routine of GASTech Employees based on their GPS tracking data"),
+             p(em("Note that the interactive map takes some time to load")),
+             tmapOutput(NS(id, "map"),
+                        width = "100%", 
+                        height = "750px")
       )
     )
   )
@@ -40,7 +51,7 @@ pathsMapServer <- function(id) {
                date <= input$date[2],
                hour >= input$hour[1],
                hour <= input$hour[2],
-               CarID == input$car_id)
+               CarID %in%  input$car_id)
     })
     
     data_points <- reactive({
@@ -49,7 +60,7 @@ pathsMapServer <- function(id) {
                date <= input$date[2],
                hour >= input$hour[1],
                hour <= input$hour[2],
-               CarID == input$car_id) %>%
+               CarID %in%  input$car_id) %>%
         mutate(
           Duration = case_when(
             MinutesDuration < 30 ~ "0 to 30 mins",
@@ -67,7 +78,7 @@ pathsMapServer <- function(id) {
                ArrivalTimestamp,
                DepartureTimestamp,
                Duration,
-               MinutesDuration)
+               HoursDuration)
     })
     
     output$map <- renderTmap({
@@ -92,9 +103,9 @@ pathsMapServer <- function(id) {
                      lwd = 2) +
             tm_shape(gps_dots_selected) +
             tm_dots(col = "Duration",
-                    palette = "Set1",
-                    size = .15,
-                    border.col = 'gray',
+                    palette = "Blues",
+                    size = .25,
+                    border.col = 'black',
                     alpha = .5,
                     jitter = .2,
                     popup.vars = c("CarID",
@@ -103,7 +114,7 @@ pathsMapServer <- function(id) {
                                    "Title",
                                    "ArrivalTimestamp",
                                    "DepartureTimestamp",
-                                   "MinutesDuration"))
+                                   "HoursDuration")) 
         } else {
           stop()
         }
