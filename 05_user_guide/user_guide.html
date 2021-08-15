@@ -118,7 +118,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["user_guide_files/anchor-4.2.2/anchor.min.js","user_guide_files/bowser-1.9.3/bowser.min.js","user_guide_files/distill-2.2.21/template.v2.js","user_guide_files/images/2.1.1.png","user_guide_files/images/2.1.2.png","user_guide_files/jquery-1.11.3/jquery.min.js","user_guide_files/popper-2.6.0/popper.min.js","user_guide_files/tippy-6.2.7/tippy-bundle.umd.min.js","user_guide_files/tippy-6.2.7/tippy-light-border.css","user_guide_files/tippy-6.2.7/tippy.css","user_guide_files/tippy-6.2.7/tippy.umd.min.js","user_guide_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["user_guide_files/anchor-4.2.2/anchor.min.js","user_guide_files/bowser-1.9.3/bowser.min.js","user_guide_files/distill-2.2.21/template.v2.js","user_guide_files/images/2.1.1.png","user_guide_files/images/2.1.2.png","user_guide_files/images/2.2.1.png","user_guide_files/images/2.2.2.png","user_guide_files/images/2.2.3.png","user_guide_files/jquery-1.11.3/jquery.min.js","user_guide_files/popper-2.6.0/popper.min.js","user_guide_files/tippy-6.2.7/tippy-bundle.umd.min.js","user_guide_files/tippy-6.2.7/tippy-light-border.css","user_guide_files/tippy-6.2.7/tippy.css","user_guide_files/tippy-6.2.7/tippy.umd.min.js","user_guide_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1519,7 +1519,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><p>Hover over individual POIs to see details about the person, their arrival, departure, and time spent at that location. <img src="user_guide_files/images/2.1.2.png" style="width:100.0%" /></p></li>
 </ol>
 <h3 id="owners-identification">2.2 Owners Identification</h3>
+<p>Use this tab to identify the likely owners of each credit card.</p>
+<ol type="1">
+<li><p>There are several ways to start. We will walk through one approach that has worked well for us. First, filter for one credit card using the data table filter. Second, filter for a location using the data table filter. Locations that are less popular work best. The heatmap is useful for finding the best locations to use. <img src="user_guide_files/images/2.2.1.png" style="width:100.0%" /></p></li>
+<li><p>Use the date filter for the map to narrow down the POIs that match the date of the transaction from step 1. Use the lasso selection tool to select the POIs near the location from step 1. The data table on the right will surface the details of POIs selected. <img src="user_guide_files/images/2.2.2.png" style="width:100.0%" /></p></li>
+<li><p>To match the credit card with the POI, compare the transaction time with the arrival and departure times. The transaction time should fall between the arrival and departure times. It is possible that multiple people meet this condition. They are candidates for possible owners of the credit card. To further narrow down the list of candidates, iterate through steps 1 and 2 using different transactions. The last candidate is the likely owner of the credit card.</p></li>
+<li><p>The last step is to match the credit card with the loyalty card. Use the data table filter to filter for the credit card. The data table will show the loyalty card(s) that match based on a joined table using transaction details (date and price). <img src="user_guide_files/images/2.2.3.png" style="width:100.0%" /></p></li>
+</ol>
 <h3 id="credit-card-and-loyalty-card-matching">2.3 Credit Card and Loyalty Card Matching</h3>
+<p>This tab has the matching results from Owner Identification module.</p>
 <h2 id="relationship-networks">3.0 Relationship Networks</h2>
 <h3 id="organizational-chart">3.1 Organizational Chart</h3>
 <h3 id="spending-habits">3.2 Spending Habits</h3>
