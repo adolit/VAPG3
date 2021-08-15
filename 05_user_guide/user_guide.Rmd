@@ -40,6 +40,15 @@ knitr::opts_chunk$set(
 
 ### 2.1 GPS Movement
 
+Use this tab to understand patterns of life: where people go, what time, and for how long.
+
+The tab defaults to car ID 1, date range January 6, 2014 - January 19, 2014, and 0:00 to 24:00 hours.
+
+1) Select the car ID(s), date range, and time you want to explore.
+![](user_guide_files/images/2.1.1.png){width=100%}
+
+2) 
+
 ### 2.2 Owners Identification
 
 ### 2.3 Credit Card and Loyalty Card Matching
