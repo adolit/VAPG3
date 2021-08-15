@@ -33,7 +33,7 @@ edaCreditUI <- function(id) {
       ),
       
       column(width = 6,
-             h3("Transaction Price by Locations"),
+             h3("Transaction Price for Selected Location"),
              p("Click on barchart/heatmap location to show the transaction price"),
              plotlyOutput(ns("boxplotcc"), 
                           width = "100%", 
