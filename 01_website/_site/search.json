@@ -17,6 +17,28 @@
       "last_modified": "2021-08-15T23:54:38+08:00"
     },
     {
+      "path": "poster.html",
+      "title": "Project Poster",
+      "description": "A step-by-step guide on how to use V-ASK.\n",
+      "author": [
+        {
+          "name": "Archie Quiambao Dolit",
+          "url": {}
+        },
+        {
+          "name": "Nurulasyiqah Mohammad Taha",
+          "url": {}
+        },
+        {
+          "name": "Kevin Magic Rialubin Sunga",
+          "url": {}
+        }
+      ],
+      "date": "08-15-2021",
+      "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-16T00:28:34+08:00"
+    },
+    {
       "path": "proposal.html",
       "title": "Project Proposal",
       "description": "Our proposed approach to solve VAST Challenge 2021: Mini-Challenge 2\n",
@@ -50,27 +72,7 @@
       ],
       "date": "08-15-2021",
       "contents": "\r\n\r\nContents\r\n1.0 Spending EDA1.1 Credit Card Data\r\n1.2 Loyalty Card Data\r\n1.3 Credit Card + Loyalty Data\r\n\r\n2.0 Patterns of Life Kinematics2.1 GPS Movement\r\n2.2 Owners Identification\r\n2.3 Credit Card and Loyalty Card Matching\r\n\r\n3.0 Relationship Networks3.1 Organizational Chart\r\n3.2 Spending Habits\r\n\r\n\r\n1.0 Spending EDA\r\n1.1 Credit Card Data\r\nUse this tab to explore credit card data.\r\nStart by selecting a date range for the transactions. Then, select a bar from the bar chart. Doing so will modify the Credit Cards by Locations heatmap as well as the Transaction Values for Selected Location boxplot. \r\nThe Credit Cards by Locations heatmap will be filtered by the location chosen in step 1. Use the tooltip to explore the transactions in the heatmap. \r\nThe Transaction Values for Selected Location boxplot will also be filtered by the location chosen in step 1. Check the boxplot for any suspicious transactions. \r\n1.2 Loyalty Card Data\r\nUse this tab to explore loyalty card data.\r\nStart by selecting a date range for the transactions. Then, select a bar from the bar chart. Doing so will modify the Loyalty Cards by Locations heatmap. \r\nThe Loyalty Cards by Locations heatmap will be filtered by the location chosen in step 1. Use the tooltip to explore the transactions in the heatmap. \r\nThe Suspected Outliers for All Locations boxplot is not filtered by location. To see the details of the boxplot, use the zoom feature. \r\n1.3 Credit Card + Loyalty Data\r\nUse this tab to see locations and days where credit card and loyalty card transactions could not be matched to its corresponding loyalty card and credit card transaction. \r\n2.0 Patterns of Life Kinematics\r\n2.1 GPS Movement\r\nUse this tab to understand patterns of life: where people go, what time, and for how long.\r\nThe tab defaults to car ID 1, date range January 6, 2014 - January 19, 2014, and 0:00 to 24:00 hours.\r\nSelect the car ID(s), date range, and time you want to explore. \r\nZoom in to see the POIs more closely. By zooming in, you can see the distribution of POIs (whether there’s few or many) and the colors of the POIs which indicate duration become more distinct.\r\nHover over individual POIs to see details about the person, their arrival, departure, and time spent at that location. \r\n2.2 Owners Identification\r\nUse this tab to identify the likely owners of each credit card.\r\nThere are several ways to start. We will walk through one approach that has worked well for us. First, filter for one credit card using the data table filter. Second, filter for a location using the data table filter. Locations that are less popular work best. The heatmap is useful for finding the best locations to use. \r\nUse the date filter for the map to narrow down the POIs that match the date of the transaction from step 1. Use the lasso selection tool to select the POIs near the location from step 1. The data table on the right will surface the details of POIs selected. \r\nTo match the credit card with the POI, compare the transaction time with the arrival and departure times. The transaction time should fall between the arrival and departure times. It is possible that multiple people meet this condition. They are candidates for possible owners of the credit card. To further narrow down the list of candidates, iterate through steps 1 and 2 using different transactions. The last candidate is the likely owner of the credit card.\r\nThe last step is to match the credit card with the loyalty card. Use the data table filter to filter for the credit card. The data table will show the loyalty card(s) that match based on a joined table using transaction details (date and price). \r\n2.3 Credit Card and Loyalty Card Matching\r\nThis tab has the matching results from Owner Identification module.\r\n3.0 Relationship Networks\r\n3.1 Organizational Chart\r\nUse this tab to explore the organizations and employees in GASTech.\r\nClick on any node in the tree to expand it. \r\nThe table is interactive with the tree. To hide the table, click on the checkbox. \r\n3.2 Spending Habits\r\nUse this tab to explore unofficial relationships between GASTech employees.\r\nThere are several filters on this view: date, hour, day of week, and department. We recommend starting with the default filters to get a high level view and using the filters to hone in on specific relationships. \r\nSelect the network layout to use. Play around with this setting to see how your network is visualised. We recommend testing layout_with_fr and layout_nicely. \r\nTo interact with the network graph, use the select by id drop down or click on the network graph directly. \r\nInteracting with the graph will generate a data table with details of the transactions that occurred at that location. \r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-08-16T00:00:29+08:00"
-    },
-    {
-      "path": "VAposter.html",
-      "title": "**V-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Suspicious Activities**",
-      "author": [
-        {
-          "name": "Archie Quiambao Dolit",
-          "url": {}
-        },
-        {
-          "name": "Nurulasyiqah Mohammad Taha",
-          "url": {}
-        },
-        {
-          "name": "Kevin Magic Rialubin Sunga",
-          "url": {}
-        }
-      ],
-      "contents": "\r\n\r\n\r\n\r\n\r\n\r\nVisual Analytics Project Group 03\r\nProject Proposal\r\n\r\n\r\nHome\r\nUser Guide\r\nAbout\r\n\r\n\r\n\r\n☰\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nV-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Suspicious Activities\r\nArchie Quiambao Dolit, Nurulasyiqah Mohammad Taha, Kevin Magic Rialubin Sunga School of Computing and Information Systems, Singapore Management University\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\np.caption {\r\n  font-size: 0.6em;\r\n}\r\n\r\nObjective\r\nTo use interactive visual analytic techniques on financial and movement data to assist law enforcement with their investigation into the mysterious disappearance of several GAStech employees.\r\nUsing interactivity, we’re able to bring together disparate data together to extract insights such as linking location with transaction information to identify credit card owners or mapping unofficial relationships using transaction patterns.\r\n\r\n\r\nApproach\r\nWe apply a simplified interactive design and drill down framework - see Figure 1. With our users’ objectives in mind, we structure our application to start at a high-level aggregation. From there, we incorporate the following interactive dynamics: navigating, filtering and sorting, selecting, and sharing annotations to enable the user to drill down to more granular levels of detail.\r\n\r\n\r\nFigure 1: Left: Interaction Framework. Right: Drill Down Framework.\r\n\r\n\r\nIn addition to the packages in Figure 2, we use several geospatial R packages for handling the movement data: sf, raster, and tmap. We also use visNetwork and collapsibleTree for visualising networks. For interactivity, Plotly is invaluable especially given its compatibility with ggplot.\r\n\r\n\r\nFigure 2: R Packages\r\n\r\n\r\n\r\n\r\nResults\r\n\r\nSpending\r\nThe bar chart in Figure 3 shows the number of transactions at each location. Selecting a bar from the chart generates a box plot that enables a drill down into anomalous transactions at that location.\r\n\r\n\r\nFigure 3: Top: Bar Chart of Number of Transactions by Location., Bottom: Box plot of Transactions at Selected Location.\r\n\r\n\r\n\r\n\r\nPatterns of Life\r\nFigure 4 is a visualisation of vehicle paths and points of interest (POI). Clicking on a POI surfaces a tooltip that surfaces details such as duration of stay at the POI.\r\n\r\n\r\nFigure 4: Car ID 28 Vehicle Path on 2014-01-06 Shows Irregularities\r\n\r\n\r\nFigures 5 and 6 bring together financial and movement data. Through the use of filtering and selecting, it is possible to identify the owner of a credit card by narrowing down who was at a given location when a credit card transaction was made.\r\n\r\n\r\nFigure 5: Table of Credit Card Transactions Filtered for 2014-01-12 and Desafio Golf Course\r\n\r\n\r\n\r\n\r\nFigure 6: Top image: POIs on 2014-01-14. The POIs closest to the Desafio Golf Course are selected. Bottom image: The details of the selected POIs in tabular format.\r\n\r\n\r\n\r\n\r\nRelationship Networks\r\nFigure 7 visualises the official relationships of GASTech employees using Collapsible Tree and an interactive data table.\r\n\r\n\r\nFigure 7: Top: Tree Visualisation of GASTechs Engineering Drill Technician Department. Bottom: Table Rendering of the Tree.\r\n\r\n\r\nFigure 8 is an interactive network of transaction data, which has been enriched by credit card ownership mapping generated from the ‘Patterns of Life Kinematics’ module\r\n\r\n\r\nFigure 8: Left: Network for transactions made at Chostus Hotel. Right: The details of the transactions from Chostus Hotel.\r\n\r\n\r\n\r\n\r\n\r\nFuture Work\r\nEmployee-to-employee network graph using movement data to capture relationships that do not involve transaction data.\r\nNetwork graph of credit card and loyalty cards to visually identify mappings that deviate from 1 credit card to 1 loyalty card. For example, 1 credit card to multiple loyalty cards.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-08-15T23:51:17+08:00"
+      "last_modified": "2021-08-16T00:17:15+08:00"
     }
   ],
   "collections": []

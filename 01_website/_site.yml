@@ -15,7 +15,7 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "Poster"
-      href: VAposter.html
+      href: poster.html
     - text: "User Guide"
       href: user_guide.html
     - text: "About"
