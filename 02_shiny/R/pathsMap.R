@@ -61,13 +61,14 @@ pathsMapServer <- function(id) {
                hour >= input$hour[1],
                hour <= input$hour[2],
                CarID %in%  input$car_id) %>%
+        group_by(date,CarID) %>%
         mutate(
           Duration = case_when(
-            MinutesDuration < 30 ~ "0 to 30 mins",
-            MinutesDuration < 60 ~ "30 mins to 1 hour",
-            MinutesDuration < 60 * 2 ~ "1 to 2 hrs",
-            MinutesDuration < 60 * 4 ~ "2 to 4 hrs",
-            MinutesDuration < 60 * 8 ~ "4 to 8 hrs",
+            HoursDuration < 0.5 ~ "0 to 30 mins",
+            HoursDuration < 1 ~ "30 mins to 1 hour",
+            HoursDuration < 2 ~ "1 to 2 hrs",
+            HoursDuration < 4 ~ "2 to 4 hrs",
+            HoursDuration < 8 ~ "4 to 8 hrs",
             TRUE ~ "8+ hrs"
           )
         ) %>%
@@ -101,9 +102,13 @@ pathsMapServer <- function(id) {
           m <- m +
             tm_shape(gps_paths_selected) +
             tm_lines(col = "hour",
+                     style = "fixed",
+                     breaks = c(seq(0, 24, by=4)),
+                     palette = "YlOrRd",
                      lwd = 2) +
             tm_shape(gps_dots_selected) +
             tm_dots(col = "Duration",
+                    style = "cont",
                     palette = "Blues",
                     size = .25,
                     border.col = 'black',

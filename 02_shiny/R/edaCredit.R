@@ -4,7 +4,16 @@ edaCreditUI <- function(id) {
   tagList(
     fluidRow(
       column(width = 12,
-             h3("Exploratory Data Analysis based on Credit Card Data")
+             h3("Exploratory Data Analysis based on Credit Card Data"),
+             dateRangeInput(ns("date"),
+                            label="Select Date of Transaction:",
+                            start  = "2014-01-06",
+                            end    = "2014-01-19",
+                            min    = "2014-01-06",
+                            max    = "2014-01-19",
+                            startview = "month",
+                            separator = " to ",
+                            format = "dd/m/yyyy")
       ),
       
       column(width = 6,
@@ -33,7 +42,7 @@ edaCreditUI <- function(id) {
       ),
       
       column(width = 6,
-             h3("Transaction Price for Selected Location"),
+             h3("Transaction Values for Selected Location"),
              p("Click on barchart/heatmap location to show the transaction price"),
              plotlyOutput(ns("boxplotcc"), 
                           width = "100%", 
@@ -50,6 +59,8 @@ edaCreditServer <- function(id) {
       
       output$barcc <- renderPlotly({
         bar <- df_cc %>%
+          filter(date >= input$date[1],
+                 date <= input$date[2]) %>%
           count(location) %>%
           plot_ly(x= ~n,
                   y= ~reorder(location,n),
@@ -68,6 +79,8 @@ edaCreditServer <- function(id) {
         if (is.null(d)) return(NULL)
         
         hmcc <- df_cc %>%
+          filter(date >= input$date[1],
+                 date <= input$date[2]) %>%
           filter(location %in% d$y) %>%
           count(last4ccnum, date) %>%
           mutate(date = as.factor(date)) %>%
@@ -89,6 +102,8 @@ edaCreditServer <- function(id) {
       output$hmcchour <- renderPlotly({
         
         hmhour <- df_cc %>%
+          filter(date >= input$date[1],
+                 date <= input$date[2]) %>%
           count(location, hour) %>%
           plot_ly(x= ~hour,
                   y= ~reorder(location, desc(location)),
@@ -109,6 +124,8 @@ edaCreditServer <- function(id) {
         if (is.null(d)) return(NULL)
         
         bp <- df_cc %>%
+          filter(date >= input$date[1],
+                 date <= input$date[2]) %>%
           filter(location %in% d$y) %>%
           plot_ly(y= ~price,
                   type = 'box',
