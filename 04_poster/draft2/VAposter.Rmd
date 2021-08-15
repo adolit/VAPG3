@@ -38,8 +38,15 @@ output:
 bibliography: packages.bib
 ---
 
+<style>
+p.caption {
+  font-size: 0.6em;
+}
+</style>
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
 ```
 
 # Objective
@@ -64,37 +71,42 @@ knitr::include_graphics("VAposter_files/images/hex.png")
 
 # Results
 
-```{r results_spending, fig.show="hold", out.width='50%'}
+#### Spending
 
+Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus [@R-posterdown].
 
+```{r results-spending-1, echo=FALSE, fig.align='center', fig.show='hold', out.width='100%', fig.cap='Spending EDA'}
+knitr::include_graphics("VAposter_files/images/spending_heatmap.png")
+knitr::include_graphics("VAposter_files/images/bPlot_cc.png")
 ```
 
-## Spending
+#### Geo
 
-## Geo
+Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus [@R-posterdown].
 
-## Network
 
-```{r mytable, out.width='80%'}
-knitr::kable(iris[1:10, 1:4], caption = 'Table caption.',align = 'c',"html")
+```{r results-geo-1, echo=FALSE, fig.align='center', out.width='100%', fig.cap='Paths map'}
+knitr::include_graphics("VAposter_files/images/paths_map.png")
 ```
 
-Or with figures: Figure \@ref(fig:standard-plot), or Figure \@ref(fig:morefigs).
-
-```{r standard-plot, out.width='80%', fig.align='center', fig.cap='Great figure!', fig.height=5}
-plot(mtcars[1:2])
+```{r results-geo-2, echo=FALSE, fig.align='center', fig.show='hold', out.width='100%', fig.cap='Points of Interest map'}
+poi_images <- c("VAposter_files/images/pois_map_only.png", "VAposter_files/images/pois_map_table.png")
+include_graphics(poi_images)
 ```
 
-```{r morefigs, out.width='80%', echo=TRUE, fig.cap='Amazing, right?!', fig.height=5}
-data <- iris
+#### Network
 
-plot(x = data$Sepal.Length, 
-     y = data$Sepal.Width, 
-     col = data$Species,
-     pch = 19, 
-     xlab = "Sepal Length (cm)",
-     ylab = "Sepal Width (cm)")
+Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus [@R-posterdown].
 
+
+```{r results-network-1, echo=FALSE, fig.align='center', out.width='100%', fig.cap='Paths map'}
+official_network_images <- c("VAposter_files/images/official_relationships_network.png", "VAposter_files/images/official_relationships_table.png")
+include_graphics(official_network_images)
+```
+
+```{r results-network-2, echo=FALSE, fig.align='center', fig.show='hold', out.width='50%', fig.cap='Unofficial Network'}
+unofficial_network_images <- c("VAposter_files/images/unofficial_relationships_network.png", "VAposter_files/images/unofficial_relationships_table.png")
+include_graphics(unofficial_network_images)
 ```
 
 # Future Work
