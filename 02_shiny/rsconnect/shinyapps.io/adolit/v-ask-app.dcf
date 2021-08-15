@@ -5,10 +5,10 @@ account: adolit
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4485156
-bundleId: 4915878
+bundleId: 4919152
 url: https://adolit.shinyapps.io/v-ask-app/
-when: 1628776244.35876
-lastSyncTime: 1628776244.35876
+when: 1628851379.06452
+lastSyncTime: 1628851379.06452
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: workArea
