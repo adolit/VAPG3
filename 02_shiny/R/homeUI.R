@@ -10,14 +10,13 @@ homeUI <- function(id) {
       column(width = 5,
              h4("V-ASK App is arranged using navigation bars and tab panels in 3 main sections:"),
              br(),
-             h5("1. Spending EDA – Separate tabs for exploratory data analytics for each transactional data, ‘Credit Card Data’ and ‘Loyalty Card Data’, and a tab for combined dataset."),
-             h5("2. Patterns of Life Kinematics – ‘GPS Movement’, ‘Owners Identification’, the ‘Credit card and loyalty card matching’ tab will not be available for use by real life law enforcement"),
-             h5("3. Relationship Networks – ‘Organisational chart of GASTech’ and ‘Spending habits’"),
+             h5("1. Spending EDA – Separate tabs for exploratory data analyis of ‘Credit Card Data’,‘Loyalty Card Data’, and Combined dataset."),
+             h5("2. Patterns of Life Kinematics – ‘GPS Movement’ and ‘Owners Identification’ to identify the owners which is then summarized in ‘Credit card and loyalty card matching’."),
+             h5("3. Relationship Networks – ‘Organisational chart of GASTech’ to show the official relationship of GASTech employees while ‘Spending habits’ to explore the unofficial relationships"),
              br(),
-             h4("'Insights' section is added to showcase of anomalies and suspicious activities which may be facilitate the investigation of law enforcements."),
+             h4("'Finally, Insights section is added to provide sample anomalies and suspicious activities which were uncovered using the interactive nature of the V-ASK App.
+                Users are encouraged to further explore the App and identify suspicious patterns of behavior."),
              br(),
-             # p("For more information on this project, please refer to our "),
-             # tags$a(href="https://vapg3.netlify.app/", "Group Project Website")
              HTML("<h5>For more information on this project, please refer to our <a href='https://vapg3.netlify.app/'>Group Project Website</a>!</h5>")
       ),
       

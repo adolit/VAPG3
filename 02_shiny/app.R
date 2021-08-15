@@ -72,10 +72,9 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                  
                  tabPanel("Insights",icon = icon("search-location"),
                           fluidPage(
-                              fluidRow(align = "left",
-                                       h2("Identification of Suspicious Activities")
-                              )
+                              insightsUI("insights")
                           )
+                          
                  ) #tabPanel Insights
 ) #ui
     
