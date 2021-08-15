@@ -14,6 +14,10 @@ navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "Poster"
+      href: VAposter.html
+    - text: "User Guide"
+      href: user_guide.html
     - text: "About"
       href: about.html
 base_url: https://vapg3.netlify.app
