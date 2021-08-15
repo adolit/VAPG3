@@ -164,7 +164,8 @@ poisMapServer <- function(id) {
                 options = list(pageLength = 10, autoWidth = TRUE),
                 colnames = c("Car ID", "Arrival Timestamp",
                              "Departure Timestamp", "Name",
-                             "Department", "Title")) %>%
+                             "Department", "Title"),
+                rownames = FALSE) %>%
         formatDate(columns = c(2, 3), method = 'toLocaleString', params = list(month = 'numeric',
                                                                                day = 'numeric',
                                                                                year = 'numeric',

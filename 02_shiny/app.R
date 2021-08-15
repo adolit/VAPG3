@@ -69,10 +69,6 @@ ui <- navbarPage("Visual Analytics of Spending & Kinematics (V-ASK)",
                                   
                                   tabPanel("Spending Habits",
                                            spendingNetworkUI("rn_spending")
-                                  ),
-                                  
-                                  tabPanel("Geospatial Movement",
-                                           movementNetworkUI("rn_movement")
                                   )
                               )
                           )
@@ -104,7 +100,6 @@ server <- function(input, output) {
     #Archie ----
     treeMapServer("rn_orgchart")
     spendingNetworkServer("rn_spending")
-    movementNetworkServer("rn_movement")
 }
 
 # Run the application 
