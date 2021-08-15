@@ -218,14 +218,14 @@ poisMapServer <- function(id) {
     
     output$hmcc_loc <- renderPlotly({
       hmcc <- df_cc %>%
-        count(last4ccnum, date) %>%
-        plot_ly(x= ~date,
-                y= ~last4ccnum,
+        count(last4ccnum, location) %>%
+        plot_ly(x= ~last4ccnum,
+                y= ~reorder(location, desc(location)),
                 z = ~n,
                 type = 'heatmap',
                 colors = colorRamp(c(low_color, high_color)),
-                hovertemplate = paste('Date of Transaction: %{x}<br>',
-                                      'Credit card No: %{y}<br>',
+                hovertemplate = paste('Location: %{y}<br>',
+                                      'Credit card No: %{x}<br>',
                                       'Count: %{z}',
                                       '<extra></extra>')) %>%
         layout(yaxis = list(title = "Last 4 CC Numbers"),

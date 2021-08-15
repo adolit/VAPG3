@@ -20,19 +20,19 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -52,7 +52,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
@@ -86,46 +86,50 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Visual Analytics Project Group 03: Project Poster</title>
-  
-  <meta property="description" itemprop="description" content="A step-by-step guide on how to use V-ASK."/>
-  
-  
+  <title> Visual Analytics of Spending &amp; Kinematics (V-ASK): V-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Anomalies and Suspicious Activities</title>
+
+  <meta property="description" itemprop="description" content="View the PDF version using this [link](https://github.com/adolit/VAPG3/blob/master/03_paper/VApaper.pdf)"/>
+
+
   <!--  https://schema.org/Article -->
   <meta property="article:published" itemprop="datePublished" content="2021-08-15"/>
   <meta property="article:created" itemprop="dateCreated" content="2021-08-15"/>
-  <meta name="article:author" content="Archie Quiambao Dolit"/>
-  <meta name="article:author" content="Nurulasyiqah Mohammad Taha"/>
-  <meta name="article:author" content="Kevin Magic Rialubin Sunga"/>
-  
+  <meta name="article:author" content="Archie DOLIT, Kevin SUNGA, Syiqah TAHA"/>
+
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Visual Analytics Project Group 03: Project Poster"/>
+  <meta property="og:title" content=" Visual Analytics of Spending &amp; Kinematics (V-ASK): V-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Anomalies and Suspicious Activities"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A step-by-step guide on how to use V-ASK."/>
+  <meta property="og:description" content="View the PDF version using this [link](https://github.com/adolit/VAPG3/blob/master/03_paper/VApaper.pdf)"/>
+  <meta property="og:image" content="https://vapg3.netlify.app/./img/paper/overview.png"/>
+  <meta property="og:image:width" content="3014"/>
+  <meta property="og:image:height" content="1119"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Visual Analytics Project Group 03"/>
-  
+  <meta property="og:site_name" content=" Visual Analytics of Spending &amp; Kinematics (V-ASK)"/>
+
   <!--  https://dev.twitter.com/cards/types/summary -->
-  <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Visual Analytics Project Group 03: Project Poster"/>
-  <meta property="twitter:description" content="A step-by-step guide on how to use V-ASK."/>
-  
+  <meta property="twitter:card" content="summary_large_image"/>
+  <meta property="twitter:title" content=" Visual Analytics of Spending &amp; Kinematics (V-ASK): V-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Anomalies and Suspicious Activities"/>
+  <meta property="twitter:description" content="View the PDF version using this [link](https://github.com/adolit/VAPG3/blob/master/03_paper/VApaper.pdf)"/>
+  <meta property="twitter:image" content="https://vapg3.netlify.app/./img/paper/overview.png"/>
+  <meta property="twitter:image:width" content="3014"/>
+  <meta property="twitter:image:height" content="1119"/>
+
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
-  
+
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Project Poster"]},{"type":"character","attributes":{},"value":["A step-by-step guide on how to use V-ASK.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Archie Quiambao Dolit"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Nurulasyiqah Mohammad Taha"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Kevin Magic Rialubin Sunga"]}]}]},{"type":"character","attributes":{},"value":["08-15-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["V-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Anomalies and Suspicious Activities"]},{"type":"character","attributes":{},"value":["View the PDF version using this [link](https://github.com/adolit/VAPG3/blob/master/03_paper/VApaper.pdf)\n"]},{"type":"character","attributes":{},"value":["img/paper/overview.png"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Archie DOLIT, Kevin SUNGA, Syiqah TAHA"]},{"type":"character","attributes":{},"value":["https://scis.smu.edu.sg/master-it-business"]},{"type":"character","attributes":{},"value":["School of Computing and Information Systems, Singapore Management University"]},{"type":"character","attributes":{},"value":["https://scis.smu.edu.sg/"]}]}]},{"type":"character","attributes":{},"value":["08-15-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
   <meta name="distill:offset" content=""/>
-  
+
   <script type="application/javascript">
-  
+
     window.headroom_prevent_pin = false;
-  
+
     window.document.addEventListener("DOMContentLoaded", function (event) {
-  
+
       // initialize headroom for banner
       var header = $('header').get(0);
       var headerHeight = header.offsetHeight;
@@ -142,13 +146,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       if(window.location.hash)
         headroom.unpin();
       $(header).addClass('headroom--transition');
-  
+
       // offset scroll location for banner on hash change
       // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
       window.addEventListener("hashchange", function(event) {
         window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
       });
-  
+
       // responsive menu
       $('.distill-site-header').each(function(i, val) {
         var topnav = $(this);
@@ -157,7 +161,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           topnav.toggleClass('responsive');
         });
       });
-  
+
       // nav dropdowns
       $('.nav-dropbtn').click(function(e) {
         $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
@@ -172,99 +176,99 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       });
     });
   </script>
-  
+
   <style type="text/css">
-  
+
   /* Theme (user-documented overrideables for nav appearance) */
-  
+
   .distill-site-nav {
     color: rgba(255, 255, 255, 0.8);
     background-color: #0F2E3D;
     font-size: 15px;
     font-weight: 300;
   }
-  
+
   .distill-site-nav a {
     color: inherit;
     text-decoration: none;
   }
-  
+
   .distill-site-nav a:hover {
     color: white;
   }
-  
+
   @media print {
     .distill-site-nav {
       display: none;
     }
   }
-  
+
   .distill-site-header {
-  
+
   }
-  
+
   .distill-site-footer {
-  
+
   }
-  
-  
+
+
   /* Site Header */
-  
+
   .distill-site-header {
     width: 100%;
     box-sizing: border-box;
     z-index: 3;
   }
-  
+
   .distill-site-header .nav-left {
     display: inline-block;
     margin-left: 8px;
   }
-  
+
   @media screen and (max-width: 768px) {
     .distill-site-header .nav-left {
       margin-left: 0;
     }
   }
-  
-  
+
+
   .distill-site-header .nav-right {
     float: right;
     margin-right: 8px;
   }
-  
+
   .distill-site-header a,
   .distill-site-header .title {
     display: inline-block;
     text-align: center;
     padding: 14px 10px 14px 10px;
   }
-  
+
   .distill-site-header .title {
     font-size: 18px;
     min-width: 150px;
   }
-  
+
   .distill-site-header .logo {
     padding: 0;
   }
-  
+
   .distill-site-header .logo img {
     display: none;
     max-height: 20px;
     width: auto;
     margin-bottom: -4px;
   }
-  
+
   .distill-site-header .nav-image img {
     max-height: 18px;
     width: auto;
     display: inline-block;
     margin-bottom: -3px;
   }
-  
-  
-  
+
+
+
   @media screen and (min-width: 1000px) {
     .distill-site-header .logo img {
       display: inline-block;
@@ -279,17 +283,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       padding-left: 12px;
     }
   }
-  
-  
+
+
   .distill-site-header .nav-toggle {
     display: none;
   }
-  
+
   .nav-dropdown {
     display: inline-block;
     position: relative;
   }
-  
+
   .nav-dropdown .nav-dropbtn {
     border: none;
     outline: none;
@@ -303,7 +307,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 1px;
     z-index: 2;
   }
-  
+
   .nav-dropdown-content {
     display: none;
     position: absolute;
@@ -318,18 +322,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-top: 4px;
     padding-bottom: 4px;
   }
-  
+
   .nav-dropdown-content hr {
     margin-top: 4px;
     margin-bottom: 4px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .nav-dropdown-active {
     display: block;
   }
-  
+
   .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
     color: black;
     padding: 6px 24px;
@@ -337,7 +341,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     display: block;
     text-align: left;
   }
-  
+
   .nav-dropdown-content .nav-dropdown-header {
     display: block;
     padding: 5px 24px;
@@ -347,21 +351,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: #999999;
     white-space: nowrap;
   }
-  
+
   .nav-dropdown:hover .nav-dropbtn {
     color: white;
   }
-  
+
   .nav-dropdown-content a:hover {
     background-color: #ddd;
     color: black;
   }
-  
+
   .nav-right .nav-dropdown-content {
     margin-left: -45%;
     right: 0;
   }
-  
+
   @media screen and (max-width: 768px) {
     .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
     .distill-site-header a.nav-toggle {
@@ -381,8 +385,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       margin-left: 0;
     }
   }
-  
-  
+
+
   @media screen and (max-width: 768px) {
     .distill-site-header.responsive {position: relative; min-height: 500px; }
     .distill-site-header.responsive a.nav-toggle {
@@ -407,9 +411,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       text-align: left;
     }
   }
-  
+
   /* Site Footer */
-  
+
   .distill-site-footer {
     width: 100%;
     overflow: hidden;
@@ -420,19 +424,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-bottom: 30px;
     text-align: center;
   }
-  
+
   /* Headroom */
-  
+
   d-title {
     padding-top: 6rem;
   }
-  
+
   @media print {
     d-title {
       padding-top: 4rem;
     }
   }
-  
+
   .headroom {
     z-index: 1000;
     position: fixed;
@@ -440,36 +444,36 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     left: 0;
     right: 0;
   }
-  
+
   .headroom--transition {
     transition: all .4s ease-in-out;
   }
-  
+
   .headroom--unpinned {
     top: -100px;
   }
-  
+
   .headroom--pinned {
     top: 0;
   }
-  
+
   /* adjust viewport for navbar height */
   /* helps vertically center bootstrap (non-distill) content */
   .min-vh-100 {
     min-height: calc(100vh - 100px) !important;
   }
-  
+
   </style>
-  
+
   <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
   <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
   <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
-  
+
   <script type="application/javascript">
-  
+
   function getMeta(metaName) {
     var metas = document.getElementsByTagName('meta');
     for (let i = 0; i < metas.length; i++) {
@@ -479,14 +483,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     }
     return '';
   }
-  
+
   function offsetURL(url) {
     var offset = getMeta('distill:offset');
     return offset ? offset + '/' + url : url;
   }
-  
+
   function createFuseIndex() {
-  
+
     // create fuse index
     var options = {
       keys: [
@@ -499,7 +503,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       threshold: 0
     };
     var fuse = new window.Fuse([], options);
-  
+
     // fetch the main search.json
     return fetch(offsetURL('search.json'))
       .then(function(response) {
@@ -529,7 +533,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
               return fuse;
             });
           });
-  
+
         } else {
           return Promise.reject(
             new Error('Unexpected status from search index request: ' +
@@ -538,20 +542,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
         }
       });
   }
-  
+
   window.document.addEventListener("DOMContentLoaded", function (event) {
-  
+
     // get search element (bail if we don't have one)
     var searchEl = window.document.getElementById('distill-search');
     if (!searchEl)
       return;
-  
+
     createFuseIndex()
       .then(function(fuse) {
-  
+
         // make search box visible
         searchEl.classList.remove('hidden');
-  
+
         // initialize autocomplete
         var options = {
           autoselect: true,
@@ -600,19 +604,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       .catch(function(error) {
         console.log(error);
       });
-  
+
   });
-  
+
   </script>
-  
+
   <style type="text/css">
-  
+
   .nav-search {
     font-size: x-small;
   }
-  
+
   /* Algolioa Autocomplete */
-  
+
   .algolia-autocomplete {
     display: inline-block;
     margin-left: 10px;
@@ -626,8 +630,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border: 1px #0F2E3D solid;
     width: 180px;
   }
-  
-  
+
+
   @media screen and (max-width: 768px) {
     .distill-site-nav .algolia-autocomplete {
       display: none;
@@ -643,13 +647,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       max-height: 400px;
     }
   }
-  
+
   .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
     width: 90%;
     outline: none;
     border: none;
   }
-  
+
   .algolia-autocomplete .aa-hint {
     color: #999;
   }
@@ -666,30 +670,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border: 1px solid #999;
     border-top: none;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
     cursor: pointer;
     padding: 5px 4px;
     border-bottom: 1px solid #eee;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
     border-bottom: none;
     margin-bottom: 2px;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
     overflow: hidden;
     font-size: 0.8em;
     line-height: 1.4em;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
     font-size: 1rem;
     margin-block-start: 0;
     margin-block-end: 5px;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
     display: inline-block;
     overflow: hidden;
@@ -697,22 +701,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     width: 80%;
     margin-right: 4%;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
     display: inline-block;
     width: 15%;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
     height: 3em;
     width: auto;
     display: none;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
     display: initial;
   }
-  
+
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
     background-color: #eee;
   }
@@ -720,47 +724,47 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     font-weight: bold;
     font-style: normal;
   }
-  
+
   </style>
-  
-  
+
+
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
-  
+
   <style type="text/css">
-  
+
   body {
     background-color: white;
   }
-  
+
   .pandoc-table {
     width: 100%;
   }
-  
+
   .pandoc-table>caption {
     margin-bottom: 10px;
   }
-  
+
   .pandoc-table th:not([align]) {
     text-align: left;
   }
-  
+
   .pagedtable-footer {
     font-size: 15px;
   }
-  
+
   d-byline .byline {
     grid-template-columns: 2fr 2fr;
   }
-  
+
   d-byline .byline h3 {
     margin-block-start: 1.5em;
   }
-  
+
   d-byline .byline .authors-affiliations h3 {
     margin-block-start: 0.5em;
   }
-  
+
   .authors-affiliations .orcid-id {
     width: 16px;
     height:16px;
@@ -769,12 +773,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     vertical-align: middle;
     padding-bottom: 2px;
   }
-  
+
   d-title .dt-tags {
     margin-top: 1em;
     grid-column: text;
   }
-  
+
   .dt-tags .dt-tag {
     text-decoration: none;
     display: inline-block;
@@ -788,24 +792,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-transform: uppercase;
     font-weight: 500;
   }
-  
+
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
   }
-  
+
   .html-widget {
     margin-bottom: 2.0em;
   }
-  
+
   .l-screen-inset {
     padding-right: 16px;
   }
-  
+
   .l-screen .caption {
     margin-left: 10px;
   }
-  
+
   .shaded {
     background: rgb(247, 247, 247);
     padding-top: 20px;
@@ -813,75 +817,75 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .shaded .html-widget {
     margin-bottom: 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .shaded .shaded-content {
     background: white;
   }
-  
+
   .text-output {
     margin-top: 0;
     line-height: 1.5em;
   }
-  
+
   .hidden {
     display: none !important;
   }
-  
+
   d-article {
     padding-top: 2.5rem;
     padding-bottom: 30px;
   }
-  
+
   d-appendix {
     padding-top: 30px;
   }
-  
+
   d-article>p>img {
     width: 100%;
   }
-  
+
   d-article h2 {
     margin: 1rem 0 1.5rem 0;
   }
-  
+
   d-article h3 {
     margin-top: 1.5rem;
   }
-  
+
   d-article iframe {
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 2.0em;
     width: 100%;
   }
-  
+
   /* Tweak code blocks */
-  
+
   d-article div.sourceCode code,
   d-article pre code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
-  
+
   d-article pre,
   d-article div.sourceCode,
   d-article div.sourceCode pre {
     overflow: auto;
   }
-  
+
   d-article div.sourceCode {
     background-color: white;
   }
-  
+
   d-article div.sourceCode pre {
     padding-left: 10px;
     font-size: 12px;
     border-left: 2px solid rgba(0,0,0,0.1);
   }
-  
+
   d-article pre {
     font-size: 12px;
     color: black;
@@ -893,50 +897,50 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     word-break: normal;
     word-wrap: normal;
     line-height: 1.5;
-  
+
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-  
+
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
   }
-  
+
   d-article pre a {
     border-bottom: none;
   }
-  
+
   d-article pre a:hover {
     border-bottom: none;
     text-decoration: underline;
   }
-  
+
   d-article details {
     grid-column: text;
     margin-bottom: 0.8em;
   }
-  
+
   @media(min-width: 768px) {
-  
+
   d-article pre,
   d-article div.sourceCode,
   d-article div.sourceCode pre {
     overflow: visible !important;
   }
-  
+
   d-article div.sourceCode pre {
     padding-left: 18px;
     font-size: 14px;
   }
-  
+
   d-article pre {
     font-size: 14px;
   }
-  
+
   }
-  
+
   figure img.external {
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -944,9 +948,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding: 18px;
     box-sizing: border-box;
   }
-  
+
   /* CSS for d-contents */
-  
+
   .d-contents {
     grid-column: text;
     color: rgba(0,0,0,0.8);
@@ -958,7 +962,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-left: 0.25em;
     justify-self: start;
   }
-  
+
   @media(min-width: 1000px) {
     .d-contents.d-contents-float {
       height: 0;
@@ -969,82 +973,82 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       padding-left: 2em;
     }
   }
-  
+
   .d-contents nav h3 {
     font-size: 18px;
     margin-top: 0;
     margin-bottom: 1em;
   }
-  
+
   .d-contents li {
     list-style-type: none
   }
-  
+
   .d-contents nav > ul {
     padding-left: 0;
   }
-  
+
   .d-contents ul {
     padding-left: 1em
   }
-  
+
   .d-contents nav ul li {
     margin-top: 0.6em;
     margin-bottom: 0.2em;
   }
-  
+
   .d-contents nav a {
     font-size: 13px;
     border-bottom: none;
     text-decoration: none
     color: rgba(0, 0, 0, 0.8);
   }
-  
+
   .d-contents nav a:hover {
     text-decoration: underline solid rgba(0, 0, 0, 0.6)
   }
-  
+
   .d-contents nav > ul > li > a {
     font-weight: 600;
   }
-  
+
   .d-contents nav > ul > li > ul {
     font-weight: inherit;
   }
-  
+
   .d-contents nav > ul > li > ul > li {
     margin-top: 0.2em;
   }
-  
-  
+
+
   .d-contents nav ul {
     margin-top: 0;
     margin-bottom: 0.25em;
   }
-  
+
   .d-article-with-toc h2:nth-child(2) {
     margin-top: 0;
   }
-  
-  
+
+
   /* Figure */
-  
+
   .figure {
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
   }
-  
+
   .figure img {
     width: 100%;
   }
-  
+
   .figure .caption {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
     line-height: 1.5em;
   }
-  
+
   .figure img.external {
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1052,42 +1056,42 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding: 18px;
     box-sizing: border-box;
   }
-  
+
   .figure .caption a {
     color: rgba(0, 0, 0, 0.6);
   }
-  
+
   .figure .caption b,
   .figure .caption strong, {
     font-weight: 600;
     color: rgba(0, 0, 0, 1.0);
   }
-  
+
   /* Citations */
-  
+
   d-article .citation {
     color: inherit;
     cursor: inherit;
   }
-  
+
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
   }
-  
+
   /* Citation hover box */
-  
+
   .tippy-box[data-theme~=light-border] {
     background-color: rgba(250, 250, 250, 0.95);
   }
-  
+
   .tippy-content > p {
     margin-bottom: 0;
     padding: 2px;
   }
-  
-  
+
+
   /* Tweak 1000px media break to show more text */
-  
+
   @media(min-width: 1000px) {
     .base-grid,
     distill-header,
@@ -1103,11 +1107,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
       grid-column-gap: 16px;
     }
-  
+
     .grid {
       grid-column-gap: 16px;
     }
-  
+
     d-article {
       font-size: 1.06rem;
       line-height: 1.7em;
@@ -1116,7 +1120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       font-size: 13px;
     }
   }
-  
+
   @media(min-width: 1180px) {
     .base-grid,
     distill-header,
@@ -1132,16 +1136,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
       grid-column-gap: 32px;
     }
-  
+
     .grid {
       grid-column-gap: 32px;
     }
   }
-  
-  
+
+
   /* Get the citation styles for the appendix (not auto-injected on render since
      we do our own rendering of the citation appendix) */
-  
+
   d-appendix .citation-appendix,
   .d-appendix .citation-appendix {
     font-size: 11px;
@@ -1158,9 +1162,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     white-space: pre-wrap;
     word-wrap: break-word;
   }
-  
+
   /* Include appendix styles here so they can be overridden */
-  
+
   d-appendix {
     contain: layout style;
     font-size: 0.8em;
@@ -1172,7 +1176,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-top: 60px;
     padding-bottom: 48px;
   }
-  
+
   d-appendix h3 {
     grid-column: page-start / text-start;
     font-size: 15px;
@@ -1181,59 +1185,59 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-bottom: 0;
     color: rgba(0,0,0,0.65);
   }
-  
+
   d-appendix h3 + * {
     margin-top: 1em;
   }
-  
+
   d-appendix ol {
     padding: 0 0 0 15px;
   }
-  
+
   @media (min-width: 768px) {
     d-appendix ol {
       padding: 0 0 0 30px;
       margin-left: -30px;
     }
   }
-  
+
   d-appendix li {
     margin-bottom: 1em;
   }
-  
+
   d-appendix a {
     color: rgba(0, 0, 0, 0.6);
   }
-  
+
   d-appendix > * {
     grid-column: text;
   }
-  
+
   d-appendix > d-footnote-list,
   d-appendix > d-citation-list,
   d-appendix > distill-appendix {
     grid-column: screen;
   }
-  
+
   /* Include footnote styles here so they can be overridden */
-  
+
   d-footnote-list {
     contain: layout style;
   }
-  
+
   d-footnote-list > * {
     grid-column: text;
   }
-  
+
   d-footnote-list a.footnote-backlink {
     color: rgba(0,0,0,0.3);
     padding-left: 0.5em;
   }
-  
-  
-  
+
+
+
   /* Anchor.js */
-  
+
   .anchorjs-link {
     /*transition: all .25s linear; */
     text-decoration: none;
@@ -1244,86 +1248,86 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-decoration: none;
     border-bottom: none;
   }
-  
+
   /* Social footer */
-  
+
   .social_footer {
     margin-top: 30px;
     margin-bottom: 0;
     color: rgba(0,0,0,0.67);
   }
-  
+
   .disqus-comments {
     margin-right: 30px;
   }
-  
+
   .disqus-comment-count {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
-  
+
   #disqus_thread {
     margin-top: 30px;
   }
-  
+
   .article-sharing a {
     border-bottom: none;
     margin-right: 8px;
   }
-  
+
   .article-sharing a:hover {
     border-bottom: none;
   }
-  
+
   .sidebar-section.subscribe {
     font-size: 12px;
     line-height: 1.6em;
   }
-  
+
   .subscribe p {
     margin-bottom: 0.5em;
   }
-  
-  
+
+
   .article-footer .subscribe {
     font-size: 15px;
     margin-top: 45px;
   }
-  
-  
+
+
   .sidebar-section.custom {
     font-size: 12px;
     line-height: 1.6em;
   }
-  
+
   .custom p {
     margin-bottom: 0.5em;
   }
-  
+
   /* Styles for listing layout (hide title) */
   .layout-listing d-title, .layout-listing .d-title {
     display: none;
   }
-  
+
   /* Styles for posts lists (not auto-injected) */
-  
-  
+
+
   .posts-with-sidebar {
     padding-left: 45px;
     padding-right: 45px;
   }
-  
+
   .posts-list .description h2,
   .posts-list .description p {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   }
-  
+
   .posts-list .description h2 {
     font-weight: 700;
     border-bottom: none;
     padding-bottom: 0;
   }
-  
+
   .posts-list h2.post-tag {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 12px;
@@ -1332,7 +1336,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     margin-top: 60px;
     margin-bottom: 24px;
   }
-  
+
   .posts-list .post-preview {
     text-decoration: none;
     overflow: hidden;
@@ -1340,29 +1344,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 24px 0;
   }
-  
+
   .post-preview-last {
     border-bottom: none !important;
   }
-  
+
   .posts-list .posts-list-caption {
     grid-column: screen;
     font-weight: 400;
   }
-  
+
   .posts-list .post-preview h2 {
     margin: 0 0 6px 0;
     line-height: 1.2em;
     font-style: normal;
     font-size: 24px;
   }
-  
+
   .posts-list .post-preview p {
     margin: 0 0 12px 0;
     line-height: 1.4em;
     font-size: 16px;
   }
-  
+
   .posts-list .post-preview .thumbnail {
     box-sizing: border-box;
     margin-bottom: 24px;
@@ -1373,32 +1377,32 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     width: 100%;
     display: block;
   }
-  
+
   .posts-list .metadata {
     font-size: 12px;
     line-height: 1.4em;
     margin-bottom: 18px;
   }
-  
+
   .posts-list .metadata > * {
     display: inline-block;
   }
-  
+
   .posts-list .metadata .publishedDate {
     margin-right: 2em;
   }
-  
+
   .posts-list .metadata .dt-authors {
     display: block;
     margin-top: 0.3em;
     margin-right: 2em;
   }
-  
+
   .posts-list .dt-tags {
     display: block;
     line-height: 1em;
   }
-  
+
   .posts-list .dt-tags .dt-tag {
     display: inline-block;
     color: rgba(0,0,0,0.6);
@@ -1411,24 +1415,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-transform: uppercase;
     font-weight: 500;
   }
-  
+
   .posts-list img {
     opacity: 1;
   }
-  
+
   .posts-list img[data-src] {
     opacity: 0;
   }
-  
+
   .posts-more {
     clear: both;
   }
-  
-  
+
+
   .posts-sidebar {
     font-size: 16px;
   }
-  
+
   .posts-sidebar h3 {
     font-size: 16px;
     margin-top: 0;
@@ -1436,39 +1440,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     font-weight: 400;
     text-transform: uppercase;
   }
-  
+
   .sidebar-section {
     margin-bottom: 30px;
   }
-  
+
   .categories ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
-  
+
   .categories li {
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 0;
   }
-  
+
   .categories li>a {
     border-bottom: none;
   }
-  
+
   .categories li>a:hover {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   }
-  
+
   .categories .active {
     font-weight: 600;
   }
-  
+
   .categories .category-count {
     color: rgba(0, 0, 0, 0.4);
   }
-  
-  
+
+
   @media(min-width: 768px) {
     .posts-list .post-preview h2 {
       font-size: 26px;
@@ -1504,55 +1508,55 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       padding-bottom: 24px;
     }
   }
-  
-  
+
+
   /* Improve display for browsers without grid (IE/Edge <= 15) */
-  
+
   .downlevel {
     line-height: 1.6em;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
     margin: 0;
   }
-  
+
   .downlevel .d-title {
     padding-top: 6rem;
     padding-bottom: 1.5rem;
   }
-  
+
   .downlevel .d-title h1 {
     font-size: 50px;
     font-weight: 700;
     line-height: 1.1em;
     margin: 0 0 0.5rem;
   }
-  
+
   .downlevel .d-title p {
     font-weight: 300;
     font-size: 1.2rem;
     line-height: 1.55em;
     margin-top: 0;
   }
-  
+
   .downlevel .d-byline {
     padding-top: 0.8em;
     padding-bottom: 0.8em;
     font-size: 0.8rem;
     line-height: 1.8em;
   }
-  
+
   .downlevel .section-separator {
     border: none;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
-  
+
   .downlevel .d-article {
     font-size: 1.06rem;
     line-height: 1.7em;
     padding-top: 1rem;
     padding-bottom: 2rem;
   }
-  
-  
+
+
   .downlevel .d-appendix {
     padding-left: 0;
     padding-right: 0;
@@ -1564,11 +1568,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-top: 40px;
     padding-bottom: 48px;
   }
-  
+
   .downlevel .footnotes ol {
     padding-left: 13px;
   }
-  
+
   .downlevel .base-grid,
   .downlevel .distill-header,
   .downlevel .d-title,
@@ -1585,7 +1589,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     padding-left: 40px;
     padding-right: 40px;
   }
-  
+
   @media(min-width: 768px) {
     .downlevel .base-grid,
     .downlevel .distill-header,
@@ -1605,14 +1609,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     max-width: 900px;
   }
   }
-  
+
   .downlevel pre code {
     display: block;
     border-left: 2px solid rgba(0, 0, 0, .1);
     padding: 0 0 0 20px;
     font-size: 14px;
   }
-  
+
   .downlevel code, .downlevel pre {
     color: black;
     background: none;
@@ -1623,27 +1627,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     word-break: normal;
     word-wrap: normal;
     line-height: 1.5;
-  
+
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-  
+
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
   }
-  
+
   .downlevel .posts-list .post-preview {
     color: inherit;
   }
-  
-  
-  
+
+
+
   </style>
-  
+
   <script type="application/javascript">
-  
+
   function is_downlevel_browser() {
     if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
                                    window.navigator.userAgent)) {
@@ -1652,20 +1656,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       return window.load_distill_framework === undefined;
     }
   }
-  
+
   // show body when load is complete
   function on_load_complete() {
-  
+
     // add anchors
     if (window.anchors) {
       window.anchors.options.placement = 'left';
       window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
     }
-  
-  
+
+
     // set body to visible
     document.body.style.visibility = 'visible';
-  
+
     // force redraw for leaflet widgets
     if (window.HTMLWidgets) {
       var maps = window.HTMLWidgets.findAll(".leaflet");
@@ -1678,39 +1682,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
         });
       });
     }
-  
+
     // trigger 'shown' so htmlwidgets resize
     $('d-article').trigger('shown');
   }
-  
+
   function init_distill() {
-  
+
     init_common();
-  
+
     // create front matter
     var front_matter = $('<d-front-matter></d-front-matter>');
     $('#distill-front-matter').wrap(front_matter);
-  
+
     // create d-title
     $('.d-title').changeElementType('d-title');
-  
+
     // create d-byline
     var byline = $('<d-byline></d-byline>');
     $('.d-byline').replaceWith(byline);
-  
+
     // create d-article
     var article = $('<d-article></d-article>');
     $('.d-article').wrap(article).children().unwrap();
-  
+
     // move posts container into article
     $('.posts-container').appendTo($('d-article'));
-  
+
     // create d-appendix
     $('.d-appendix').changeElementType('d-appendix');
-  
+
     // flag indicating that we have appendix items
     var appendix = $('.appendix-bottom').children('h3').length > 0;
-  
+
     // replace footnotes with <d-footnote>
     $('.footnote-ref').each(function(i, val) {
       appendix = true;
@@ -1726,10 +1730,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     });
     // remove footnotes
     $('.footnotes').remove();
-  
+
     // move refs into #references-listing
     $('#references-listing').replaceWith($('#refs'));
-  
+
     $('h1.appendix, h2.appendix').each(function(i, val) {
       $(this).changeElementType('h3');
     });
@@ -1739,16 +1743,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       appendix = true;
       $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
     });
-  
+
     // show d-appendix if we have appendix content
     $("d-appendix").css('display', appendix ? 'grid' : 'none');
-  
+
     // localize layout chunks to just output
     $('.layout-chunk').each(function(i, val) {
-  
+
       // capture layout
       var layout = $(this).attr('data-layout');
-  
+
       // apply layout to markdown level block elements
       var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
@@ -1761,40 +1765,40 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           $(this).wrap(layout_div);
         }
       });
-  
-  
+
+
       // unwrap the layout-chunk div
       $(this).children().unwrap();
     });
-  
+
     // remove code block used to force  highlighting css
     $('.distill-force-highlighting-css').parent().remove();
-  
+
     // remove empty line numbers inserted by pandoc when using a
     // custom syntax highlighting theme
     $('code.sourceCode a:empty').remove();
-  
+
     // load distill framework
     load_distill_framework();
-  
+
     // wait for window.distillRunlevel == 4 to do post processing
     function distill_post_process() {
-  
+
       if (!window.distillRunlevel || window.distillRunlevel < 4)
         return;
-  
+
       // hide author/affiliations entirely if we have no authors
       var front_matter = JSON.parse($("#distill-front-matter").html());
       var have_authors = front_matter.authors && front_matter.authors.length > 0;
       if (!have_authors)
         $('d-byline').addClass('hidden');
-  
+
       // article with toc class
       $('.d-contents').parent().addClass('d-article-with-toc');
-  
+
       // strip links that point to #
       $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
-  
+
       // add orcid ids
       $('.authors-affiliations').find('.author').each(function(i, el) {
         var orcid_id = front_matter.authors[i].orcidID;
@@ -1809,12 +1813,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           $(this).append(a);
         }
       });
-  
+
       // hide elements of author/affiliations grid that have no value
       function hide_byline_column(caption) {
         $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
       }
-  
+
       // affiliations
       var have_affiliations = false;
       for (var i = 0; i<front_matter.authors.length; ++i) {
@@ -1826,11 +1830,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       }
       if (!have_affiliations)
         $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
-  
+
       // published date
       if (!front_matter.publishedDate)
         hide_byline_column("Published");
-  
+
       // document object identifier
       var doi = $('d-byline').find('h3:contains("DOI")');
       var doi_p = doi.next().empty();
@@ -1850,22 +1854,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
            .html(front_matter.doi)
            .appendTo(doi_p);
       }
-  
+
        // change plural form of authors/affiliations
       if (front_matter.authors.length === 1) {
         var grid = $('.authors-affiliations');
         grid.children('h3:contains("Authors")').text('Author');
         grid.children('h3:contains("Affiliations")').text('Affiliation');
       }
-  
+
       // remove d-appendix and d-footnote-list local styles
       $('d-appendix > style:first-child').remove();
       $('d-footnote-list > style:first-child').remove();
-  
+
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
-  
+
       // hoverable references
       $('span.citation[data-cites]').each(function() {
         var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
@@ -1879,39 +1883,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
-  
+
       // clear polling timer
       clearInterval(tid);
-  
+
       // show body now that everything is ready
       on_load_complete();
     }
-  
+
     var tid = setInterval(distill_post_process, 50);
     distill_post_process();
-  
+
   }
-  
+
   function init_downlevel() {
-  
+
     init_common();
-  
+
      // insert hr after d-title
     $('.d-title').after($('<hr class="section-separator"/>'));
-  
+
     // check if we have authors
     var front_matter = JSON.parse($("#distill-front-matter").html());
     var have_authors = front_matter.authors && front_matter.authors.length > 0;
-  
+
     // manage byline/border
     if (!have_authors)
       $('.d-byline').remove();
     $('.d-byline').after($('<hr class="section-separator"/>'));
     $('.d-byline a').remove();
-  
+
     // remove toc
     $('.d-contents').remove();
-  
+
     // move appendix elements
     $('h1.appendix, h2.appendix').each(function(i, val) {
       $(this).changeElementType('h3');
@@ -1919,62 +1923,62 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     $('h3.appendix').each(function(i, val) {
       $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
     });
-  
-  
+
+
     // inject headers into references and footnotes
     var refs_header = $('<h3></h3>');
     refs_header.text('References');
     $('#refs').prepend(refs_header);
-  
+
     var footnotes_header = $('<h3></h3');
     footnotes_header.text('Footnotes');
     $('.footnotes').children('hr').first().replaceWith(footnotes_header);
-  
+
     // move appendix-bottom entries to the bottom
     $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
     $('.appendix-bottom').remove();
-  
+
     // remove appendix if it's empty
     if ($('.d-appendix').children().length === 0)
       $('.d-appendix').remove();
-  
+
     // prepend separator above appendix
     $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
-  
+
     // trim code
     $('pre>code').each(function(i, val) {
       $(this).html($.trim($(this).html()));
     });
-  
+
     // move posts-container right before article
     $('.posts-container').insertBefore($('.d-article'));
-  
+
     $('body').addClass('downlevel');
-  
+
     on_load_complete();
   }
-  
-  
+
+
   function init_common() {
-  
+
     // jquery plugin to change element types
     (function($) {
       $.fn.changeElementType = function(newType) {
         var attrs = {};
-  
+
         $.each(this[0].attributes, function(idx, attr) {
           attrs[attr.nodeName] = attr.nodeValue;
         });
-  
+
         this.replaceWith(function() {
           return $("<" + newType + "/>", attrs).append($(this).contents());
         });
       };
     })(jQuery);
-  
+
     // prevent underline for linked images
     $('a > img').parent().css({'border-bottom' : 'none'});
-  
+
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
@@ -1986,35 +1990,35 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           var fig = $(this);
           fig.css('width', fig.attr('width') + 'px');
         });
-  
+
       }
     });
-  
+
     // auto-append index.html to post-preview links in file: protocol
     // and in rstudio ide preview
     $('.post-preview').each(function(i, val) {
       if (window.location.protocol === "file:")
         $(this).attr('href', $(this).attr('href') + "index.html");
     });
-  
+
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
         $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
       });
     }
-  
+
     // add class to pandoc style tables
     $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
     $('.kable-table').children('table').addClass('pandoc-table');
-  
+
     // add figcaption style to table captions
     $('caption').parent('table').addClass("figcaption");
-  
+
     // initialize posts list
     if (window.init_posts_list)
       window.init_posts_list();
-  
+
     // implmement disqus comment link
     $('.disqus-comment-count').click(function() {
       window.headroom_prevent_pin = true;
@@ -2028,17 +2032,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       }
     });
   }
-  
+
   document.addEventListener('DOMContentLoaded', function() {
     if (is_downlevel_browser())
       init_downlevel();
     else
       window.addEventListener('WebComponentsReady', init_distill);
   });
-  
+
   </script>
-  
+
   <!--/radix_placeholder_distill-->
+  <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2058,7 +2063,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Project Poster","description":"A step-by-step guide on how to use V-ASK.","authors":[{"author":"Archie Quiambao Dolit","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Nurulasyiqah Mohammad Taha","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Kevin Magic Rialubin Sunga","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-15T00:00:00.000+08:00","citationText":"Dolit, et al., 2021"}
+{"title":"V-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Anomalies and Suspicious Activities","description":"View the PDF version using this [link](https://github.com/adolit/VAPG3/blob/master/03_paper/VApaper.pdf)","authors":[{"author":"Archie DOLIT, Kevin SUNGA, Syiqah TAHA","authorURL":"https://scis.smu.edu.sg/master-it-business","affiliation":"School of Computing and Information Systems, Singapore Management University","affiliationURL":"https://scis.smu.edu.sg/","orcidID":""}],"publishedDate":"2021-08-15T00:00:00.000+08:00","citationText":"TAHA, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2069,14 +2074,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <a class="logo" href="https://scis.smu.edu.sg/master-it-business">
 <img src="img/smu_logo_black.png" alt="Logo"/>
 </a>
-<a href="index.html" class="title">Visual Analytics Project Group 03</a>
+<a href="index.html" class="title"> Visual Analytics of Spending &amp; Kinematics (V-ASK)</a>
+<a href="user_guide.html">User Guide</a>
+<a href="https://adolit.shinyapps.io/v-ask/">R Shiny App</a>
+<a href="VAposter.html">Poster</a>
 <a href="proposal.html">Project Proposal</a>
+<a href="paper.html">Research Paper</a>
 </div>
 <div class="nav-right">
 <a href="index.html">Home</a>
-<a href="poster.html">Poster</a>
-<a href="user_guide.html">User Guide</a>
 <a href="about.html">About</a>
+<a href="https://isss608.netlify.app/r">R Resources</a>
 <a href="https://github.com/adolit/VAPG3" aria-label="Link to source">
 <i class="fab fa-github" aria-hidden="true"></i>
 </a>
@@ -2089,26 +2097,134 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Project Poster</h1>
+<h1>V-ASK: A Visual Analytics of Spending and Kinematics Application to Explore and Identify Anomalies and Suspicious Activities</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>A step-by-step guide on how to use V-ASK.</p></p>
+<p><p>View the PDF version using this <a href="https://github.com/adolit/VAPG3/blob/master/03_paper/VApaper.pdf">link</a></p></p>
 </div>
 
 <div class="d-byline">
-  Archie Quiambao Dolit  
-  
-,   Nurulasyiqah Mohammad Taha  
-  
-,   Kevin Magic Rialubin Sunga  
+  Archie DOLIT, Kevin SUNGA, Syiqah TAHA <a href="https://scis.smu.edu.sg/master-it-business" class="uri">https://scis.smu.edu.sg/master-it-business</a> (School of Computing and Information Systems, Singapore Management University)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
   
 <br/>08-15-2021
 </div>
 
 <div class="d-article">
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="img/poster/VAposter.png" width="100%" style="display: block; margin: auto;" /></p>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#motivation-and-objectives">2. Motivation and Objectives</a></li>
+<li><a href="#review-of-past-works-and-r-packages">3. Review of past works and R packages</a></li>
+<li><a href="#user-interface-design">4. User interface design</a>
+<ul>
+<li><a href="#spending-eda-module">4.1 ‘Spending EDA’ module</a></li>
+<li><a href="#patterns-of-life-kinematics-module">4.2 ‘Patterns of Life Kinematics’ module</a></li>
+<li><a href="#relationship-networks-module">4.3 ‘Relationship Networks’ module</a></li>
+</ul></li>
+<li><a href="#key-insights">5. Key insights</a>
+<ul>
+<li><a href="#spending-eda">5.1 ‘Spending EDA’</a></li>
+<li><a href="#patterns-of-life-kinematics">5.2 ‘Patterns of Life Kinematics’</a></li>
+<li><a href="#relationship-networks">5.3 ‘Relationship Networks’</a></li>
+<li><a href="#suspects">5.4 Suspects</a></li>
+</ul></li>
+<li><a href="#conclusion">6. Conclusion</a></li>
+</ul>
+</nav>
 </div>
+<h1 id="abstract">Abstract</h1>
+<p>Based on our review of past work to analyse transaction data and movement data to surface anomalies and suspicious activities, we found a severe lack of user interactivity in data exploration and analysis. Furthermore, the prevalent use of proprietary software for visual analytics made reproducibility by the public challenging. Our research aims to develop a user-friendly visual analytical tool, V-ASK App, to (a) explore transactional data, (b) understand movement data, (c) identify owners of financial cards, (d) discern informal relationships, and (e) identify anomalies and suspicious activities. We deployed V-ASK to the R Shinyapps.io platform so that analytical tasks can be performed by toggling various widgets without requiring any coding or programming knowledge.</p>
+<h1 id="introduction">1. Introduction</h1>
+<p>VAST Challenge 2021 – The Kronos Incident (Mini-Challenge 2) presents a mystery on the fictional island country of Kronos where several employees of GASTech, a Tethys gas multinational, went missing between 20 and 21 Jan 2014. Law enforcement has sought assistance with their investigation into the disappearance. GASTech had provided the following data that covered two weeks prior to its employees’ disappearance: (a) GASTech employee’s credit card transactions and Kronos Kares loyalty card data, and (b) movement and tracking data from GASTech’s company vehicles which have GPS tracking.</p>
+<p>In the real world, we can reasonably expect law enforcement’s investigations into crime and suspicious activities to involve, at the very least, an analysis of transactional and movement data. Therefore, we endeavoured to use visual analytical techniques to surface anomalies and suspicious activities from the fictional GASTech datasets by building a web-enabled analytical tool, the “Visual Analytics of Spending and Kinematics (V-ASK)” application. Ultimately, this tool could be used by real world law enforcement if their investigation involves transactional and movement data, and interactions between both datasets.</p>
+<p>This paper reports on our work designing, building and deploying a web-enabled client-based analytical tool to support law enforcement’s exploration and analysis of both transactional data and movement data, within six sections. Section 1 provides the background and general introduction of this paper, while section 2 shares the motivation and objective of our work. Section 3 reviews past work and highlights our sources of inspiration, e.g. “Points of Interest” concept, as well as summarises the R packages used to building our interactive application. Section 4 details our user interface design process and section 5 highlights key insights drawn from using our application. Finally, section 6 concludes with possible future work to build on the present work.</p>
+<h1 id="motivation-and-objectives">2. Motivation and Objectives</h1>
+<p>Our research work was originally motivated by the desire to simply fulfil the course requirements of <em>ISSS608 – Visual Analytics and Applications</em> as part of Singapore Management University’s Master of IT in Business programme. In reviewing past work, we found that past submissions to solve Mini-Challenge 2 relied on proprietary software which made reproducibility by the public difficult.</p>
+<p>Therefore, the objective of our research was to develop a user-friendly visual analytical tool, V-ASK app, to (a) explore transactional data, (b) understand movement data, (c) identify owners of financial cards, (d) discern informal relationships, and (e) identify anomalies and suspicious activities. We deploy V-ASK to the R Shinyapps.io platform, such that law enforcement officers may perform analytical tasks by toggling various widgets without requiring any coding or programming knowledge.</p>
+<h1 id="review-of-past-works-and-r-packages">3. Review of past works and R packages</h1>
+<p>As VAST Challenge 2021 is a redux of VAST Challenge 2014 with some variation, modified data and new questions, we reviewed past submissions for Mini-Challenge 2 for some inspiration on tackling this year’s challenge.</p>
+<p>We were particularly drawn to the submission by DAC-MC2 team from Virginia Tech. They used a methodology called Points of Interest (“POI”) to identify POIs such as people’s homes, their workplaces, and recreational locations (e.g. restaurants, cafes). A location is considered a POI if the time spent at a location is more than 5 minutes and the location has a diameter of less than 50 meters. They then graphed the distribution of POI over time for various days (weekdays and weekends) and locations (i.e. home, work, recreation).</p>
+<p>All previous submissions lacked interactivity and most of them had relied on proprietary softwares. Therefore, we sought to use an open-source platform, R, so that our app is reproducible and accessible. We also explored various R packages to enable us to build an interactive R Shiny App for exploration and analysis of transactional data and movement data. We downloaded the following packages from CRAN for the respective tasks:</p>
+<ul>
+<li>Load and prepare data: ‘tidyverse’, ‘DT’, ‘profvis’</li>
+<li>Work with time and date data: ‘clock’, ‘lubridate’</li>
+<li>Plot graphs and visualisations: ‘ggplot2’, ‘ggforce’</li>
+<li>Add interactivity to visualisations: ‘plotly’, ‘ggiraph’</li>
+<li>Load maps and manipulate geo-spatial data: ‘rgdal’, ‘tmap’, ‘sf’, ‘raster’</li>
+<li>Create collapsible tree diagrams: ‘collapsibleTree’</li>
+<li>Plot interactive network graphs: ‘igraph’, ‘ggraph’, ‘visNetwork’</li>
+<li>Build Shiny app and associated customisations: ‘shiny’, ‘shinythemes’, ‘shinyWidgets’</li>
+</ul>
+<h1 id="user-interface-design">4. User interface design</h1>
+<p>Before we begin to design our analytical tool, we looked at the nature of datasets provided under Mini-Challenge 2: (a) credit card transactions of GASTech employees by date-hour-minute and without identifying card owner, (b) Kronos Kares loyalty card transactions of GASTech employees by date only and without identifying card owner, (c) GPS tracking of GASTech company cars and trucks, and (d) GASTech assignment of employees to company cars and their job designation/department.</p>
+<p>The Mini-Challenge also provided a tourist map of fictional Abila, Kronos, where GASTech is based. As the map image file provided (MC2-tourist.jpg) does not have coordinates projection, we had to perform geo-referencing. We used a geographic information system software, QGIS, to geo-reference the image file with the Abila shapefile (in WGS84 coordinates) to obtain a geo-referenced tourist map (MC2-tourist.tif).</p>
+<p>Therefore, we designed our analytical tool with the following general approach: (i) to explore and draw insights from each dataset separately, and (ii) to explore and draw insights from combined datasets. At each level, the user will be provided with (i) a visual overview of the data, (ii) the option of interactive widgets to drill down to more detailed information, and (iii) tooltips or table for the lowest level information. To incorporate these approaches, the V-ASK App is arranged in R Shiny using navigation bars and tab panels as follows:</p>
+<ul>
+<li>Home – Overview of V-ASK and user guide</li>
+<li>Spending EDA – Separate tabs for exploratory data analytics for each transactional data, ‘Credit Card Data’ and ‘Loyalty Card Data’, and a tab for combined dataset.</li>
+<li>Patterns of Life Kinematics – ‘GPS Movement’, ‘Owners Identification’, the ‘Credit card and loyalty card matching’ tab will not be available for use by real life law enforcement</li>
+<li>Relationship Networks – ‘Organisational chart of GASTech’, ‘Spending habits’</li>
+<li>Insights – Showcase of anomalies and suspicious activities (this tab will not be available for use by real life law enforcement)</li>
+</ul>
+<h2 id="spending-eda-module">4.1 ‘Spending EDA’ module</h2>
+<p>Under the ‘Credit Card Data’ tab, we first display an overview barchart of ‘Most Popular Locations by Frequency’ of credit card transactions. The tooltip of each bar will indicate the number of credit card transactions that took place at each location.</p>
+<figure>
+<img src="img/paper/bar.png" alt="Most popular locations by no. of credit card transactions" /><figcaption aria-hidden="true">Most popular locations by no. of credit card transactions</figcaption>
+</figure>
+<p>To find out the credit card use over the period of two weeks at a certain location, the user may click on the bar for a location to generate a heatmap: ‘Credit Card by Location’. The tooltip of each tile in the heatmap will reflect the value of transactions made with a credit card at the selected location on the specified date. It would be atypical for a credit card to be used to make more than two transactions on the same day at the same location and such instances should be investigated further. When the user clicks on a bar in the bar chart, a boxplot ‘Transaction values by location” will be generated to identify any outlier transactions.</p>
+<figure>
+<img src="img/paper/bPlot_cc.png" alt="Transaction values by location" /><figcaption aria-hidden="true">Transaction values by location</figcaption>
+</figure>
+<p>In this ‘Credit Card Data’ tab, the user may also explore the ‘Most Popular Locations by Hours of the Day’ heatmap, based on the cumulative period of two weeks. The user may filter the heatmap by date to understand the daily popularity of a location by hours of the day. When the user clicks on a tile, the ‘Credit Cards by Location’ heatmap and ‘Transaction values by location’ will be similarly updated to reflect this selection.</p>
+<p>The ‘Loyalty Card Data’ tab enables the user to explore loyalty card data in a similar fashion. A key difference would be the heatmap ‘Most Popular Locations by Day of the Week’ as the loyalty card data timestamp is by date only. Also, the boxplot ‘Suspected Outliers for All Locations’ displays an overview of all loyalty card transactions, therefore providing a different perspective on identifying outlier transactions.</p>
+<figure>
+<img src="img/paper/hMday.png" alt="Most popular location by day of the week" /><figcaption aria-hidden="true">Most popular location by day of the week</figcaption>
+</figure>
+<p>As there is no one-to-one matching of credit card and loyalty card transactions, ‘Credit Card + Loyalty Card’ tab provides a quick overview of credit card transactions without a corresponding record in the loyalty card dataset, vice-versa, with the tooltip detailing the value of transaction.</p>
+<h2 id="patterns-of-life-kinematics-module">4.2 ‘Patterns of Life Kinematics’ module</h2>
+<p>Under the ‘GPS Movement’ tab, we first display an overview path of Car ID 1 over two weeks, as well as its POIs. The vehicle path, which traces the movement is colour-coded by the hour of the GPS coordinates to clearly highlight travel by various times of the day. The POIs, which represents stationary periods of a vehicle, are colour-coded by time spent at a POI. The most translucent blue reflects the vehicle being stationary for less than 1 hour, while the most opaque blue reflects the vehicle being stationary for more than eight hours. Using these visualisation techniques, we can clearly show where any individual goes, at what time and for how long.</p>
+<figure>
+<img src="img/paper/poi.JPG" alt="Vehicle path and POIs" /><figcaption aria-hidden="true">Vehicle path and POIs</figcaption>
+</figure>
+<p>The user may refine the exploration of vehicle movement by toggling the following options: Car ID (multiple vehicles may be selected), dates (either a single date or consecutive dates), and time intervals within a day. Extensive exploration will reveal the likely places of residence, workplace and other regularly visited POIs for the GASTech employee assigned to each company car and possible suspicious activities.</p>
+<p>The ‘Owners Identification’ tab allows the user to use both credit card data and movement data to infer likely owners of the credit card and loyalty cards. Firstly, the user may refer to the overview heatmap ‘Credit Card Spending Behaviour’ to select a credit card of interest. The credit card number of interest is keyed into the table to generate the list of all transactions made with that card.</p>
+<p>Next, the user should choose a transaction timestamp from the list and adjust the date range for the interactive map. The ‘lasso select’ tool should be used to select the approximate POI area on the interactive map. The interactive map table will list all vehicle IDs and name of GASTech employee (for assigned company cars only) that stopped at the POI area.</p>
+<p>At the same time, the user should key in the credit card number of interest into the credit card-loyalty card matching table to find the most likely loyalty card connected to a credit card by virtue of its common owner. Our extensive exploration generated the list of matched loyalty cards, credit cards, cards’ common owner and assigned Car ID in the ‘Credit Card and Loyalty Card Matching’ tab.</p>
+<h2 id="relationship-networks-module">4.3 ‘Relationship Networks’ module</h2>
+<p>In the ‘Organisational Network’ tab, we first display GASTech’s organisational chart at the department level as an overview. User may click on each ‘department’ node to expand the tree into the job titles held within the department. Clicking on the ‘title’ node would expand the tree into the specific employee names. Each time a node is expanded, the data table will be updated to reflect the full detail of the GASTech employee name, assigned Car ID, department and job title.</p>
+<figure>
+<img src="img/paper/official_relationships.png" alt="GASTech organisation tree" /><figcaption aria-hidden="true">GASTech organisation tree</figcaption>
+</figure>
+<p>In the ‘Spending Habits’ tab, we first display the network graph of GASTech employees visiting and transacting at various locations over the two-week period. The user must toggle with the following to focus on a specific sub-graph of the otherwise complicated overview graph and perform any meaningful analysis to identify unofficial relationships between GASTech employees: date of transaction (single date or consecutive dates), time interval of the day (e.g. lunch time, night time), day(s) of the week and (multiple) departments. The user may also explore by clicking on ‘location’ nodes to review which employees across departments gather at common times, suggesting the formation of unofficial relationships.</p>
+<figure>
+<img src="img/paper/unofficial_relationships.png" alt="Unofficial relationships" /><figcaption aria-hidden="true">Unofficial relationships</figcaption>
+</figure>
+<h1 id="key-insights">5. Key insights</h1>
+<p>Cross-exploration of the tabs in the V-ASK app is limitless. We share some key insights from our exploration.</p>
+<h2 id="spending-eda">5.1 ‘Spending EDA’</h2>
+<p>Based on a combination of various visualisations under the ‘Spending EDA’ tab, we found that <em>Katerina’s Café</em> is popular throughout the week with the bulk of their customers transacting during lunch and dinner.</p>
+<figure>
+<img src="img/paper/eda_insights_01.png" alt="Katerina’s Café Popularity" /><figcaption aria-hidden="true">Katerina’s Café Popularity</figcaption>
+</figure>
+<p><em>Frydos Autosupply n’ More</em> reported an outlier transaction of $10,000 on 13 Jan 2014, since their transactions typically range between $83 to $236. Further investigation should be performed on this transaction. <img src="img/paper/eda_insights_03.png" alt="Frydos Autosupply n’ More Outliers" /></p>
+<h2 id="patterns-of-life-kinematics">5.2 ‘Patterns of Life Kinematics’</h2>
+<p>From the ‘GPS Movement’ tab, we can generally identify the normal place of residence for employees assigned with a company car if we set the time interval from 9.00pm to 12.00am and refer to the POI location.</p>
+<p>The image below showcases the daily routine of the executive team including their places of interests and corresponding time of day. <img src="img/paper/plk_insights_05.png" alt="Executives’Lifestyle" /></p>
+<p>The image below provides evidence of a big dinner party on January 10 attended by GASTech employees from Engineering and Information Technology Deparments. <img src="img/paper/plk_insights_06.png" alt="Big Dinner Party" /></p>
+<h2 id="relationship-networks">5.3 ‘Relationship Networks’</h2>
+<p>Based on the interactive network of transactions graph, we observe that the truck drivers tend to form a community of their own, separate from the rest of the GASTech employees. This could largely be due to the nature of their work that involves driving to far locations such as <em>Abila Airport</em>.</p>
+<figure>
+<img src="img/paper/rn_insights_07.png" alt="Truck Driver Community" /><figcaption aria-hidden="true">Truck Driver Community</figcaption>
+</figure>
+<p>From the same graph, we also found unexpected relations at the Chostus Hotel during office hours, which warrant further investigation. <img src="img/paper/rn_insights_08.png" alt="Meet up at Chostus Hotel" /></p>
+<h2 id="suspects">5.4 Suspects</h2>
+<p>Upon exploring all three modules of V-ASK App, we shortlist the following individuals as suspects responsible for the disappearance of their GASTech colleagues: Isia Vann, Hennie Osvaldo, Hideki Cocinaro and Bertrand Ovan. Coincidentally, three of them are from the Security department, except for Bertrand Ovan.</p>
+<h1 id="conclusion">6. Conclusion</h1>
+<p>The exploration of the V-ASK App demonstrates that the feasibility of using visual analytics techniques to analyse transaction data and movement data. Further, movement data can complement transaction data through network graphs to gain further insights.</p>
+<p>V-ASK App has room for further enhancements. For example, we can plot employee-to-employee network graphs across various time periods to incorporate the element of time and generate spatial movement networks. We can also plot a network graph of credit card and loyalty cards to visually identify mappings that deviate from one credit card to one loyalty card.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

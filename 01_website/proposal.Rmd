@@ -9,7 +9,7 @@ author:
     url: https://scis.smu.edu.sg/master-it-business
     affiliation: School of Computing and Information Systems, Singapore Management University
     affiliation_url: https://scis.smu.edu.sg/
-date: "`r Sys.Date()`"
+date: 06-20-2021
 output:
   distill::distill_article:
     self_contained: false

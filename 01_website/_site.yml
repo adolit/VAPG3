@@ -1,7 +1,7 @@
 name: "VAPG3"
-title: "Visual Analytics Project Group 03"
+title: " Visual Analytics of Spending & Kinematics (V-ASK)"
 description: |
-  Visual Analytics Project Group 03
+   Visual Analytics of Spending & Kinematics (V-ASK)
 output_dir: "_site"
 navbar:
   logo:
@@ -9,17 +9,23 @@ navbar:
     href: https://scis.smu.edu.sg/master-it-business
   source_url: https://github.com/adolit/VAPG3
   left:
+    - text: "User Guide"
+      href: user_guide.html
+    - text: "R Shiny App"
+      href: https://adolit.shinyapps.io/v-ask/
+    - text: "Poster"
+      href: VAposter.html            
     - text: "Project Proposal"
       href: proposal.html
+    - text: "Research Paper"
+      href: paper.html
   right:
     - text: "Home"
       href: index.html
-    - text: "Poster"
-      href: poster.html
-    - text: "User Guide"
-      href: user_guide.html
     - text: "About"
       href: about.html
+    - text: "R Resources"
+      href: https://isss608.netlify.app/r      
 base_url: https://vapg3.netlify.app
 output: distill::distill_article
 collections:
