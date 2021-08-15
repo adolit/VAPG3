@@ -4,7 +4,7 @@ poisMapUI <- function(id) {
   tagList(
     fluidRow(
       column(width = 12,
-             h3("Credit Card and Loyalty Number Owners"),
+             h3("Credit Card and Loyalty Card Owners"),
              h4("Infer the owners of credit card and loyalty card by adding the vehicle data"),
       ),
       

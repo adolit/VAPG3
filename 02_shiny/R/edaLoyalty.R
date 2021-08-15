@@ -4,7 +4,16 @@ edaLoyaltyUI <- function(id) {
   tagList(
     fluidRow(
       column(width = 12,
-             h3("Exploratory Data Analysis based on Loyalty Card Data")
+             h3("Exploratory Data Analysis based on Loyalty Card Data"),
+             dateRangeInput(ns("date"),
+                            label="Select Date of Transaction:",
+                            start  = "2014-01-06",
+                            end    = "2014-01-19",
+                            min    = "2014-01-06",
+                            max    = "2014-01-19",
+                            startview = "month",
+                            separator = " to ",
+                            format = "dd/m/yyyy")
       ),
       
       column(width = 6,
@@ -48,6 +57,8 @@ edaLoyaltyServer <- function(id) {
     
     output$barlc <- renderPlotly({
       bar <- df_loyalty %>%
+        filter(date >= input$date[1],
+               date <= input$date[2]) %>%
         count(location) %>%
         plot_ly(x= ~n,
                 y= ~reorder(location,n),
@@ -66,6 +77,8 @@ edaLoyaltyServer <- function(id) {
       if (is.null(d)) return(NULL)
       
       hmcc <- df_loyalty %>%
+        filter(date >= input$date[1],
+               date <= input$date[2]) %>%
         filter(location %in% d$y) %>%
         count(loyaltynum, date) %>%
         plot_ly(x= ~date,
@@ -87,6 +100,8 @@ edaLoyaltyServer <- function(id) {
     output$hmlcday <- renderPlotly({
       
       hmhour <- df_loyalty %>%
+        filter(date >= input$date[1],
+               date <= input$date[2]) %>%
         count(location, day) %>%
         plot_ly(x= ~day,
                 y= ~reorder(location, desc(location)),
@@ -104,15 +119,17 @@ edaLoyaltyServer <- function(id) {
     
     output$boxplotlc <- renderPlotly({
       bp <- df_loyalty %>%
+        filter(date >= input$date[1],
+               date <= input$date[2]) %>%
         plot_ly(x = ~price,
                 name = "Suspected Outliers",
                 boxpoints = 'suspectedoutliers',
                 marker = list(color = "indianred",
                               outliercolor = "darkred",
                               line = list(outliercolor = "darkred",
-                                          outlierwidth = 5)),
-                line = list(color = "indianred"),
-                fillcolor  = list(color = "indianred"),
+                                          outlierwidth = 10)),
+                line = list(color = high_color),
+                fillcolor  = list(color = low_color),
                 alpha = 0.5) %>%
         add_boxplot(y = ~reorder(location, desc(location))) %>%
         layout(yaxis = list(title = ""),
