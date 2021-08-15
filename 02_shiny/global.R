@@ -20,6 +20,8 @@ library(ggalluvial)
 library(ggforce)
 library(tidyverse)
 
+Sys.setenv(TZ="Asia/Singapore")
+
 #import csv data ----
 #df_cc <- read_csv("data/aspatial/cc_data.csv")
 # df_loyalty <- read_csv("data/aspatial/loyalty_data.csv")
