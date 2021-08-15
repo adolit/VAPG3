@@ -32,7 +32,7 @@ edaLoyaltyUI <- function(id) {
       ),
       
       column(width = 6,
-             h3("Suspected Outliers by Location"),
+             h3("Suspected Outliers for All Locations"),
              plotlyOutput(ns("boxplotlc"), 
                           width = "100%", 
                           height = "800px")

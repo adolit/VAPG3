@@ -5,6 +5,7 @@ dtMatchUI <- function(id) {
     fluidRow(
       column(width = 12,
              h3("Matching of Credit Card and Loyalty Card Owners"),
+             p("The table below shows the proposed owners based on the analysis of vehicle data together with the credit and loyalty card data."),
              DT::dataTableOutput(ns("dt_match"),width = "100%")
       )
     )

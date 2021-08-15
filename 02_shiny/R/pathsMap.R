@@ -17,7 +17,7 @@ pathsMapUI <- function(id) {
              dateRangeInput(ns("date"),
                             label="Select Date:",
                             start  = "2014-01-06",
-                            end    = "2014-01-07",
+                            end    = "2014-01-19",
                             min    = "2014-01-06",
                             max    = "2014-01-19",
                             startview = "month",
