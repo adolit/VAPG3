@@ -11,10 +11,10 @@
     {
       "path": "index.html",
       "title": "Visual Analytics of Spending & Kinematics (V-ASK)",
-      "description": "Welcome to our website. It hosts the write up of our Group Projects for ISSS608 Visual Analytics and Applications!\n\nBased on our review of past work to analyse transaction data and movement data to surface anomalies and suspicious activities, we found a severe lack of user interactivity in data exploration and analysis. Furthermore, the prevalent use of proprietary software for visual analytics made reproducibility by the public challenging. \n\nOur project aims to develop a user-friendly visual analytical tool, V-ASK App to,\n(a) explore transactional data, \n(b) understand movement data, \n(c) identify owners of financial cards, \n(d) discern informal relationships, and \n(e) identify anomalies and suspicious activities. \n\nWe deployed V-ASK to the [R Shinyapps.io platform](https://adolit.shinyapps.io/v-ask/) so that analytical tasks can be performed by toggling various widgets without requiring any coding or programming knowledge. To get started, please check our [User Guide](https://vapg3.netlify.app/user_guide.html)!.\n\n_- Archie, Syiqah, Kevin (V-ASK Team)_ \n",
+      "description": "Welcome to our website. It hosts the write up of our Group Projects for ISSS608 Visual Analytics and Applications!\n\nBased on our review of past work to analyse transaction data and movement data to surface anomalies and suspicious activities, we found a severe lack of user interactivity in data exploration and analysis. Furthermore, the prevalent use of proprietary software for visual analytics made reproducibility by the public challenging. \n\nOur project aims to develop a user-friendly visual analytical tool, V-ASK App to,\n(a) explore transactional data, \n(b) understand movement data, \n(c) identify owners of financial cards, \n(d) discern informal relationships, and \n(e) identify anomalies and suspicious activities. \n\nWe deployed V-ASK to the [R Shinyapps.io platform](https://adolit.shinyapps.io/v-ask/) so that analytical tasks can be performed by toggling various widgets without requiring any coding or programming knowledge. To get started, please check our [User Guide](https://vapg3.netlify.app/user_guide.html).\n\n_- Archie, Syiqah, Kevin (V-ASK Team)_ \n",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-08-16T15:51:54+08:00"
+      "last_modified": "2021-08-16T19:00:18+08:00"
     },
     {
       "path": "paper.html",

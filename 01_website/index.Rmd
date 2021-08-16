@@ -12,7 +12,7 @@ description: |
   (d) discern informal relationships, and 
   (e) identify anomalies and suspicious activities. 
   
-  We deployed V-ASK to the [R Shinyapps.io platform](https://adolit.shinyapps.io/v-ask/) so that analytical tasks can be performed by toggling various widgets without requiring any coding or programming knowledge. To get started, please check our [User Guide](https://vapg3.netlify.app/user_guide.html)!.
+  We deployed V-ASK to the [R Shinyapps.io platform](https://adolit.shinyapps.io/v-ask/) so that analytical tasks can be performed by toggling various widgets without requiring any coding or programming knowledge. To get started, please check our [User Guide](https://vapg3.netlify.app/user_guide.html).
   
   _- Archie, Syiqah, Kevin (V-ASK Team)_ 
 site: distill::distill_website
