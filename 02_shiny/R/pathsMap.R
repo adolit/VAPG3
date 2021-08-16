@@ -28,7 +28,9 @@ pathsMapUI <- function(id) {
                          min = 0,
                          max = 24,
                          value = c(0, 24)),
-             #actionButton("sel_btn","Generate Map!", icon("hand-point-right")) #to do
+             #br(),
+             #actionButton("sel_btn",h6(strong("Generate GPS Movement Map!"),
+             #                         icon("hand-point-right")))
       ),
       
       column(width = 9,
@@ -53,7 +55,7 @@ pathsMapServer <- function(id) {
                hour <= input$hour[2],
                CarID %in%  input$car_id)
     })
-    
+
     data_points <- reactive({
       gps_dots_selected <- df_pois %>%
         filter(date >= input$date[1],
@@ -81,7 +83,7 @@ pathsMapServer <- function(id) {
                Duration,
                HoursDuration)
     })
-    
+
     output$map <- renderTmap({
       req(data_paths())
       req(data_points())

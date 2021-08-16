@@ -66,7 +66,7 @@ poisMapUI <- function(id) {
              DT::dataTableOutput(NS(id, "map_data_table"), width = "100%")
       )
     ),
-
+    
     fluidRow(
       column(width = 12,
              h3("Step 3:"),

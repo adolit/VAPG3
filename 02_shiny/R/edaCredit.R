@@ -75,16 +75,16 @@ edaCreditServer <- function(id) {
       })
       
       output$hmccdate <- renderPlotly({
-        d <- event_data("plotly_click")
-        if (is.null(d)) return(NULL)
+        edacc <- event_data("plotly_click")
+        if (is.null(edacc)) return(NULL)
         
         hmcc <- df_cc %>%
           filter(date >= input$date[1],
                  date <= input$date[2]) %>%
-          filter(location %in% d$y) %>%
+          filter(location %in% edacc$y) %>%
+          mutate(date = as.factor(date)) %>%
           group_by(last4ccnum, date) %>%
           summarise(total_price = sum(price)) %>%
-          mutate(date = as.factor(date)) %>%
           plot_ly(x= ~date,
                   y= ~last4ccnum,
                   z = ~total_price,
@@ -94,7 +94,7 @@ edaCreditServer <- function(id) {
                                         'Credit Card No: %{x}<br>',
                                         'Total Amount Spent: %{z}',
                                         '<extra></extra>')) %>%
-          layout(title = paste(d$y, "Credit Card Transaction Values"),
+          layout(title = paste(edacc$y, "Credit Card Transaction Values"),
                  xaxis = list(title = "Last 4 CC Numbers"),
                  yaxis = list(title = ""),
                  hoverlabel=list(bgcolor=bg_color))
@@ -121,13 +121,13 @@ edaCreditServer <- function(id) {
       })
       
       output$boxplotcc <- renderPlotly({
-        d <- event_data("plotly_click")
-        if (is.null(d)) return(NULL)
+        edacc <- event_data("plotly_click")
+        if (is.null(edacc)) return(NULL)
         
         bp <- df_cc %>%
           filter(date >= input$date[1],
                  date <= input$date[2]) %>%
-          filter(location %in% d$y) %>%
+          filter(location %in% edacc$y) %>%
           plot_ly(y= ~price,
                   type = 'box',
                   boxpoints = "all",
@@ -144,7 +144,7 @@ edaCreditServer <- function(id) {
                                          line = list(outliercolor = "darkred",
                                                      outlierwidth = 5)),
                            line = list(color = "indianred")) %>%
-          layout(title = paste(d$y, "Transaction Price"),
+          layout(title = paste(edacc$y, "Transaction Price"),
                  yaxis = list(title = "Price"),
                  xaxis = list(title = ""),
                  hoverlabel=list(bgcolor=bg_color))

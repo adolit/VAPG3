@@ -73,13 +73,13 @@ edaLoyaltyServer <- function(id) {
     })
     
     output$hmlcdate <- renderPlotly({
-      d <- event_data("plotly_click")
-      if (is.null(d)) return(NULL)
+      edalc <- event_data("plotly_click")
+      if (is.null(edalc)) return(NULL)
       
-      hmcc <- df_loyalty %>%
+      hmlc <- df_loyalty %>%
         filter(date >= input$date[1],
                date <= input$date[2]) %>%
-        filter(location %in% d$y) %>%
+        filter(location %in% edalc$y) %>%
         count(loyaltynum, date) %>%
         plot_ly(x= ~date,
                 y= ~loyaltynum,
@@ -90,7 +90,7 @@ edaLoyaltyServer <- function(id) {
                                       'Loyalty card No: %{y}<br>',
                                       'Count: %{z}',
                                       '<extra></extra>')) %>%
-        layout(title = paste(d$y, "Loyalty Card Transactions Frequency"),
+        layout(title = paste(edalc$y, "Loyalty Card Transactions Frequency"),
                yaxis = list(title = "Loyalty Card Numbers"),
                xaxis = list(title = ""),
                hoverlabel=list(bgcolor=bg_color))

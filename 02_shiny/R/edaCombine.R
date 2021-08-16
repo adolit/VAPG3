@@ -19,6 +19,14 @@ edaCombineUI <- function(id) {
              plotlyOutput(ns("miss_lc"), 
                           width = "100%", 
                           height = "800px")
+      ),
+      
+      column(width = 12,
+             p("Click on barchart/heatmap location to show transactions"),
+             checkboxInput(ns( "showDetails"),
+                           "Check to view Transaction Details",
+                           value = FALSE),
+             DT::dataTableOutput(ns("cl_table"),width = "100%")
       )
     )
   )
@@ -61,5 +69,28 @@ edaCombineServer <- function(id) {
                xaxis = list(title = "Date of Transaction"),
                hoverlabel=list(bgcolor=bg_color))
     })
+
+    output$cl_table <- DT::renderDataTable({
+      
+      edacl <- event_data("plotly_click")
+      if (is.null(edacl)) return(NULL)
+      
+      if (input$showDetails & !is.null(edacl)) {
+        DT::datatable(data = df_cc_loyalty %>%
+                        select("date", "location", "last4ccnum", "loyaltynum", "price"),
+                      options = list(
+                        pageLength = 10,
+                        search = list(regex = TRUE, caseInsensitive = TRUE, search = edacl$y)
+                      ),
+                      colnames = c("Date","Location", "Last 4 Numbers of CC", "Loyalty Card Number", "Amount Spent"),
+                      rownames = FALSE) %>%
+          formatDate(1, method = 'toLocaleString', params = list(month = 'numeric',
+                                                                 day = 'numeric',
+                                                                 year = 'numeric',
+                                                                 hour = 'numeric',
+                                                                 minute = 'numeric'))
+      }
+    })
+    
   })
 }

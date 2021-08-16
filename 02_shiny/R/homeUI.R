@@ -21,7 +21,7 @@ homeUI <- function(id) {
       ),
       
       column(width = 7,
-             img(src = "overview.png", width = 1000, height = 337)
+             img(src = "overview.png", width = 900, height = 303)
       )
     )
   )

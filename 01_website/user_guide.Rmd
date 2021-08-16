@@ -5,7 +5,7 @@ description: |
   
 preview: img/user_guide/2.1.1.png
 author:
-  - name: Archie DOLIT, Syiqah TAHA, Kevin SUNGA, 
+  - name: Archie DOLIT, Syiqah TAHA, Kevin SUNGA 
     url: https://scis.smu.edu.sg/master-it-business
     affiliation: School of Computing and Information Systems, Singapore Management University
     affiliation_url: https://scis.smu.edu.sg/
@@ -29,6 +29,22 @@ knitr::opts_chunk$set(
 	warning = FALSE
 )
 ```
+## Overview
+
+V-ASK App is arranged using navigation bars and tab panels in 3 main sections:
+
+![](img/user_guide/overview.png){width=100%}
+
+
+
+1. Spending EDA – Separate tabs for exploratory data analyis of ‘Credit Card Data’,‘Loyalty Card Data’, and Combined dataset.
+
+2. Patterns of Life Kinematics – ‘GPS Movement’ and ‘Owners Identification’ to identify the owners which is then summarized in ‘Credit card and loyalty card matching’.
+
+3. Relationship Networks – ‘Organisational chart of GASTech’ to show the official relationship of GASTech employees while ‘Spending habits’ to explore the unofficial relationships
+
+'Finally, Insights section is added to provide sample anomalies and suspicious activities which were uncovered using the interactive nature of the V-ASK App. Users are encouraged to further explore the App and identify suspicious patterns of behavior.
+
 
 ## 1.0 Spending EDA
 

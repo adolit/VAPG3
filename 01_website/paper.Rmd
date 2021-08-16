@@ -5,7 +5,7 @@ description: |
   
 preview: img/paper/overview.png
 author:
-  - name: Archie DOLIT, Kevin SUNGA, Syiqah TAHA
+  - name: Archie DOLIT, Syiqah TAHA, Kevin SUNGA 
     url: https://scis.smu.edu.sg/master-it-business
     affiliation: School of Computing and Information Systems, Singapore Management University
     affiliation_url: https://scis.smu.edu.sg/
@@ -28,22 +28,22 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Abstract
+## Abstract
 Based on our review of past work to analyse transaction data and movement data to surface anomalies and suspicious activities, we found a severe lack of user interactivity in data exploration and analysis. Furthermore, the prevalent use of proprietary software for visual analytics made reproducibility by the public challenging. Our research aims to develop a user-friendly visual analytical tool, V-ASK App, to (a) explore transactional data, (b) understand movement data, (c) identify owners of financial cards, (d) discern informal relationships, and (e) identify anomalies and suspicious activities. We deployed V-ASK to the R Shinyapps.io platform so that analytical tasks can be performed by toggling various widgets without requiring any coding or programming knowledge.
 
-# 1. Introduction 
+## 1. Introduction 
 VAST Challenge 2021 – The Kronos Incident (Mini-Challenge 2) presents a mystery on the fictional island country of Kronos where several employees of GASTech, a Tethys gas multinational, went missing between 20 and 21 Jan 2014. Law enforcement has sought assistance with their investigation into the disappearance. GASTech had provided the following data that covered two weeks prior to its employees’ disappearance: (a) GASTech employee’s credit card transactions and Kronos Kares loyalty card data, and (b) movement and tracking data from GASTech’s company vehicles which have GPS tracking.
 
 In the real world, we can reasonably expect law enforcement’s investigations into crime and suspicious activities to involve, at the very least, an analysis of transactional and movement data. Therefore, we endeavoured to use visual analytical techniques to surface anomalies and suspicious activities from the fictional GASTech datasets by building a web-enabled analytical tool, the “Visual Analytics of Spending and Kinematics (V-ASK)” application. Ultimately, this tool could be used by real world law enforcement if their investigation involves transactional and movement data, and interactions between both datasets.
 
 This paper reports on our work designing, building and deploying a web-enabled client-based analytical tool to support law enforcement’s exploration and analysis of both transactional data and movement data, within six sections. Section 1 provides the background and general introduction of this paper, while section 2 shares the motivation and objective of our work. Section 3 reviews past work and highlights our sources of inspiration, e.g. “Points of Interest” concept, as well as summarises the R packages used to building our interactive application. Section 4 details our user interface design process and section 5 highlights key insights drawn from using our application. Finally, section 6 concludes with possible future work to build on the present work.
 
-# 2. Motivation and Objectives
+## 2. Motivation and Objectives
 Our research work was originally motivated by the desire to simply fulfil the course requirements of *ISSS608 – Visual Analytics and Applications* as part of Singapore Management University’s Master of IT in Business programme. In reviewing past work, we found that past submissions to solve Mini-Challenge 2 relied on proprietary software which made reproducibility by the public difficult.
 
 Therefore, the objective of our research was to develop a user-friendly visual analytical tool, V-ASK app, to (a) explore transactional data, (b) understand movement data, (c) identify owners of financial cards, (d) discern informal relationships, and (e) identify anomalies and suspicious activities. We deploy V-ASK to the R Shinyapps.io platform, such that law enforcement officers may perform analytical tasks by toggling various widgets without requiring any coding or programming knowledge.
 
-# 3. Review of past works and R packages
+## 3. Review of past works and R packages
 As VAST Challenge 2021 is a redux of VAST Challenge 2014 with some variation, modified data and new questions, we reviewed past submissions for Mini-Challenge 2 for some inspiration on tackling this year’s challenge.
 
 We were particularly drawn to the submission by DAC-MC2 team from Virginia Tech. They used a methodology called Points of Interest (“POI”) to identify POIs such as people’s homes, their workplaces, and recreational locations (e.g. restaurants, cafes). A location is considered a POI if the time spent at a location is more than 5 minutes and the location has a diameter of less than 50 meters. They then graphed the distribution of POI over time for various days (weekdays and weekends) and locations (i.e. home, work, recreation).
@@ -59,7 +59,7 @@ All previous submissions lacked interactivity and most of them had relied on pro
 * Plot interactive network graphs: ‘igraph’, ‘ggraph’, ‘visNetwork’
 * Build Shiny app and associated customisations: ‘shiny’, ‘shinythemes’, ‘shinyWidgets’
 
-# 4. User interface design
+## 4. User interface design
 Before we begin to design our analytical tool, we looked at the nature of datasets provided under Mini-Challenge 2: (a) credit card transactions of GASTech employees by date-hour-minute and without identifying card owner, (b) Kronos Kares loyalty card transactions of GASTech employees by date only and without identifying card owner, (c) GPS tracking of GASTech company cars and trucks, and (d) GASTech assignment of employees to company cars and their job designation/department.
 
 The Mini-Challenge also provided a tourist map of fictional Abila, Kronos, where GASTech is based. As the map image file provided (MC2-tourist.jpg) does not have coordinates projection, we had to perform geo-referencing. We used a geographic information system software, QGIS, to geo-reference the image file with the Abila shapefile (in WGS84 coordinates) to obtain a geo-referenced tourist map (MC2-tourist.tif).
@@ -72,7 +72,7 @@ Therefore, we designed our analytical tool with the following general approach: 
 * Relationship Networks – ‘Organisational chart of GASTech’, ‘Spending habits’
 * Insights – Showcase of anomalies and suspicious activities (this tab will not be available for use by real life law enforcement)
 
-## 4.1 ‘Spending EDA’ module
+### 4.1 ‘Spending EDA’ module
 
 Under the ‘Credit Card Data’ tab, we first display an overview barchart of ‘Most Popular Locations by Frequency’ of credit card transactions. The tooltip of each bar will indicate the number of credit card transactions that took place at each location.
 
@@ -90,7 +90,7 @@ The ‘Loyalty Card Data’ tab enables the user to explore loyalty card data in
 
 As there is no one-to-one matching of credit card and loyalty card transactions, ‘Credit Card + Loyalty Card’ tab provides a quick overview of credit card transactions without a corresponding record in the loyalty card dataset, vice-versa, with the tooltip detailing the value of transaction.
 
-## 4.2 ‘Patterns of Life Kinematics’ module
+### 4.2 ‘Patterns of Life Kinematics’ module
 
 Under the ‘GPS Movement’ tab, we first display an overview path of Car ID 1 over two weeks, as well as its POIs. The vehicle path, which traces the movement is colour-coded by the hour of the GPS coordinates to clearly highlight travel by various times of the day. The POIs, which represents stationary periods of a vehicle, are colour-coded by time spent at a POI. The most translucent blue reflects the vehicle being stationary for less than 1 hour, while the most opaque blue reflects the vehicle being stationary for more than eight hours. Using these visualisation techniques, we can clearly show where any individual goes, at what time and for how long.
 
@@ -104,7 +104,7 @@ Next, the user should choose a transaction timestamp from the list and adjust th
 
 At the same time, the user should key in the credit card number of interest into the credit card-loyalty card matching table to find the most likely loyalty card connected to a credit card by virtue of its common owner. Our extensive exploration generated the list of matched loyalty cards, credit cards, cards’ common owner and assigned Car ID in the ‘Credit Card and Loyalty Card Matching’ tab.
 
-## 4.3 ‘Relationship Networks’ module
+### 4.3 ‘Relationship Networks’ module
 
 In the ‘Organisational Network’ tab, we first display GASTech’s organisational chart at the department level as an overview. User may click on each ‘department’ node to expand the tree into the job titles held within the department. Clicking on the ‘title’ node would expand the tree into the specific employee names. Each time a node is expanded, the data table will be updated to reflect the full detail of the GASTech employee name, assigned Car ID, department and job title.
 
@@ -114,10 +114,10 @@ In the ‘Spending Habits’ tab, we first display the network graph of GASTech 
 
 ![Unofficial relationships](img/paper/unofficial_relationships.png)
 
-# 5. Key insights
+## 5. Key insights
 Cross-exploration of the tabs in the V-ASK app is limitless. We share some key insights from our exploration.
 
-## 5.1 ‘Spending EDA’
+### 5.1 ‘Spending EDA’
 
 Based on a combination of various visualisations under the ‘Spending EDA’ tab, we found that *Katerina’s Café* is popular throughout the week with the bulk of their customers transacting during lunch and dinner.
 
@@ -126,7 +126,7 @@ Based on a combination of various visualisations under the ‘Spending EDA’ ta
 *Frydos Autosupply n’ More* reported an outlier transaction of \$10,000 on 13 Jan 2014, since their transactions typically range between \$83 to $236. Further investigation should be performed on this transaction.
 ![Frydos Autosupply n’ More Outliers](img/paper/eda_insights_03.png)
 
-## 5.2 ‘Patterns of Life Kinematics’
+### 5.2 ‘Patterns of Life Kinematics’
 
 From the ‘GPS Movement’ tab, we can generally identify the normal place of residence for employees assigned with a company car if we set the time interval from 9.00pm to 12.00am and refer to the POI location.
 
@@ -136,7 +136,7 @@ The image below showcases the daily routine of the executive team including thei
 The image below provides evidence of a big dinner party on January 10 attended by GASTech employees from Engineering and Information Technology Deparments.
 ![Big Dinner Party](img/paper/plk_insights_06.png)
 
-## 5.3 ‘Relationship Networks’
+### 5.3 ‘Relationship Networks’
 
 Based on the interactive network of transactions graph, we observe that the truck drivers tend to form a community of their own, separate from the rest of the GASTech employees. This could largely be due to the nature of their work that involves driving to far locations such as *Abila Airport*.
 
@@ -145,11 +145,12 @@ Based on the interactive network of transactions graph, we observe that the truc
 From the same graph, we also found unexpected relations at the Chostus Hotel during office hours, which warrant further investigation.
 ![Meet up at Chostus Hotel](img/paper/rn_insights_08.png)
 
-## 5.4 Suspects
+### 5.4 Suspects
 
 Upon exploring all three modules of V-ASK App, we shortlist the following individuals as suspects responsible for the disappearance of their GASTech colleagues: Isia Vann, Hennie Osvaldo, Hideki Cocinaro and Bertrand Ovan. Coincidentally, three of them are from the Security department, except for Bertrand Ovan.
+![Suspects](img/paper/suspect_09.png)
 
-# 6. Conclusion
+## 6. Conclusion
 The exploration of the V-ASK App demonstrates that the feasibility of using visual analytics techniques to analyse transaction data and movement data. Further, movement data can complement transaction data through network graphs to gain further insights.
 
 V-ASK App has room for further enhancements. For example, we can plot employee-to-employee network graphs across various time periods to incorporate the element of time and generate spatial movement networks. We can also plot a network graph of credit card and loyalty cards to visually identify mappings that deviate from one credit card to one loyalty card.
