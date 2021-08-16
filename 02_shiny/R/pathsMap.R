@@ -28,15 +28,15 @@ pathsMapUI <- function(id) {
                          min = 0,
                          max = 24,
                          value = c(0, 24)),
-             #br(),
-             #actionButton("sel_btn",h6(strong("Generate GPS Movement Map!"),
-             #                         icon("hand-point-right")))
+             br(),
+             actionButton(ns("sel_btn"),h6(strong("Click to Generate Interactive Map!"),
+                                      icon("hand-point-right")))
       ),
       
       column(width = 9,
              h5("Explore the daily routine of GASTech Employees based on their GPS tracking data"),
-             p(em("Note that the interactive map takes some time to load")),
-             tmapOutput(NS(id, "map"),
+             p(em("Note that the interactive map takes some time to load after clicking the action button")),
+             tmapOutput(ns("map"),
                         width = "100%", 
                         height = "750px")
       )
@@ -47,7 +47,7 @@ pathsMapUI <- function(id) {
 pathsMapServer <- function(id) {
   moduleServer(id, function(input, output, session) {
     
-    data_paths <- reactive({
+    data_paths <- eventReactive(input$sel_btn,{
       df_paths %>%
         filter(date >= input$date[1],
                date <= input$date[2],
@@ -56,7 +56,7 @@ pathsMapServer <- function(id) {
                CarID %in%  input$car_id)
     })
 
-    data_points <- reactive({
+    data_points <- eventReactive(input$sel_btn,{
       gps_dots_selected <- df_pois %>%
         filter(date >= input$date[1],
                date <= input$date[2],

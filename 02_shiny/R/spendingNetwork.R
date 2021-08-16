@@ -165,7 +165,7 @@ spendingNetworkServer <- function(id) {
                  smooth = list(enabled = TRUE,
                                type = "curvedCW")) %>%
         visGroups(groupname = "Location", shape = "icon",
-                  icon = list(code = "f041", size = 100, color = "goldenrod")) %>%
+                  icon = list(code = "f08d", size = 70, color = "goldenrod")) %>%
         visGroups(groupname = "Executive", shape = "icon",
                   icon = list(code = "f007", size = 40, color = "darkblue")) %>%
         visGroups(groupname = "Engineering", shape = "icon",
