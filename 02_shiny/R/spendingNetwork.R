@@ -165,7 +165,7 @@ spendingNetworkServer <- function(id) {
                  smooth = list(enabled = TRUE,
                                type = "curvedCW")) %>%
         visGroups(groupname = "Location", shape = "icon",
-                  icon = list(code = "f08d", size = 70, color = "goldenrod")) %>%
+                  icon = list(code = "f041", size = 70, color = "goldenrod")) %>%
         visGroups(groupname = "Executive", shape = "icon",
                   icon = list(code = "f007", size = 40, color = "darkblue")) %>%
         visGroups(groupname = "Engineering", shape = "icon",
@@ -178,7 +178,7 @@ spendingNetworkServer <- function(id) {
                   icon = list(code = "f007", size = 40, color = "darkcyan")) %>%
         visGroups(groupname = "Unknown", shape = "icon",
                   icon = list(code = "f007", size = 40, color = "dimgray")) %>%
-        addFontAwesome() %>%
+        addFontAwesome(name = "font-awesome-visNetwork") %>%
         visLayout(randomSeed = 123) %>%
         #Use visEvents to turn set input$current_node_selection to list of selected nodes
         visEvents(select=paste0("function(ng_nodes){
